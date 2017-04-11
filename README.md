@@ -1,6 +1,4 @@
 
-NFQ Akademijos projektas
-============
+NFQ Akademija MAD komanda
 
-
-In progress..
+Meniu sudarymo įrankis
