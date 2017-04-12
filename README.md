@@ -4,12 +4,12 @@
 
 ---
 
-** Requirements **
+**Requirements**
 
 * docker: >=17.x-ce
 * docker-compose: >=1.8.1
 
-** How to start project? **
+**How to start project?**
 
 1. Download [this folder](https://github.com/nfqakademija/kickstart/tree/master/.docker) to project directory
 2. Create .env file: copy text from .env.dist
@@ -23,7 +23,7 @@ composer install
 docker-compose run npm npm install
 docker-compose run npm gulp
 
-4. Go to `http://127.0.0.1:8000 and you should see index page
+4. Go to `http://127.0.0.1:8000` and you should see index page
 
 ---
 
