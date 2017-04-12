@@ -1,0 +1,60 @@
+{% block stylesheets %}
+    <style>
+
+        .pliusas {
+            background-color: #66dd66;
+            border-radius: 50%;
+        }
+    </style>
+{% endblock %}
+{% block header %}
+    <a href="{{ path('mainpage') }}">Main page</a>
+    <a href="{{ path('settingspage') }}">Nustatymai</a>
+    <a href="{{ path('homepage') }}">Log Out</a>
+{% endblock %}
+
+<h1>menu page</h1>
+
+{% block body %}
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th>Diena</th>
+                <th>Valgymas</th>
+                <th>Vaizdas</th>
+                <th>Pavadinimas</th>
+                <th>Porcijos</th>
+                <th>Kalorijos</th>
+                <th>Trinti</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>1 diena</td>
+            <td>1</td>
+            <td></td>
+            <td><a href="{{ path('addrecipepage') }}"><button class="pliusas">+</button> </a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+{% endblock %}

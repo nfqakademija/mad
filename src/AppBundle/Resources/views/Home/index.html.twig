@@ -1,6 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Homepage - {{ parent() }}{% endblock %}
+{% block title %}Food planner - {{ parent() }}{% endblock %}
 
 {% block stylesheets %}
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
@@ -18,9 +18,15 @@
             text-align: center;
             font-size: 96px;
         }
+        .linkas-i-main {
+            position: absolute;
+            top: 50%;
+            left: 46%;
+        }
     </style>
 {% endblock %}
 
 {% block body %}
-    <div class="title">NFQ Akademijaaa</div>
+    <div class="title">Login page</div>
+    <a href="{{ path('mainpage') }}"><button class="linkas-i-main">Main page</button></a>
 {% endblock %}
