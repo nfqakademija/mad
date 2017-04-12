@@ -12,7 +12,7 @@
 **How to start project?**
 
 1. Download [this folder](https://github.com/nfqakademija/kickstart/tree/master/.docker) to project directory
-2. Create .env file > copy text from .env.dist
+2. Create .env file and copy text from .env.dist
 3. Run these commands:
 
 ```bash
@@ -22,6 +22,8 @@ docker-compose exec fpm composer install --prefer-dist -n
 composer install
 docker-compose run npm npm install
 docker-compose run npm gulp
+
+```
 
 4. Go to `http://127.0.0.1:8000` and you should see index page
 
