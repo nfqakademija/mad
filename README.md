@@ -13,7 +13,7 @@
 
 1. Download [this folder](https://github.com/nfqakademija/kickstart/tree/master/.docker) to project directory
 2. Create .env file and copy text from .env.dist
-3. Run these commands:
+3. Run these commands in terminal:
 
 ```bash
 
