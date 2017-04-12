@@ -12,7 +12,7 @@
 **How to start project?**
 
 1. Download [this folder](https://github.com/nfqakademija/kickstart/tree/master/.docker) to project directory
-2. Create .env file: copy text from .env.dist
+2. Create .env file > copy text from .env.dist
 3. Run these commands:
 
 ```bash
