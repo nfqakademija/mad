@@ -6,8 +6,8 @@
 
 **Requirements**
 
-* docker: >=17.x-ce
-* docker-compose: >=1.8.1
+* [docker: >=17.x-ce](https://docs.docker.com/engine/installation/)
+* [docker-compose: >=1.8.1](https://github.com/docker/compose/releases)
 
 **How to start project?**
 
