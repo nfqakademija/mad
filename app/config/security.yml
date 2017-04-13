@@ -8,29 +8,41 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
+        database_users:
+            entity:
+                class: AppBundle:MTI_Cart\User
 
     firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
         main:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                login_path: /login
+                check_path: /login_check
                 csrf_token_generator: security.csrf.token_manager
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
-            logout:       true
-            anonymous:    true
             oauth:
-                failure_path: your_path
-                login_path: your_path
-                check_path: /connect_check
-                provider: fos_userbundle
                 resource_owners:
-                    facebook: "/login/check-facebook"
-                    google: "/login/check-google"
+                    google:      "/login/check-google"
+                login_path:        /login
+                failure_path:      /login
+                use_forward:      false
                 oauth_user_provider:
-                    service: app.provider.oauth
+                    service: my_user_provider
+            anonymous: true
+
+        login:
+            pattern:  ^/login$
+            security: false
+
+            #remember_me:
+            #    key: "%secret%"
+            #    lifetime: 31536000 # 365 days in seconds
+            #    path: /
+            #    domain: ~ # Defaults to the current domain from $_SERVER
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
