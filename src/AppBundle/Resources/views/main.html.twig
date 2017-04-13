@@ -1,0 +1,89 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Mainpage - {{ parent() }}{% endblock %}
+
+{% block header %}
+    <a href="{{ path('mainpage') }}">Main page</a>
+    <a href="{{ path('settingspage') }}">Nustatymai</a>
+    <a href="{{ path('homepage') }}">Log Out</a>
+{% endblock %}
+
+{% block stylesheets %}
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        .pagrindinis {
+            margin: 30px auto;
+            width: 50%;
+            border: 1px solid black;
+        }
+
+        .uzrasas{
+            text-align: center;
+        }
+
+        .lentele {
+            margin: 0 auto;
+        }
+
+        .kurti {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .mygtukas {
+            background-color: #66dd66;
+            border-radius: 50%;
+        }
+
+        .generuoti {
+            background-color: #66dd66;
+            border-radius: 3px;
+            border: none;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="pagrindinis">
+        <h1 class="uzrasas">Susikurtike savo meniu</h1>
+        <table class="lentele">
+            <tr>
+                <td>Dienu skaicius</td>
+                <td><button class="mygtukas">1</button>
+                    <button class="mygtukas">2</button>
+                    <button class="mygtukas">3</button>
+                    <button class="mygtukas">4</button>
+                    <button class="mygtukas">5</button>
+                    <button class="mygtukas">6</button>
+                    <button class="mygtukas">7</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Valgymo skaicius per diena</td>
+                <td>
+                    <button class="mygtukas">1</button>
+                    <button class="mygtukas">2</button>
+                    <button class="mygtukas">3</button>
+                    <button class="mygtukas">4</button>
+                    <button class="mygtukas">5</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Netinkami produktai</td>
+                <td><input type="text" placeholder="Produktas"></td>
+            </tr>
+            <tr>
+                <td class="kurti" colspan="2"><a href="{{ path('menupage') }}"><button class="generuoti">Generuoti meniu</button></a></td>
+            </tr>
+        </table>
+
+
+    </div>
+
+{% endblock %}
