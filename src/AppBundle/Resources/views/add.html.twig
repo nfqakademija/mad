@@ -1,12 +1,14 @@
-{% block body %}
-<h1>prideti recepta</h1>
-<input type="search" placeholder="Ieskoti recepto">
-<a href="{{ path('menupage') }}"><button class="generuoti">Prideti</button></a>
+{% extends "::base.html.twig" %}
 
-    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
-        <span>Facebook</span>
-    </a>
-    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">
-        <span>Google</span>
-    </a>
+{% block body %}
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2 centered">
+
+    <h1>prideti recepta</h1>
+<input type="search" placeholder="Ieskoti recepto">
+
+<a href="{{ path('menupage') }}"><button class="btn btn-success">Prideti</button></a>
+    </div>
+</div>
+
 {% endblock %}

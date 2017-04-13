@@ -2,30 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}{{ "Maistas" }}{% endblock %}</title>
+    <title>{% block title %}{{ "Food planner" }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="889389591921-n6v7nruk0r6nhtqh7u7omeblo8ij5og5.apps.googleusercontent.com">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    {% block stylesheets2 %}
+    <link rel="stylesheet" href="{{ asset('bootstrapTheme/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bootstrapTheme/css/main.css') }}">
+
+    {% endblock %}
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{{ asset('bootstrapTheme/js/hover.zoom.js') }}"></script>
+    <script src="{{ asset('bootstrapTheme/js/hover.zoom.conf.js') }}"></script>
     {% endblock %}
     {% block canonical_meta %}{% endblock %}
 </head>
 <body>
-<div class="container">
+
     {% block container %}
         {% block header %}
             {% include "::inc/header.html.twig" %}
         {% endblock %}
         {% block body %}{% endblock %}
     {% endblock %}
-</div>
+
 {% block footer %}
 {% include "::inc/footer.html.twig" %}
 {% endblock %}
 {% block javascripts %}
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('bootstrapTheme/js/bootstrap.min.js') }}"></script>
 {% endblock %}
+
 </body>
 </html>
