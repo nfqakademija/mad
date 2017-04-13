@@ -18,9 +18,19 @@ class User extends BaseUser
      */
     protected $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_id", type="string", nullable=true)
+     */
+    private $facebookID;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="google_id", type="string", nullable=true)
+     */
+    private $googleID;
+
+    // ...
 }
