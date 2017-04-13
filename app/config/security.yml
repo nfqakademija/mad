@@ -23,7 +23,7 @@ security:
                 provider: fos_userbundle
                 login_path: /login
                 check_path: /login_check
-                csrf_token_generator: security.csrf.token_manager
+                csrf_token_generator: security.csrf .token_manager
 
             #remember_me:
             #    key: "%secret%"
