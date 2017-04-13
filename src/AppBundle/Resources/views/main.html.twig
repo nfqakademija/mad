@@ -1,42 +1,35 @@
 {% extends "::base.html.twig" %}
 
 
-
 {% block body %}
     <div class="container">
 
-        <h1 class="uzrasas">Susikurtike savo meniu</h1>
-        <table class="lentele">
-            <tr>
-                <td>Dienu skaicius</td>
-                <td><button class="mygtukas">1</button>
-                    <button class="mygtukas">2</button>
-                    <button class="mygtukas">3</button>
-                    <button class="mygtukas">4</button>
-                    <button class="mygtukas">5</button>
-                    <button class="mygtukas">6</button>
-                    <button class="mygtukas">7</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Valgymo skaicius per diena</td>
-                <td>
-                    <button class="mygtukas">1</button>
-                    <button class="mygtukas">2</button>
-                    <button class="mygtukas">3</button>
-                    <button class="mygtukas">4</button>
-                    <button class="mygtukas">5</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Netinkami produktai</td>
-                <td><input type="text" placeholder="Produktas"></td>
-            </tr>
-            <tr>
-                <td class="kurti" colspan="2"><a href="{{ path('menupage') }}"><button class="generuoti">Generuoti meniu</button></a></td>
-            </tr>
-        </table>
+        <div class="col-lg-8 col-lg-offset-2 centered">
+            <h1 class="uzrasas">Susikurtike savo meniu</h1>
 
+
+            <span>Pasirinkite dienu skaiciu</span>
+            <button class="mygt">1</button>
+            <button class="mygt">2</button>
+            <button class="mygt">3</button>
+            <button class="mygt">4</button>
+            <button class="mygt">5</button>
+            <button class="mygt">6</button>
+            <button class="mygt">7</button>
+            <hr>
+            <span>Valgymu skaicius dienoje</span>
+            <button class="mygt">1</button>
+            <button class="mygt">2</button>
+            <button class="mygt">3</button>
+            <button class="mygt">4</button>
+            <button class="mygt">5</button>
+            <hr>
+            <span>Netinkami produktai</span>
+            <input type="search" placeholder="Iveskite produkta">
+            <hr>
+            <a href="{{ path('menupage') }}"><button class="btn btn-success">Generuoti meniu</button></a>
+
+        </div><!-- /col-lg-8 -->
 
     </div>
 
