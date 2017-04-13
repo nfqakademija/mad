@@ -24,7 +24,8 @@
         "symfony/swiftmailer-bundle": "^2.3.10",
         "twig/twig": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/user-bundle": "~2.0"
+        "friendsofsymfony/user-bundle": "~2.0",
+        "hwi/oauth-bundle": "^0.5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "*",
