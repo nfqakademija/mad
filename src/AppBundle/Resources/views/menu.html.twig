@@ -1,3 +1,5 @@
+{% extends "::base.html.twig" %}
+
 {% block stylesheets %}
     <style>
 
@@ -7,15 +9,12 @@
         }
     </style>
 {% endblock %}
-{% block header %}
-    <a href="{{ path('mainpage') }}">Main page</a>
-    <a href="{{ path('settingspage') }}">Nustatymai</a>
-    <a href="{{ path('homepage') }}">Log Out</a>
-{% endblock %}
 
-<h1>menu page</h1>
+
 
 {% block body %}
+    <div class="container">
+    <h1>menu page</h1>
     <table style="border: 1px solid black">
         <thead>
             <tr>
@@ -57,4 +56,5 @@
         </tr>
 
     </table>
+    </div>
 {% endblock %}

@@ -1,56 +1,10 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Mainpage - {{ parent() }}{% endblock %}
 
-{% block header %}
-    <a href="{{ path('mainpage') }}">Main page</a>
-    <a href="{{ path('settingspage') }}">Nustatymai</a>
-    <a href="{{ path('homepage') }}">Log Out</a>
-{% endblock %}
-
-{% block stylesheets %}
-
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-        }
-        .pagrindinis {
-            margin: 30px auto;
-            width: 50%;
-            border: 1px solid black;
-        }
-
-        .uzrasas{
-            text-align: center;
-        }
-
-        .lentele {
-            margin: 0 auto;
-        }
-
-        .kurti {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .mygtukas {
-            background-color: #66dd66;
-            border-radius: 50%;
-        }
-
-        .generuoti {
-            background-color: #66dd66;
-            border-radius: 3px;
-            border: none;
-        }
-
-
-    </style>
-{% endblock %}
 
 {% block body %}
-    <div class="pagrindinis">
+    <div class="container">
+
         <h1 class="uzrasas">Susikurtike savo meniu</h1>
         <table class="lentele">
             <tr>

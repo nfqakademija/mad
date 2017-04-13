@@ -1,5 +1,9 @@
+{% extends "::base.html.twig" %}
+
 {% block body %}
+<div class="container">
 <h1>prideti recepta</h1>
 <input type="search" placeholder="Ieskoti recepto">
 <a href="{{ path('menupage') }}"><button class="generuoti">Prideti</button></a>
+</div>
 {% endblock %}
