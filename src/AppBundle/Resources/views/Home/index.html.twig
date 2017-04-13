@@ -7,4 +7,6 @@
 {% block body %}
     <div class="title">Login page</div>
     <a href="{{ path('mainpage') }}"><button class="linkas-i-main">Main page</button></a>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
 {% endblock %}
