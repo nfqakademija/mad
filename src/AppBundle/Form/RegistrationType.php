@@ -5,11 +5,13 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('email');
         $builder->add('fullname');
         $builder->add('weight');
         $builder->add('height');
@@ -17,9 +19,12 @@ class RegistrationType extends AbstractType
         $builder->add('b_food');
     }
 
-    public function getParent()
+    public function configureOptions(OptionsResolver $resolver)
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\User',
+            'csrf_token_id' => 'registration',
+        ));
     }
 
     public function getBlockPrefix()
