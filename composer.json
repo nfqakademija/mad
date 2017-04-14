@@ -27,7 +27,8 @@
         "friendsofsymfony/user-bundle": "^2.0",
         "hwi/oauth-bundle": "^0.5.3",
         "symfony/form": "^3.2",
-        "symfony/options-resolver": "^3.2"
+        "symfony/options-resolver": "^3.2",
+        "google/apiclient": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "*",
