@@ -14,6 +14,7 @@ class RegistrationType extends AbstractType
         $builder->add('weight');
         $builder->add('height');
         $builder->add('activity');
+        $builder->add('b_food');
 
     }
 
