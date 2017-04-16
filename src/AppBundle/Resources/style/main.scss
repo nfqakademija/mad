@@ -4,6 +4,29 @@
 body{
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
+
+}
+
+p.login-footer{
+  font-size: 1rem;
+  margin-left: 3rem;
+  color: #757575;
+  padding-top: 10px;
+}
+
+a.login-footer{
+  color: #757575
+}
+
+footer.login{
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  border-top: 1px solid;
+  border-top-color: #EEEEEE;
+}
+
+.background{
   background-image: url("https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?w=940&h=650&auto=compress&cs=tinysrgb");
   background-size: cover;
   background-repeat:no-repeat;
@@ -11,6 +34,7 @@ body{
 
 .navbar{
   background-color: white;
+  margin: 0;
 }
 
 a.navbar-brand{
@@ -48,15 +72,17 @@ input[type=checkbox].login-input{
   margin: 0;
 }
 
+.center-block{
+  text-align: center;
+}
+
 form.login-form{
   display: inline-block;
   padding: 3rem 5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 
   margin-top: 10rem;
   background-color: white;
+  margin-bottom: 5rem;
 }
 input.login-input{
   border: none;
