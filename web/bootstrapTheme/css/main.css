@@ -86,7 +86,7 @@ a:after {
 
 .navbar {
 	text-transform: uppercase;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .navbar-inverse {
@@ -251,5 +251,79 @@ bt {
 	margin: 3px;
 	color: white;
 	font-weight: bold;
+}
 
+.modal-dialog {
+	width: 80%;
+	height: 96%;
+	margin: 20px auto;
+	padding: 0;
+}
+
+.modal-content {
+	height: auto;
+	min-height: 96%;
+	border-radius: 0;
+}
+
+.navbar-border{
+	border-bottom: 1px solid grey;
+}
+
+.paieska {
+	padding-bottom: 10px;
+	margin-top: 8px;
+}
+
+.iksas {
+	font-size: 50px;
+	margin-left: 15px;
+}
+
+.dienos {
+	margin:4px;
+	padding:12px;
+
+}
+.dienos .rad[type=radio] {
+	display: none;
+}
+
+.labelis {
+	margin:3px;
+
+}
+.dienos .labelis {
+	width:30px;
+	height:30px;
+
+	border-radius:50%;
+	text-align: center;
+
+	padding-top: 5px;
+	background: #00695C;
+	color:white;
+	font-weight:bold;
+	cursor: pointer;
+}
+
+.dienos .rad:checked + .labelis {
+	color:black;
+	background: #B2DFDB;
+}
+
+.kategorijos-uzrasas {
+	padding-right: 5px;
+	font-size: 16px;
+}
+
+.btn-custom {
+	background: #00695C;
+	color:white;
+	border: none;
+}
+.btn.btn-custom:hover, .btn.btn-custom:focus {
+	color:black;
+	background: #B2DFDB;
+	border: none;
 }
