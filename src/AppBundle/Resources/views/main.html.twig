@@ -4,43 +4,93 @@
 {% block body %}
 
 
-    <div class="pagrindinis">
-        <h1 class="uzrasas">Susikurtike savo meniu</h1>
-        <table class="lentele">
-            <tr>
-                <td>Dienu skaicius</td>
-                <td><button class="mygtukas">1</button>
-                    <button class="mygtukas">2</button>
-                    <button class="mygtukas">3</button>
-                    <button class="mygtukas">4</button>
-                    <button class="mygtukas">5</button>
-                    <button class="mygtukas">6</button>
-                    <button class="mygtukas">7</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Valgymo skaicius per diena</td>
-                <td>
-                    <button class="mygtukas">1</button>
-                    <button class="mygtukas">2</button>
-                    <button class="mygtukas">3</button>
-                    <button class="mygtukas">4</button>
-                    <button class="mygtukas">5</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Netinkami produktai</td>
-                <td><input type="text" placeholder="Produktas"></td>
-            </tr>
-            <tr>
-                <td class="kurti" colspan="2"><a href="{{ path('menupage') }}"><button class="generuoti">Generuoti meniu</button></a></td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2 centered">
+                        <h1 class="uzrasas">Susikurtike savo meniu</h1>
+
+            <nav class="dienos">
+                <span class="kategorijos-uzrasas">Pasirinkite dienu skaiciu</span>
+                <input class="rad" type="radio" name="seg-1" value="1" id="seg-1">
+                <label class="labelis" for="seg-1">1</label>
+                <input class="rad" type="radio" name="seg-1" value="2" id="seg-2">
+                <label class="labelis" for="seg-2">2</label>
+                <input class="rad" type="radio" name="seg-1" value="3" id="seg-3">
+                <label class="labelis" for="seg-3">3</label>
+                <input class="rad" type="radio" name="seg-1" value="4" id="seg-4">
+                <label class="labelis" for="seg-4">4</label>
+                <input class="rad" type="radio" name="seg-1" value="5" id="seg-5">
+                <label class="labelis" for="seg-5">5</label>
+                <input class="rad" type="radio" name="seg-1" value="6" id="seg-6">
+                <label class="labelis" for="seg-6">6</label>
+                <input class="rad" type="radio" name="seg-1" value="7" id="seg-7">
+                <label class="labelis" for="seg-7">7</label>
+
+            </nav>
+                        <hr>
+
+            <nav class="dienos">
+                <span class="kategorijos-uzrasas">Valgymu skaicius dienoje</span>
+                <input class="rad" type="radio" name="seg-2" value="1" id="seg2-1">
+                <label class="labelis" for="seg2-1">1</label>
+                <input class="rad" type="radio" name="seg-2" value="2" id="seg2-2">
+                <label class="labelis" for="seg2-2">2</label>
+                <input class="rad" type="radio" name="seg-2" value="3" id="seg2-3">
+                <label class="labelis" for="seg2-3">3</label>
+                <input class="rad" type="radio" name="seg-2" value="4" id="seg2-4">
+                <label class="labelis" for="seg2-4">4</label>
+                <input class="rad" type="radio" name="seg-2" value="5" id="seg2-5">
+                <label class="labelis" for="seg2-5">5</label>
 
 
+            </nav>
+                        <hr>
 
+
+            <p>
+                <span class="kategorijos-uzrasas">Netinkami produktai</span>
+                <a class="btn btn-primary btn-custom" id="colapsinam" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Produktai
+                </a>
+            <p id="sarasas"></p>
+
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-block haters">
+                    <input name="maistas" type="checkbox" value="pienas">
+                    <label>pienas</label>
+                    <input name="maistas" type="checkbox" value="kiausiniai">
+                    <label>kiausiniai</label>
+                    <input name="maistas" type="checkbox" value="varske">
+                    <label>varske</label>
+                    <input name="maistas" type="checkbox" value="vistiena">
+                    <label>vistiena</label>
+                    <br>
+                    <input name="maistas" type="checkbox" value="cinamonas">
+                    <label>cinamonas</label>
+                    <input name="maistas" type="checkbox" value="versiena">
+                    <label>versiena</label>
+                    <input name="maistas" type="checkbox" value="grietine">
+                    <label>grietine</label>
+                    <input name="maistas" type="checkbox" value="cukrus">
+                    <label>cukrus</label>
+                    <br>
+                    <a class="btn btn-primary btn-custom" onclick="showSelectedValues()" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Pasirinkti
+                    </a>
+                </div>
+            </div>
+                        <hr>
+                        <a href="{{ path('menupage') }}"><button class="btn btn-success">Generuoti meniu</button></a>
+
+                    </div><!-- /col-lg-8 -->
 
     </div>
+
+{% endblock %}
+{% block nepatinka %}
+    <script type="text/javascript">
+
+    </script>
 
 {% endblock %}
 
