@@ -1,0 +1,21 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    <h1 class="login-form">Prisijunkite</h1>
+    <input type="text" id="username" name="_username" required="required" placeholder="El. paštas" class="login-input" />
+
+    <input type="password" id="password" name="_password" required="required" placeholder="Slaptažodis" class="login-input" />
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="login-input" />
+    <label for="remember_me" class="login-input">Prisiminti mane</label>
+
+    <input type="submit" id="_submit" name="_submit" value="Prisijungti" class="login-input" />
+    <p class="login-form">Nesi narys? <a href="{{ path('fos_user_registration_register') }}">Registruokis</a></p>
+</form>
