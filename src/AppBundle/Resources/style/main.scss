@@ -1,2 +1,79 @@
 //bootstrap
 @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  background-image: url("https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?w=940&h=650&auto=compress&cs=tinysrgb");
+  background-size: cover;
+  background-repeat:no-repeat;
+}
+
+.navbar{
+  background-color: white;
+}
+
+a.navbar-brand{
+  color: #009688;
+  padding-left: 5rem;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.container-fluid{
+  padding: 0;
+}
+
+h1.login-form{
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: #009688;
+}
+
+input[type=submit].login-input{
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border: none;
+  padding: 0.5rem 2.5rem;
+  color: white;
+  background-color: #009688;
+}
+
+input[type=checkbox].login-input{
+  display: inline-block;
+  margin: 0;
+}
+
+form.login-form{
+  display: inline-block;
+  padding: 3rem 5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-top: 10rem;
+  background-color: white;
+}
+input.login-input{
+  border: none;
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid;
+  border-bottom-color: #009688;
+  color: #212121;
+  outline: none;
+}
+
+p.login-form{
+  margin-top: 3rem;
+  text-align: center;
+}
+
+label.login-input{
+  font-weight: normal;
+}

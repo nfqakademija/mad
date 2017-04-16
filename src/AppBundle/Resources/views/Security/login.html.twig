@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{{ "Food planner" }}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% block stylesheets2 %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="{{ asset('bootstrapTheme/js/hover.zoom.js') }}"></script>
+        <script src="{{ asset('bootstrapTheme/js/hover.zoom.conf.js') }}"></script>
+    {% endblock %}
+    {% block canonical_meta %}{% endblock %}
+</head>
+<body>
+{% block header %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="center-block">
+                    {{ include('@FOSUser/Security/login_content.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+</body>

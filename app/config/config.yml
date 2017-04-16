@@ -80,12 +80,3 @@ fos_user:
         form:
             type: AppBundle\Form\RegistrationType
 
-hwi_oauth:
-    resource_owners:
-          any_name:
-              type:                google
-              client_id:           889389591921-nr9crts0cr0u0foscserj4fsnj2fquib.apps.googleusercontent.com
-              client_secret:       qVJNvcvMoCUN5ZouL1AN8acZ
-              scope:               "email profile"
-
-    firewall_names: [secured_area]

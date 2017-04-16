@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <title>{% block title %}{{ "Food planner" }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="889389591921-n6v7nruk0r6nhtqh7u7omeblo8ij5og5.apps.googleusercontent.com">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
     {% block stylesheets2 %}
     <link rel="stylesheet" href="{{ asset('bootstrapTheme/css/bootstrap.css') }}"/>
@@ -34,6 +32,5 @@
 {% block javascripts %}
     <script src="{{ asset('bootstrapTheme/js/bootstrap.min.js') }}"></script>
 {% endblock %}
-
 </body>
 </html>
