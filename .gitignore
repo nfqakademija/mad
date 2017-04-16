@@ -13,6 +13,7 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
+!/vendor/friendsofsymfony/user-bundle/Resources/views
 /web/bundles/
 /web/css
 /web/js
