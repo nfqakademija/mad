@@ -4,6 +4,64 @@
 body{
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
+
+}
+
+label{
+  font-weight: lighter;
+  font-size: 1.4rem;
+  margin-right: 2rem;
+  color: #424242;
+  display: inline;
+}
+
+label.login-input{
+  display: inline-block;
+}
+
+label:after {
+  content:"\a";
+  white-space: pre;
+}
+#fos_user_registration_form_activity{
+  margin-top: 2rem;
+}
+
+input{
+  border: none;
+  margin-top: 0.75rem;
+  border-bottom: 1px solid;
+  border-bottom-color: #EEEEEE;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #009688;
+  outline: none;
+}
+
+
+p.login-footer{
+  margin: 0;
+  font-size: 1rem;
+  margin-left: 3rem;
+  color: #757575;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+a.login-footer{
+  color: #757575
+}
+
+
+footer.login{
+  width: 100%;
+  border-top: 1px solid;
+  border-top-color: #EEEEEE;
+  position: absolute;
+  bottom: 0;
+}
+
+.background{
   background-image: url("https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?w=940&h=650&auto=compress&cs=tinysrgb");
   background-size: cover;
   background-repeat:no-repeat;
@@ -11,6 +69,9 @@ body{
 
 .navbar{
   background-color: white;
+  margin: 0;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 a.navbar-brand{
@@ -48,15 +109,38 @@ input[type=checkbox].login-input{
   margin: 0;
 }
 
+.center-block{
+  text-align: center;
+}
+
+form.register-form{
+  display: inline-block;
+  margin: 0 2rem;
+  margin-top: 4rem;
+  text-align: left;
+}
+
+input[type=radio]{
+  margin-right: 1rem;
+}
+
+input, select, textarea{
+  color: #009688;
+}
+
+input.required{
+  margin-bottom: 20px;
+}
+
 form.login-form{
   display: inline-block;
   padding: 3rem 5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 
   margin-top: 10rem;
   background-color: white;
+  margin-bottom: 5rem;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 input.login-input{
   border: none;
@@ -69,6 +153,12 @@ input.login-input{
   outline: none;
 }
 
+h1.register{
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  color: #1abc9c;
+}
+
 p.login-form{
   margin-top: 3rem;
   text-align: center;
@@ -76,4 +166,9 @@ p.login-form{
 
 label.login-input{
   font-weight: normal;
+}
+
+input[type=submit].register-button{
+  margin-top: 5rem;
+  margin-bottom: 5rem ;
 }

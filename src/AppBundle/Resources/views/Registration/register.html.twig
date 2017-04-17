@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     {% block stylesheets2 %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% endblock %}
@@ -26,23 +27,18 @@
         </div>
     </nav>
 {% endblock %}
-
-{% block body %}
-    <div class="container-fluid background">
+{% block fos_user_content %}
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
+                <img src="https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg" class="img-responsive">
+            </div>
+            <div class="col-md-4">
                 <div class="center-block">
-                    {{ include('@FOSUser/Security/login_content.html.twig') }}
+                    <h1 class="register">Registracija</h1>
+                    {% include "@FOSUser/Registration/register_content.html.twig" %}
                 </div>
             </div>
         </div>
     </div>
-{% endblock body %}
-{% block footer %}
-    <footer class="login">
-        <p class="login-footer">© 2017 <a href="https://github.com/nfqakademija/mad" class="login-footer">MAD@NFQ</a></p>
-    </footer>
-{% endblock %}
-
-</body>
-
+{% endblock fos_user_content %}

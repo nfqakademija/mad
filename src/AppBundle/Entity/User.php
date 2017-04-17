@@ -23,7 +23,44 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $fullname;
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $lname;
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLname()
+    {
+        return $this->lname;
+    }
+
+    /**
+     * @param mixed $lname
+     */
+    public function setLname($lname)
+    {
+        $this->lname = $lname;
+    }
 
     /**
      * @ORM\Column(type="integer", length=3)
@@ -39,11 +76,6 @@ class User extends BaseUser
      * @ORM\Column(type="integer", length=1)
      */
     protected $activity;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    protected $b_food;
 
     public function __construct()
     {
@@ -67,37 +99,7 @@ class User extends BaseUser
         $this->activity = $activity;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBFood()
-    {
-        return $this->b_food;
-    }
 
-    /**
-     * @param mixed $b_food
-     */
-    public function setBFood($b_food)
-    {
-        $this->b_food = $b_food;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFullname()
-    {
-        return $this->fullname;
-    }
-
-    /**
-     * @param mixed $fullname
-     */
-    public function setFullname($fullname)
-    {
-        $this->fullname = $fullname;
-    }
 
     /**
      * @return mixed
@@ -145,5 +147,14 @@ class User extends BaseUser
     public function setHeight($height)
     {
         $this->height = $height;
+    }
+
+    public function setEmail($email)
+    {
+        $email = is_null($email) ? '' : $email;
+        parent::setEmail($email);
+        $this->setUsername($email);
+
+        return $this;
     }
 }
