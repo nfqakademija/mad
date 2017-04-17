@@ -13,7 +13,7 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-!/vendor/friendsofsymfony/user-bundle/Resources/views
+!/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php
 /web/bundles/
 /web/css
 /web/js
