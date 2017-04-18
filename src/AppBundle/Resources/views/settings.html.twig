@@ -5,29 +5,39 @@
     <div class="container pt">
         <div class="row mt">
             <div class="col-lg-6 col-lg-offset-3 centered">
-                <h3>CONTACT ME</h3>
+                <h3>Profilio nustatymai</h3>
                 <hr>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
             </div>
         </div>
         <div class="row mt">
             <div class="col-lg-8 col-lg-offset-2">
                 <form role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="NameInputEmail1" placeholder="Your Name">
-                        <br>
+                        <label>Vardas</label>
+                        <input type="text" class="form-control" id="NameInputEmail1" placeholder="Įveskite vardą" value="Petras">
+
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        <br>
+                        <label>Pavardė</label>
+                        <input type="text" class="form-control" id="NameInputEmail1" placeholder="Įveskite pavardę" value="Petraitis">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="subjectEmail1" placeholder="Subject">
-                        <br>
+                        <label>Ūgis</label>
+                        <input type="text" class="form-control" id="NameInputEmail1" placeholder="cm" value="185">
                     </div>
-                    <textarea class="form-control" rows="6" placeholder="Enter your text here"></textarea>
-                    <br>
-                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                    <div class="form-group">
+                        <label>Svoris</label>
+                        <input type="text" class="form-control" id="NameInputEmail1" placeholder="cm" value="75">
+                    </div>
+                    <div class="form-group">
+                        <label>Fizinis aktyvumas per savaitę</label><br>
+                        <input type="radio" name="aktyvumas" value="1"> Pasyvus 0 val.<br>
+                        <input type="radio" name="aktyvumas" value="2"> Lengvai aktyvus 1-2 val.<br>
+                        <input type="radio" name="aktyvumas" value="3"> Vidutiniškai aktyvus 2-3 val.<br>
+                        <input type="radio" name="aktyvumas" value="4" checked> Labai aktyvus 3-5 val.<br>
+                        <input type="radio" name="aktyvumas" value="5"> Ypač aktyvus 5+ val.<br>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-custom">Išsaugoti</button>
                 </form>
             </div>
         </div><!-- /row -->
