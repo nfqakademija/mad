@@ -12,6 +12,8 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+
         $builder->add('name', TextType::class, array(
             'label' => 'Vardas'
         ));
@@ -35,7 +37,7 @@ class RegistrationType extends AbstractType
             'Ypač aktyvus 5+ val.' => 4,
         ), 'choices_as_values' => true,'multiple'=>false,'expanded'=>true,
         'label' => 'Fizinis aktyvumas per savaitę',
-         ));
+            'attr'=> array('class'=>'register-choices')));
         $builder->remove('b_food');
         $builder->remove('username');
 
