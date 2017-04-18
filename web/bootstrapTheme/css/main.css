@@ -277,8 +277,45 @@ bt {
 
 .iksas {
 	font-size: 50px;
-	margin-left: 15px;
+	padding: 0 20px;
 }
+
+/*---- MODAL CARDS ----*/
+.card-holder {
+	padding: 10px 30px;
+}
+.card-h1 {
+	margin-bottom: 0;
+}
+.cord-holder-first {
+	padding-right: 0;
+}
+.card-holder-last {
+	padding-left: 0;
+}
+.card-holder-middle {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.card {
+	width: 100%;
+}
+.card-img-top {
+	padding: 10px 10px;
+}
+.card-text {
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+@media (max-width: 776px) {
+	.cord-holder-first, .card-holder-last, .card-holder-middle {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+}
+
+/*-----------------------*/
 
 .dienos {
 	margin:4px;

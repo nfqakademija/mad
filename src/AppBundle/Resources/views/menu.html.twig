@@ -17,7 +17,7 @@
                             <span aria-hidden="true" class="iksas">&times;</span>
                         </button>
 
-                    <a class="navbar-brand" href="#">Food planner</a>
+                    <a class="navbar-brand" href="{{ path('homepage') }}">Food planner</a>
 
                     <form class="form-inline paieska">
                         <div class="input-group">
@@ -26,9 +26,40 @@
                         </div>
                     </form>
 
-
                 </nav>
-
+                <h2 class="text-center card-h1">POPULAR MEALS</h2>
+                <div class="row">
+                    <div class="col-md-4 card-holder cord-holder-first">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/17662339_135771776960613_3015915078789627904_n.jpg" alt="Card image cap Responsive image">
+                            <div class="card-block">
+                                <h4 class="card-title">Meal #1</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 card-holder card-holder-middle">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/17438799_503042086752302_1102724078629814272_n.jpg" alt="Card image cap Responsive image">
+                            <div class="card-block">
+                                <h4 class="card-title">Meal #2</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 card-holder card-holder-last">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/17077579_239361829806598_6457918594406678528_n.jpg" alt="Card image cap Responsive image">
+                            <div class="card-block">
+                                <h4 class="card-title">Meal #3</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
