@@ -89,13 +89,13 @@ a:after {
 	margin-bottom: 0;
 }
 
-.navbar-inverse {
+/*.navbar-inverse {
 	padding-bottom: 20px;
 	padding-top: 20px;
-}
+}*/
 
 .navbar-inverse {
-	background-color: #1abc9c;
+	background-color: #00695C;
 	border-color: #16a085;
 }
 
@@ -104,7 +104,7 @@ a:after {
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-	color: #222222;
+	color: #B2DFDB;
 }
 
 .navbar-brand {
@@ -349,9 +349,29 @@ bt {
 	background: #B2DFDB;
 }
 
+.labelis:hover {
+	color:black;
+	background: #B2DFDB;
+	border: none;
+}
+
+.navbar-logo {
+	color: #fff;
+	padding: 15px 10px;
+}
+.navbar-logo:hover {
+	color: #B2DFDB;
+}
+
 .kategorijos-uzrasas {
 	padding-right: 5px;
 	font-size: 16px;
+}
+.margin-top-10 {
+	margin-top: 10px;
+}
+.uzrasas {
+	margin: 50px 0 25px 0;
 }
 
 .btn-custom {
@@ -363,4 +383,26 @@ bt {
 	color:black;
 	background: #B2DFDB;
 	border: none;
+}
+
+.btn-custom-red {
+	background: #f54a4a;
+	color:white;
+	border: none;
+}
+.btn.btn-custom-red:hover, .btn.btn-custom-red:focus {
+	color:black;
+	background: #B2DFDB;
+	border: none;
+}
+
+.table > tbody > tr > td {
+	padding: 15px 0 0 0;
+}
+.table > tbody > tr > td:last-child {
+	padding: 8px 0;
+}
+
+.table > thead > tr > th {
+	text-align: center;
 }

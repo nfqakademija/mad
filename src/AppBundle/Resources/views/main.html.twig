@@ -6,54 +6,69 @@
 
     <div class="container">
         <div class="col-lg-8 col-lg-offset-2 centered">
-                        <h1 class="uzrasas">Susikurtike savo meniu</h1>
-
+            <h2 class="uzrasas">SUSIKURKITE SAVO MENIU</h2>
+            <hr>
             <nav class="dienos">
-                <span class="kategorijos-uzrasas">Pasirinkite dienu skaiciu</span>
-                <input class="rad" type="radio" name="seg-1" value="1" id="seg-1">
-                <label class="labelis" for="seg-1">1</label>
-                <input class="rad" type="radio" name="seg-1" value="2" id="seg-2">
-                <label class="labelis" for="seg-2">2</label>
-                <input class="rad" type="radio" name="seg-1" value="3" id="seg-3">
-                <label class="labelis" for="seg-3">3</label>
-                <input class="rad" type="radio" name="seg-1" value="4" id="seg-4">
-                <label class="labelis" for="seg-4">4</label>
-                <input class="rad" type="radio" name="seg-1" value="5" id="seg-5">
-                <label class="labelis" for="seg-5">5</label>
-                <input class="rad" type="radio" name="seg-1" value="6" id="seg-6">
-                <label class="labelis" for="seg-6">6</label>
-                <input class="rad" type="radio" name="seg-1" value="7" id="seg-7">
-                <label class="labelis" for="seg-7">7</label>
-
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
+                        <span class="kategorijos-uzrasas">Pasirinkite dienu skaiciu</span>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
+                        <input class="rad" type="radio" name="seg-1" value="1" id="seg-1">
+                        <label class="labelis" for="seg-1">1</label>
+                        <input class="rad" type="radio" name="seg-1" value="2" id="seg-2">
+                        <label class="labelis" for="seg-2">2</label>
+                        <input class="rad" type="radio" name="seg-1" value="3" id="seg-3">
+                        <label class="labelis" for="seg-3">3</label>
+                        <input class="rad" type="radio" name="seg-1" value="4" id="seg-4">
+                        <label class="labelis" for="seg-4">4</label>
+                        <input class="rad" type="radio" name="seg-1" value="5" id="seg-5">
+                        <label class="labelis" for="seg-5">5</label>
+                        <input class="rad" type="radio" name="seg-1" value="6" id="seg-6">
+                        <label class="labelis" for="seg-6">6</label>
+                        <input class="rad" type="radio" name="seg-1" value="7" id="seg-7">
+                        <label class="labelis" for="seg-7">7</label>
+                    </div>
+                </div>
             </nav>
             <hr>
 
             <nav class="dienos">
-                <span class="kategorijos-uzrasas">Valgymu skaicius dienoje</span>
-                <input class="rad" type="radio" name="seg-2" value="1" id="seg2-1">
-                <label class="labelis" for="seg2-1">1</label>
-                <input class="rad" type="radio" name="seg-2" value="2" id="seg2-2">
-                <label class="labelis" for="seg2-2">2</label>
-                <input class="rad" type="radio" name="seg-2" value="3" id="seg2-3">
-                <label class="labelis" for="seg2-3">3</label>
-                <input class="rad" type="radio" name="seg-2" value="4" id="seg2-4">
-                <label class="labelis" for="seg2-4">4</label>
-                <input class="rad" type="radio" name="seg-2" value="5" id="seg2-5">
-                <label class="labelis" for="seg2-5">5</label>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
+                        <span class="kategorijos-uzrasas">Valgymu skaicius dienoje</span>
+                    </div>
 
+                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
+                        <input class="rad" type="radio" name="seg-2" value="1" id="seg2-1">
+                        <label class="labelis" for="seg2-1">1</label>
+                        <input class="rad" type="radio" name="seg-2" value="2" id="seg2-2">
+                        <label class="labelis" for="seg2-2">2</label>
+                        <input class="rad" type="radio" name="seg-2" value="3" id="seg2-3">
+                        <label class="labelis" for="seg2-3">3</label>
+                        <input class="rad" type="radio" name="seg-2" value="4" id="seg2-4">
+                        <label class="labelis" for="seg2-4">4</label>
+                        <input class="rad" type="radio" name="seg-2" value="5" id="seg2-5">
+                        <label class="labelis" for="seg2-5">5</label>
+                    </div>
+                </div>
 
             </nav>
             <hr>
 
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
+                    <span class="kategorijos-uzrasas">Netinkami produktai</span>
+                </div>
 
-            <p>
-                <span class="kategorijos-uzrasas">Netinkami produktai</span>
-                <a class="btn btn-primary btn-custom" id="colapsinam" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Produktai
-                </a>
-                <p id="sarasas"></p>
+                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-left">
+                    <a class="btn btn-primary btn-custom" id="colapsinam" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Produktai
+                    </a>
+                    <p id="sarasas"></p>
+                </div>
+            </div>
 
-            </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-block haters">
                     <input name="maistas" type="checkbox" value="pienas">
@@ -79,10 +94,11 @@
                     </a>
                 </div>
             </div>
-                        <hr>
-                        <a href="{{ path('menupage') }}"><button class="btn btn-success">Generuoti meniu</button></a>
 
-                    </div><!-- /col-lg-8 -->
+            <hr>
+            <a href="{{ path('menupage') }}"><button class="btn btn-custom">Generuoti meniu</button></a>
+
+        </div><!-- /col-lg-8 -->
 
     </div>
 

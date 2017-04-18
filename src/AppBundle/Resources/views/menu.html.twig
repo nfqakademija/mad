@@ -35,7 +35,7 @@
                             <div class="card-block">
                                 <h4 class="card-title">Meal #1</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                                <a href="{{ path('menupage') }}" class="btn btn-custom">Add meal</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             <div class="card-block">
                                 <h4 class="card-title">Meal #2</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                                <a href="{{ path('menupage') }}" class="btn btn-custom">Add meal</a>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <div class="card-block">
                                 <h4 class="card-title">Meal #3</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{{ path('menupage') }}" class="btn btn-primary">Add meal</a>
+                                <a href="{{ path('menupage') }}" class="btn btn-custom">Add meal</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,8 @@
     </div>
     <div class="container">
     <div class="col-lg-8 col-lg-offset-2 centered">
-    <h1>Menu page</h1>
+        <h2 class="text-center uzrasas">MENU PAGE</h2>
+        <hr>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -77,6 +78,7 @@
                 <th>Pavadinimas</th>
                 <th>Porcijos</th>
                 <th>Kalorijos</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -86,13 +88,15 @@
                 <td>salotos</td>
                 <td>2</td>
                 <td>315</td>
+                <td><button class="remove-tr btn btn-primary btn-custom-red">x</button></td>
             </tr>
             <tr>
                 <th></th>
                 <th scope="row">2</th>
                 <td></td>
-                <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">+</button></td>
                 <td></td>
+                <td></td>
+                <td><button class="btn btn-primary btn-custom" data-toggle="modal" data-target=".bd-example-modal-lg">+</button></td>
             </tr>
             <tr>
                 <th></th>
@@ -100,16 +104,32 @@
                 <td>omletas</td>
                 <td>1</td>
                 <td>327</td>
+                <td><button class="remove-tr btn btn-primary btn-custom-red">x</button></td>
             </tr>
             <tr>
                 <th></th>
                 <th scope="row">4</th>
                 <td></td>
-                <td><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">+</button></td>
                 <td></td>
+                <td></td>
+                <td><button class="btn btn-primary btn-custom" data-toggle="modal" data-target=".bd-example-modal-lg">+</button></td>
             </tr>
             </tbody>
         </table>
+
+
+        <script>
+            $('.remove-tr').click(function() {
+                $(this).closest("tr").html(
+                    "<th></th>"+
+                    "<th scope='row'>4</th>"+
+                    "<td></td>"+
+                    "<td></td>"+
+                    "<td></td>"+
+                    "<td><button class='btn btn-primary btn-custom' data-toggle='modal' data-target='.bd-example-modal-lg'>+</button></td>"
+                );
+            });
+        </script>
 
 
 
