@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Meal
+ * Meals
  *
  * @ORM\Table(name="meal")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MealRepository")
  */
-class Meal
+class Meals
 {
     /**
      * @var int
@@ -24,7 +24,12 @@ class Meal
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealRating", mappedBy="meal")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="mealId")
+     */
+    private $ingredients;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealRatings", mappedBy="meal")
      */
     private $ratings;
 
@@ -74,6 +79,7 @@ class Meal
     public function __construct()
     {
         $this->ratings = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     /**
@@ -91,7 +97,7 @@ class Meal
      *
      * @param string $name
      *
-     * @return Meal
+     * @return Meals
      */
     public function setName($name)
     {
@@ -115,7 +121,7 @@ class Meal
      *
      * @param integer $weight
      *
-     * @return Meal
+     * @return Meals
      */
     public function setWeight($weight)
     {
@@ -139,7 +145,7 @@ class Meal
      *
      * @param string $about
      *
-     * @return Meal
+     * @return Meals
      */
     public function setAbout($about)
     {
@@ -163,7 +169,7 @@ class Meal
      *
      * @param string $howToMake
      *
-     * @return Meal
+     * @return Meals
      */
     public function setHowToMake($howToMake)
     {
@@ -187,7 +193,7 @@ class Meal
      *
      * @param \DateTime $timeInserted
      *
-     * @return Meal
+     * @return Meals
      */
     public function setTimeInserted($timeInserted)
     {
@@ -211,7 +217,7 @@ class Meal
      *
      * @param \DateTime $timeUpdated
      *
-     * @return Meal
+     * @return Meals
      */
     public function setTimeUpdated($timeUpdated)
     {

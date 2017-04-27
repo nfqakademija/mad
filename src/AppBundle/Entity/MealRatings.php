@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MealRating
+ * MealRatings
  *
  * @ORM\Table(name="meal_rating")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MealRatingRepository")
  */
-class MealRating
+class MealRatings
 {
     /**
      * @var int
@@ -22,8 +22,8 @@ class MealRating
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Meal.php", inversedBy="ratings")
-     * @ORM\JoinColumn(name="schedule_day_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Meals", inversedBy="ratings")
+     * @ORM\JoinColumn(name="meal_id", referencedColumnName="id")
      */
     private $meal;
 
@@ -62,7 +62,7 @@ class MealRating
 
     /**
      * @param mixed $meal
-     * @return MealRating
+     * @return MealRatings
      */
     public function setMeal($meal)
     {
@@ -77,7 +77,7 @@ class MealRating
      *
      * @param integer $rating
      *
-     * @return MealRating
+     * @return MealRatings
      */
     public function setRating($rating)
     {
@@ -101,7 +101,7 @@ class MealRating
      *
      * @param \DateTime $timeInserted
      *
-     * @return MealRating
+     * @return MealRatings
      */
     public function setTimeInserted($timeInserted)
     {

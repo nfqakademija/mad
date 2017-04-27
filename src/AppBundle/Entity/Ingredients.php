@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,7 +24,7 @@ class Ingredients
 
 
     /**
-     * @var
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="ingredientId")
      */
     private $meals;
 
@@ -68,6 +69,12 @@ class Ingredients
      * @ORM\Column(name="time_updated", type="datetime")
      */
     private $timeUpdated;
+
+
+    public function __construct()
+    {
+        $this->meals = new ArrayCollection();
+    }
 
 
     /**
