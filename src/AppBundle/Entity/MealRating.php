@@ -22,6 +22,12 @@ class MealRating
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Meal.php", inversedBy="ratings")
+     * @ORM\JoinColumn(name="schedule_day_id", referencedColumnName="id")
+     */
+    private $meal;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="rating", type="integer")
@@ -45,6 +51,26 @@ class MealRating
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMeal()
+    {
+        return $this->meal;
+    }
+
+    /**
+     * @param mixed $meal
+     * @return MealRating
+     */
+    public function setMeal($meal)
+    {
+        $this->meal = $meal;
+        return $this;
+    }
+
+
 
     /**
      * Set rating
