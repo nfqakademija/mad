@@ -28,7 +28,7 @@ class UserMealsSchedules
     private $scheduleDays;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="mealsSchedules")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="mealsSchedules")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
