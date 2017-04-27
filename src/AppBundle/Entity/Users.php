@@ -26,6 +26,11 @@ class Users extends BaseUser
     private $mealsSchedules;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="userId")
+     */
+    private $blockedIngredients;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
@@ -86,6 +91,7 @@ class Users extends BaseUser
     {
         parent::__construct();
         $this->mealsSchedules = new ArrayCollection();
+        $this->blockedIngredients = new ArrayCollection();
         // your own logic
     }
 

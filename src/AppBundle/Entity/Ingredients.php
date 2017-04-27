@@ -29,6 +29,11 @@ class Ingredients
     private $meals;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="ingredientId")
+     */
+    private $usersWhoBlocked;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -74,6 +79,7 @@ class Ingredients
     public function __construct()
     {
         $this->meals = new ArrayCollection();
+        $this->usersWhoBlocked = new ArrayCollection();
     }
 
 
