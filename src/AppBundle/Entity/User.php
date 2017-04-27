@@ -1,8 +1,9 @@
 <?php
-// src/AppBundle/Entity/User.php
+// src/AppBundle/Entity/Userss.php
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +20,15 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserMealsSchedules", mappedBy="user")
+     */
+    private $mealsSchedules;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="userId")
+     */
+    private $blockedIngredients;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -80,6 +90,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->mealsSchedules = new ArrayCollection();
+        $this->blockedIngredients = new ArrayCollection();
         // your own logic
     }
 
