@@ -24,14 +24,14 @@ class ScheduleDays
     /**
      * @Assert\NotBlank()
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UserMealsSchedules", inversedBy="MealsSchedule")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UserMealsSchedules", inversedBy="scheduleDays")
      * @ORM\JoinColumn(name="schedule_id", referencedColumnName="id")
      */
     private $userMealsSchedule;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDayMeals", mappedBy="meals")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDayMeals", mappedBy="scheduleDay")
      */
     private $meals;
 

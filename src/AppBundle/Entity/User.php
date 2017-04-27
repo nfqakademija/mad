@@ -21,7 +21,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserMealsSchedules", mappedBy="schedules")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserMealsSchedules", mappedBy="user")
      */
     private $mealsSchedules;
 

@@ -23,12 +23,12 @@ class UserMealsSchedules
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDays", mappedBy="scheduleDays")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDays", mappedBy="userMealsSchedule")
      */
     private $scheduleDays;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="mealsSchedules")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -50,15 +50,14 @@ class UserMealsSchedules
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="time_inserted", type="datetime" options={"default"=DATETIME})
+     * @ORM\Column(name="time_inserted", type="datetime")
      */
     private $timeInserted;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="time_updated", type="datetimetz" options={"default"= new \DateTime()})
-     * @ORM\
+     * @ORM\Column(name="time_updated", type="datetime")
      */
     private $timeUpdated;
 

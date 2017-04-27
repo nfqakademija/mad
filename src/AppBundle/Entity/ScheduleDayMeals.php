@@ -22,7 +22,7 @@ class ScheduleDayMeals
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ScheduleDays", inversedBy="schedulerDay")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ScheduleDays", inversedBy="meals")
      * @ORM\JoinColumn(name="schedule_day_id", referencedColumnName="id")
      */
     private $scheduleDay;
