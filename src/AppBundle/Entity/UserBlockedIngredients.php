@@ -22,7 +22,7 @@ class UserBlockedIngredients
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="blockedIngredients")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="blockedIngredients")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $userId;
