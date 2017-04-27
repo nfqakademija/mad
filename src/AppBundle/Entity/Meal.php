@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,12 @@ class Meal
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealRating", mappedBy="meal")
+     */
+    private $ratings;
 
     /**
      * @var string
@@ -63,6 +70,11 @@ class Meal
      */
     private $timeUpdated;
 
+
+    public function __construct()
+    {
+        $this->ratings = new ArrayCollection();
+    }
 
     /**
      * Get id
