@@ -1,6 +1,5 @@
 ![](https://avatars0.githubusercontent.com/u/4995607?v=3&s=100)
 ![](http://i.imgur.com/ZX4ZuEJ.jpg)
-# niam
 #### .NFQ Academy 2017 spring
 
 ---
