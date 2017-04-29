@@ -1,112 +1,131 @@
 {% extends "::base.html.twig" %}
-
-
+{% block style%}
+    <style>
+        header, section {
+            display: block;
+        }
+        body {
+            font-family: 'Droid Serif';
+        }
+        h1, h2 {
+            text-align: center;
+            font-weight: normal;
+        }
+        #features {
+            margin: auto;
+            width: 460px;
+            font-size: 0.9em;
+        }
+        .connected, .sortable, .exclude, .handles {
+            margin: auto;
+            padding: 0;
+            width: 310px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .sortable.grid {
+            overflow: hidden;
+        }
+        .connected li, .sortable li, .exclude li, .handles li {
+            list-style: none;
+            border: 1px solid #CCC;
+            background: #F6F6F6;
+            font-family: "Tahoma";
+            color: #1C94C4;
+            margin: 5px;
+            padding: 5px;
+            height: 22px;
+        }
+        .handles span {
+            cursor: move;
+        }
+        li.disabled {
+            opacity: 0.5;
+        }
+        .sortable.grid li {
+            line-height: 80px;
+            float: left;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+        }
+        li.highlight {
+            background: #FEE25F;
+        }
+        #connected {
+            width: 440px;
+            overflow: hidden;
+            margin: auto;
+        }
+        .connected {
+            float: left;
+            width: 200px;
+        }
+        .connected.no2 {
+            float: right;
+        }
+        li.sortable-placeholder {
+            border: 1px dashed #CCC;
+            background: none;
+        }
+    </style>
+{% endblock %}
 {% block body %}
-
-
     <div class="container">
-        <div class="col-lg-8 col-lg-offset-2 centered">
-            <h2 class="uzrasas">SUSIKURKITE SAVO MENIU</h2>
-            <hr>
-            <nav class="dienos">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                        <span class="kategorijos-uzrasas">Pasirinkite dienu skaiciu</span>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
-                        <input class="rad" type="radio" name="seg-1" value="1" id="seg-1">
-                        <label class="labelis" for="seg-1">1</label>
-                        <input class="rad" type="radio" name="seg-1" value="2" id="seg-2">
-                        <label class="labelis" for="seg-2">2</label>
-                        <input class="rad" type="radio" name="seg-1" value="3" id="seg-3">
-                        <label class="labelis" for="seg-3">3</label>
-                        <input class="rad" type="radio" name="seg-1" value="4" id="seg-4">
-                        <label class="labelis" for="seg-4">4</label>
-                        <input class="rad" type="radio" name="seg-1" value="5" id="seg-5">
-                        <label class="labelis" for="seg-5">5</label>
-                        <input class="rad" type="radio" name="seg-1" value="6" id="seg-6">
-                        <label class="labelis" for="seg-6">6</label>
-                        <input class="rad" type="radio" name="seg-1" value="7" id="seg-7">
-                        <label class="labelis" for="seg-7">7</label>
+        <div class="row">
+            <div class="title">
+                <h1 class="title">Susikurkite savo meniu</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-table">
+                <div class="col s12 m9">
+                    <div class="table">
+                        <ul id="items">
+                            <li>item 1</li>
+                            <li>item 2</li>
+                            <li>item 3</li>
+                        </ul>
+                        <ul id="items">
+                            <li>item 1</li>
+                            <li>item 2</li>
+                            <li>item 3</li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-            <hr>
-
-            <nav class="dienos">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                        <span class="kategorijos-uzrasas">Valgymu skaicius dienoje</span>
-                    </div>
-
-                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
-                        <input class="rad" type="radio" name="seg-2" value="1" id="seg2-1">
-                        <label class="labelis" for="seg2-1">1</label>
-                        <input class="rad" type="radio" name="seg-2" value="2" id="seg2-2">
-                        <label class="labelis" for="seg2-2">2</label>
-                        <input class="rad" type="radio" name="seg-2" value="3" id="seg2-3">
-                        <label class="labelis" for="seg2-3">3</label>
-                        <input class="rad" type="radio" name="seg-2" value="4" id="seg2-4">
-                        <label class="labelis" for="seg2-4">4</label>
-                        <input class="rad" type="radio" name="seg-2" value="5" id="seg2-5">
-                        <label class="labelis" for="seg2-5">5</label>
-                    </div>
-                </div>
-
-            </nav>
-            <hr>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                    <span class="kategorijos-uzrasas">Netinkami produktai</span>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-left">
-                    <a class="btn btn-primary btn-custom" id="colapsinam" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Produktai
-                    </a>
-                    <p id="sarasas"></p>
+                <div class="col m3 s12">
+                    <form class="settings">
+                        <div class="block">
+                            <label class="settings">Kcal</label>
+                            <input type="text">
+                        </div>
+                        <div class="block">
+                            <label class="settings">Dienu skaicius</label>
+                            <input type="number">
+                        </div>
+                        <div class="block">
+                            <label class="settings">Valgymu kartai dienoje</label>
+                            <input type="number">
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div class="collapse" id="collapseExample">
-                <div class="card card-block haters">
-                    <input name="maistas" type="checkbox" value="pienas">
-                    <label>pienas</label>
-                    <input name="maistas" type="checkbox" value="kiausiniai">
-                    <label>kiausiniai</label>
-                    <input name="maistas" type="checkbox" value="varske">
-                    <label>varske</label>
-                    <input name="maistas" type="checkbox" value="vistiena">
-                    <label>vistiena</label>
-                    <br>
-                    <input name="maistas" type="checkbox" value="cinamonas">
-                    <label>cinamonas</label>
-                    <input name="maistas" type="checkbox" value="versiena">
-                    <label>versiena</label>
-                    <input name="maistas" type="checkbox" value="grietine">
-                    <label>grietine</label>
-                    <input name="maistas" type="checkbox" value="cukrus">
-                    <label>cukrus</label>
-                    <br>
-                    <a class="btn btn-primary btn-custom" onclick="showSelectedValues()" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Pasirinkti
-                    </a>
-                </div>
-            </div>
-
-            <hr>
-            <a href="{{ path('menupage') }}"><button class="btn btn-custom">Generuoti meniu</button></a>
-
-        </div><!-- /col-lg-8 -->
-
+        </div>
     </div>
-
 {% endblock %}
-{% block nepatinka %}
-    <script type="text/javascript">
-
+{% block javascripts %}
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/jquery.sortable.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
+    <script>var el = document.getElementById('items');
+        var sortable = Sortable.create(el);
+        var foo = document.getElementById("items");
+        Sortable.create(foo, { group: "omega" });
     </script>
-
 {% endblock %}
-
