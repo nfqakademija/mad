@@ -1,3 +1,4 @@
+
 //materialize rework
 nav{
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.01), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.07);
@@ -8,6 +9,10 @@ body{
 }
 div.block{
   display: block;
+}
+
+div.f-right{
+  float: right;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -55,6 +60,36 @@ h1.title{
 }
 
 //menu
+p.menu-name{
+  color: #424242;
+}
+
+div.table{
+  max-height: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+
+}
+
+#scroll::-webkit-scrollbar-track
+{
+  background-color: #FAFAFA;
+}
+
+#scroll::-webkit-scrollbar
+{
+  width: 4px;
+}
+
+#scroll::-webkit-scrollbar-thumb
+{
+  background-color: #4DB6AC;
+  width: 6px;
+  max-height: 30px;
+}
+
+
+
 li.menu{
   height: 50px;
   background-color: white;
@@ -96,6 +131,21 @@ img.menu-img{
   vertical-align: middle;
   margin: 2.5px 8px 2.4px 8px;
 }
+
+img.action{
+  max-width: 1.5rem;
+  vertical-align: middle;
+}
+
+button.action{
+  opacity: 0.8;
+  background: transparent;
+  border: none;
+  transition: opacity .3s;
+}
+button.action:hover{
+  opacity: 1;
+}
 //menu
 
 //form
@@ -114,6 +164,9 @@ input.settings{
   border: none;
   height: 1rem;
   margin: 0;
+}
+input.settings:hover{
+  color: #26A69A;
 }
 
 #kcal{

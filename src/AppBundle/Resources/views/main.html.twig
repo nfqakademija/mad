@@ -1,79 +1,4 @@
 {% extends "::base.html.twig" %}
-{% block style%}
-    <style>
-        header, section {
-            display: block;
-        }
-        body {
-            font-family: 'Droid Serif';
-        }
-        h1, h2 {
-            text-align: center;
-            font-weight: normal;
-        }
-        #features {
-            margin: auto;
-            width: 460px;
-            font-size: 0.9em;
-        }
-        .connected, .sortable, .exclude, .handles {
-            margin: auto;
-            padding: 0;
-            width: 310px;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .sortable.grid {
-            overflow: hidden;
-        }
-        .connected li, .sortable li, .exclude li, .handles li {
-            list-style: none;
-            border: 1px solid #CCC;
-            background: #F6F6F6;
-            font-family: "Tahoma";
-            color: #1C94C4;
-            margin: 5px;
-            padding: 5px;
-            height: 22px;
-        }
-        .handles span {
-            cursor: move;
-        }
-        li.disabled {
-            opacity: 0.5;
-        }
-        .sortable.grid li {
-            line-height: 80px;
-            float: left;
-            width: 80px;
-            height: 80px;
-            text-align: center;
-        }
-        li.highlight {
-            background: #FEE25F;
-        }
-        #connected {
-            width: 440px;
-            overflow: hidden;
-            margin: auto;
-        }
-        .connected {
-            float: left;
-            width: 200px;
-        }
-        .connected.no2 {
-            float: right;
-        }
-        li.sortable-placeholder {
-            border: 1px dashed #CCC;
-            background: none;
-        }
-    </style>
-{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
@@ -84,25 +9,31 @@
         <div class="row">
             <div class="menu-table">
                 <div class="col s12 m9">
-                    <div class="table">
+                    <div class="table" id="scroll">
                         <ul id="sort" class="connected menu">
                             <li class="menu">
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
                                 <p class="menu-name">Kotletai</p>
                                 <input type="number" class="portion" value="4">
                                 <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
                             <li class="menu">
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
                                 <p class="menu-name">Kotletai</p>
                                 <input type="number" class="portion" value="4">
                                 <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
                             <li class="menu">
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
                                 <p class="menu-name">Kotletai</p>
                                 <input type="number" class="portion" value="4">
                                 <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
                         </ul>
                         <ul id="sort1" class="connected menu">
@@ -111,12 +42,16 @@
                                 <p class="menu-name">Kotletai</p>
                                 <input type="number" class="portion" value="4">
                                 <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
                             <li class="menu">
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
-                                <p class="menu-name">Kotletai</p>
+                                <p class="menu-name">Kotletai su mesa</p>
                                 <input type="number" class="portion" value="4">
                                 <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
                         </ul>
                     </div>
@@ -152,7 +87,6 @@
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
         </div>
-
     </div>
 {% endblock %}
 {% block javascripts %}
@@ -170,6 +104,12 @@
             }).disableSelection();
         });
 
+    </script>
+    <script>
+        $("ul").on("click", "button", function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+        });
     </script>
     <script>
         var myInput = document.getElementById('sk');
@@ -190,5 +130,8 @@
                 this.value = this.value.slice(0,4);
             }
         };
+    </script>
+    <script>
+        $('#modal1').modal('open');
     </script>
 {% endblock %}
