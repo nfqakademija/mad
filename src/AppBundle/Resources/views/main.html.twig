@@ -85,47 +85,110 @@
             <div class="menu-table">
                 <div class="col s12 m9">
                     <div class="table">
-                        <ul id="items">
-                            <li>item 1</li>
-                            <li>item 2</li>
-                            <li>item 3</li>
+                        <ul id="sort" class="connected menu">
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                            </li>
                         </ul>
-                        <ul id="items">
-                            <li>item 1</li>
-                            <li>item 2</li>
-                            <li>item 3</li>
+                        <ul id="sort1" class="connected menu">
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col m3 s12">
                     <form class="settings">
                         <div class="block">
-                            <label class="settings">Kcal</label>
-                            <input type="text">
+                            <label class="settings">Dienos kalorijų norma</label>
+                            <input type="number" class="settings" id="kcal" maxlength="4">
+                            <label class="settings">kcal</label>
                         </div>
                         <div class="block">
-                            <label class="settings">Dienu skaicius</label>
-                            <input type="number">
+                            <label class="settings">Dienų skaičius</label>
+                            <input type="number" class="settings num" max="7" id="sk">
                         </div>
                         <div class="block">
-                            <label class="settings">Valgymu kartai dienoje</label>
-                            <input type="number">
+                            <label class="settings">Valgymų kartai dienoje</label>
+                            <input type="number" class="settings num" max="5" id="sk1">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
 {% block javascripts %}
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
     <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-    <script src="{{ asset('js/jquery.sortable.js') }}"></script>
     <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
-    <script>var el = document.getElementById('items');
-        var sortable = Sortable.create(el);
-        var foo = document.getElementById("items");
-        Sortable.create(foo, { group: "omega" });
+    <script>
+        $('#sort').sortable();
+        $('#sort1').sortable();
+    </script>
+    <script>
+        $(function() {
+            $( "#sort, #sort1" ).sortable({
+                connectWith: ".connected"
+            }).disableSelection();
+        });
+
+    </script>
+    <script>
+        var myInput = document.getElementById('sk');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('sk1');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('kcal');
+        myInput.oninput = function () {
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0,4);
+            }
+        };
     </script>
 {% endblock %}
