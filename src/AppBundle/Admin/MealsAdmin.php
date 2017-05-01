@@ -3,6 +3,7 @@
 namespace AppBundle\Admin;
 
 use AppBundle\Entity\Ingredients;
+use AppBundle\Entity\Meals;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -33,5 +34,31 @@ class MealsAdmin extends AbstractAdmin
             ->add('caloeries')
             ->add('ammount')
             ->add('price');
+    }
+
+    /**
+     * @param Meals $obj
+     */
+    public function prePersist($obj)
+    {
+        $this->updateMealRelation($obj);
+    }
+
+    /**
+     * @param Meals $obj
+     */
+    public function preUpdate($obj)
+    {
+        $this->updateMealRelation($obj);
+    }
+
+    /**
+     * @param $obj
+     */
+    private function updateMealRelation(Meals $obj)
+    {
+        foreach ($obj->getIngredients() as $ingredient) {
+            $ingredient->setMealId($obj);
+        }
     }
 }

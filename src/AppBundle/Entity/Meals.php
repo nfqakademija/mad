@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\MealsWithIngredients;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="meal")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MealRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Meals
 {
@@ -82,10 +84,30 @@ class Meals
     {
         $this->ratings = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
+        $this->timeInserted = new \DateTime();
+        $this->timeUpdated = new \DateTime();
+
     }
 
     /**
-     * @return mixed
+     * @ORM\PrePersist
+     */
+    public function insertTimestamps()
+    {
+        $this->timeInserted = new \DateTime();
+        $this->timeUpdated = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function updateTimestamps()
+    {
+        $this->timeUpdated = new \DateTime();
+    }
+
+    /**
+     * @return ArrayCollection
      */
     public function getIngredients()
     {
@@ -246,6 +268,22 @@ class Meals
     public function getTimeUpdated()
     {
         return $this->timeUpdated;
+    }
+
+    /**
+     * @param mixed $ingredients
+     * @return Meals
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+        return $this;
+    }
+
+    public function addIngredient(MealsWithIngredients $ingredient)
+    {
+        $ingredient->setMealId($this);
+        $this->ingredients->add($ingredient);
     }
 }
 

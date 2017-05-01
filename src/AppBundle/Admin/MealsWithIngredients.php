@@ -13,11 +13,11 @@ class MealsWithIngredients extends AbstractAdmin
     {
         $formMapper
             ->add('ingredientId', 'sonata_type_model_list', array(
-                'required' => false
+                'required' => false, 'by_reference' => false
             ))
-            ->add('mealId', 'sonata_type_model_list', array(
-                'required' => false
-            ))
+//            ->add('mealId', 'sonata_type_model_list', array(
+//                'required' => false, 'by_reference' => false
+//            ))
             ->add('ammount','integer');
     }
 
