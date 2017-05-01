@@ -1,3 +1,8 @@
+@media screen and (max-width: 767px) {
+  form.settings{
+    max-width: 100%;
+  }
+}
 
 //materialize rework
 nav{
@@ -106,6 +111,10 @@ label.portion{
   color: #757575;
 }
 
+label.activate:hover{
+  font-weight: bold;
+}
+
 ul.menu{
   background-color: #F5F5F5;
   margin: 0;
@@ -152,6 +161,7 @@ button.action:hover{
 form.settings{
   background-color: #26A69A;
   padding: 20px;
+  max-width: 180px;
 }
 
 label.settings{
@@ -159,14 +169,26 @@ label.settings{
   font-size: 1rem;
 }
 
+div.block{
+  margin-bottom: 5px;
+}
+
+p.value{
+  display: inline-block;
+  color: white;
+  margin: 0;
+}
+
 input.settings{
   width: 20%;
+  color: white;
+  font-weight: bold;
   border: none;
   height: 1rem;
   margin: 0;
 }
-input.settings:hover{
-  color: #26A69A;
+input.settings:focus{
+  color: white;
 }
 
 #kcal{
