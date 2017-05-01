@@ -1,113 +1,138 @@
 {% extends "::base.html.twig" %}
-
-
 {% block body %}
-
-
     <div class="container">
-        <div class="col-lg-8 col-lg-offset-2 centered">
-            <h2 class="uzrasas">SUSIKURKITE SAVO MENIU</h2>
-            <hr>
-            <nav class="dienos">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                        <span class="kategorijos-uzrasas">Pasirinkite dienu skaiciu</span>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
-                        <input class="rad" type="radio" name="seg-1" value="1" id="seg-1">
-                        <label class="labelis" for="seg-1">1</label>
-                        <input class="rad" type="radio" name="seg-1" value="2" id="seg-2">
-                        <label class="labelis" for="seg-2">2</label>
-                        <input class="rad" type="radio" name="seg-1" value="3" id="seg-3">
-                        <label class="labelis" for="seg-3">3</label>
-                        <input class="rad" type="radio" name="seg-1" value="4" id="seg-4">
-                        <label class="labelis" for="seg-4">4</label>
-                        <input class="rad" type="radio" name="seg-1" value="5" id="seg-5">
-                        <label class="labelis" for="seg-5">5</label>
-                        <input class="rad" type="radio" name="seg-1" value="6" id="seg-6">
-                        <label class="labelis" for="seg-6">6</label>
-                        <input class="rad" type="radio" name="seg-1" value="7" id="seg-7">
-                        <label class="labelis" for="seg-7">7</label>
+        <div class="row">
+            <div class="title">
+                <h1 class="title">Susikurkite savo meniu</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-table">
+                <div class="col s12 m9">
+                    <div class="table" id="scroll">
+                        <ul id="sort" class="connected menu">
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
+                            </li>
+                        </ul>
+                        <ul id="sort1" class="connected menu">
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
+                            </li>
+                            <li class="menu">
+                                <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
+                                <p class="menu-name">Kotletai su mesa</p>
+                                <input type="number" class="portion" value="4">
+                                <label class="portion">porcijos</label>
+                                <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
+                                <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-            <hr>
-
-            <nav class="dienos">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                        <span class="kategorijos-uzrasas">Valgymu skaicius dienoje</span>
-                    </div>
-
-                    <div class="col-md-6 col-lg-6 col-sm-6 text-left">
-                        <input class="rad" type="radio" name="seg-2" value="1" id="seg2-1">
-                        <label class="labelis" for="seg2-1">1</label>
-                        <input class="rad" type="radio" name="seg-2" value="2" id="seg2-2">
-                        <label class="labelis" for="seg2-2">2</label>
-                        <input class="rad" type="radio" name="seg-2" value="3" id="seg2-3">
-                        <label class="labelis" for="seg2-3">3</label>
-                        <input class="rad" type="radio" name="seg-2" value="4" id="seg2-4">
-                        <label class="labelis" for="seg2-4">4</label>
-                        <input class="rad" type="radio" name="seg-2" value="5" id="seg2-5">
-                        <label class="labelis" for="seg2-5">5</label>
-                    </div>
-                </div>
-
-            </nav>
-            <hr>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-right">
-                    <span class="kategorijos-uzrasas">Netinkami produktai</span>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-sm-6 margin-top-10 text-left">
-                    <a class="btn btn-primary btn-custom" id="colapsinam" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Produktai
-                    </a>
+                <div class="col m3 s12">
+                    <form class="settings">
+                        <div class="block">
+                            <label class="settings">Dienos kalorijų norma</label>
+                            <input type="number" class="settings" id="kcal" maxlength="4">
+                            <label class="settings">kcal</label>
+                        </div>
+                        <div class="block">
+                            <label class="settings">Dienų skaičius</label>
+                            <input type="number" class="settings num" max="7" id="sk">
+                        </div>
+                        <div class="block">
+                            <label class="settings">Valgymų kartai dienoje</label>
+                            <input type="number" class="settings num" max="5" id="sk1">
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
+        <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
 
-            <p id="sarasas"></p>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
 
-            <div class="collapse" id="collapseExample">
-                <div class="card card-block haters">
-                    <input name="maistas" type="checkbox" value="pienas">
-                    <label>pienas</label>
-                    <input name="maistas" type="checkbox" value="kiausiniai">
-                    <label>kiausiniai</label>
-                    <input name="maistas" type="checkbox" value="varske">
-                    <label>varske</label>
-                    <input name="maistas" type="checkbox" value="vistiena">
-                    <label>vistiena</label>
-                    <br>
-                    <input name="maistas" type="checkbox" value="cinamonas">
-                    <label>cinamonas</label>
-                    <input name="maistas" type="checkbox" value="versiena">
-                    <label>versiena</label>
-                    <input name="maistas" type="checkbox" value="grietine">
-                    <label>grietine</label>
-                    <input name="maistas" type="checkbox" value="cukrus">
-                    <label>cukrus</label>
-                    <br>
-                    <a class="btn btn-primary btn-custom" onclick="showSelectedValues()" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Pasirinkti
-                    </a>
-                </div>
             </div>
-
-            <hr>
-            <a href="{{ path('menupage') }}"><button class="btn btn-custom">Generuoti meniu</button></a>
-
-        </div><!-- /col-lg-8 -->
-
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
     </div>
-
 {% endblock %}
-{% block nepatinka %}
-    <script type="text/javascript">
+{% block javascripts %}
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
+    <script>
+        $('#sort').sortable();
+        $('#sort1').sortable();
+    </script>
+    <script>
+        $(function() {
+            $( "#sort, #sort1" ).sortable({
+                connectWith: ".connected"
+            }).disableSelection();
+        });
 
     </script>
-
+    <script>
+        $("ul").on("click", "button", function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+        });
+    </script>
+    <script>
+        var myInput = document.getElementById('sk');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('sk1');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('kcal');
+        myInput.oninput = function () {
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0,4);
+            }
+        };
+    </script>
+    <script>
+        $('#modal1').modal('open');
+    </script>
 {% endblock %}
-

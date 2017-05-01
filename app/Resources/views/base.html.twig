@@ -2,39 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}{{ "Food planner" }}{% endblock %}</title>
+    <title>{% block title %}{{ "Niam"}}{% endblock %}</title>
+    <link rel="icon" href="{{ asset('images/icons/header.png') }}">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
     {% block stylesheets2 %}
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('bootstrapTheme/css/bootstrap.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('bootstrapTheme/css/main.css') }}">
-
     {% endblock %}
     {% block scripts %}
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="{{ asset('bootstrapTheme/js/hover.zoom.js') }}"></script>
-    <script src="{{ asset('bootstrapTheme/js/hover.zoom.conf.js') }}"></script>
-    <script src="{{ asset('bootstrapTheme/js/main.nepatinka.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     {% endblock %}
-    {% block canonical_meta %}{% endblock %}
 </head>
 <body>
-
     {% block container %}
         {% block header %}
             {% include "::inc/header.html.twig" %}
         {% endblock %}
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     {% endblock %}
-
-{% block footer %}
-{% include "::inc/footer.html.twig" %}
-{% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('bootstrapTheme/js/bootstrap.min.js') }}"></script>
-{% endblock %}
+    {% block footer %}
+        {% include "::inc/footer.html.twig" %}
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
 </body>
 </html>

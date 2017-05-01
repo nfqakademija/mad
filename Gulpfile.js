@@ -4,6 +4,7 @@ var gulp    = require('gulp');
 var sass    = require('gulp-sass');
 var concat  = require('gulp-concat');
 var uglify  = require('gulp-uglify');
+var watch   = require('gulp-watch');
 
 var dir = {
     assets: './src/AppBundle/Resources/',
@@ -44,6 +45,10 @@ gulp.task('fonts', function() {
         dir.npm + 'bootstrap-sass/assets/fonts/**'
         ])
         .pipe(gulp.dest(dir.dist + 'fonts'));
+});
+
+gulp.task('default',function() {
+    gulp.watch(dir.assets + 'style/main.scss');
 });
 
 gulp.task('default', ['sass', 'scripts', 'fonts', 'images']);

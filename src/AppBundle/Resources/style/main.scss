@@ -1,183 +1,176 @@
-//bootstrap
-@import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+//materialize rework
+nav{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.01), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.07);
+}
+//materialize rework
 body{
-  font-family: 'Roboto', sans-serif;
-  font-weight: lighter;
-
+  background-color: #FAFAFA;
+}
+div.block{
+  display: block;
 }
 
-label{
-  font-weight: lighter;
-  font-size: 1.4rem;
-  margin-right: 2rem;
-  color: #424242;
-  display: inline;
+div.f-right{
+  float: right;
 }
 
-label.login-input{
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+//navbar
+nav.niam-nav{
+  background-color: white;
+}
+
+img.nav-logo{
+  max-height: 30px;
+  margin-bottom: 5px;
+  vertical-align: middle;
   display: inline-block;
 }
 
-label:after {
-  content:"\a";
-  white-space: pre;
-}
-#fos_user_registration_form_activity{
-  margin-top: 2rem;
-}
-
-input{
-  border: none;
-  margin-top: 0.75rem;
-  border-bottom: 1px solid;
-  border-bottom-color: #EEEEEE;
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  color: #009688;
-  outline: none;
-}
-
-
-p.login-footer{
-  margin: 0;
-  font-size: 1rem;
-  margin-left: 3rem;
-  color: #757575;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-a.login-footer{
-  color: #757575
-}
-
-h1.cal{
-  margin-top: 14rem;
-  font-weight: normal;
-  font-size: 2rem;
-  border: 2px solid #009688;
-  border-radius: 50%;
-  max-width: 90px;
-  padding: 20px 20px;
-}
-
-footer.login{
-  width: 100%;
-  border-top: 1px solid;
-  border-top-color: #EEEEEE;
-  position: absolute;
-  bottom: 0;
-}
-
-.background{
-  background-image: url("https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?w=940&h=650&auto=compress&cs=tinysrgb");
-  background-size: cover;
-  background-repeat:no-repeat;
-}
-
-.navbar{
-  background-color: white;
-  margin: 0;
-
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-a.navbar-brand{
-  color: #009688;
-  padding-left: 5rem;
-}
-
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-.container-fluid{
-  padding: 0;
-}
-
-h1.login-form{
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 3.5rem;
-  color: #009688;
-}
-
-input[type=submit].login-input{
-  display: block;
+div.nav-wrapper{
+  max-width: 90%;
   margin: 0 auto;
-  margin-top: 2rem;
-  border: none;
-  padding: 0.5rem 2.5rem;
-  color: white;
-  background-color: #009688;
 }
 
-input[type=checkbox].login-input{
+nav ul a {
+  color: #4DB6AC;
+}
+
+nav ul a:hover {
+  background-color: white;
+  color: #00796B;
+  transition: color .3s;
+}
+//navbar
+
+//menupage
+
+h1.title{
+  font-size: 1.75rem;
+  text-align: center;
+  color: #26A69A;
+}
+
+//menu
+p.menu-name{
+  color: #424242;
+}
+
+div.table{
+  max-height: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+
+}
+
+#scroll::-webkit-scrollbar-track
+{
+  background-color: #FAFAFA;
+}
+
+#scroll::-webkit-scrollbar
+{
+  width: 4px;
+}
+
+#scroll::-webkit-scrollbar-thumb
+{
+  background-color: #4DB6AC;
+  width: 6px;
+  max-height: 30px;
+}
+
+
+
+li.menu{
+  height: 50px;
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
+  border-bottom: 1px solid #FAFAFA;
+}
+
+p.menu-name{
   display: inline-block;
+}
+
+label.portion{
+  font-size: 1rem;
+  color: #757575;
+}
+
+ul.menu{
+  background-color: #F5F5F5;
   margin: 0;
 }
 
-.center-block{
-  text-align: center;
+input.portion{
+  width: 18px;
+  border-bottom: none;
+  height: 1rem;
+  margin: 0;
+  text-align: right;
+  color: #757575;
+  font-size: 1rem;
+  margin-left: 15px;
 }
 
-form.register-form{
-  display: inline-block;
-  margin: 0 2rem;
-  margin-top: 4rem;
-  text-align: left;
+img.menu-img{
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 2.5px 8px 2.4px 8px;
 }
 
-input[type=radio]{
-  margin-right: 1rem;
+img.action{
+  max-width: 1.5rem;
+  vertical-align: middle;
 }
 
-input, select, textarea{
-  color: #009688;
-}
-
-input.required{
-  margin-bottom: 20px;
-}
-
-form.login-form{
-  display: inline-block;
-  padding: 3rem 5rem;
-
-  margin-top: 10rem;
-  background-color: white;
-  margin-bottom: 5rem;
-
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-input.login-input{
+button.action{
+  opacity: 0.8;
+  background: transparent;
   border: none;
-  display: block;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid;
-  border-bottom-color: #009688;
-  color: #212121;
-  outline: none;
+  transition: opacity .3s;
+}
+button.action:hover{
+  opacity: 1;
+}
+//menu
+
+//form
+form.settings{
+  background-color: #26A69A;
+  padding: 20px;
 }
 
-h1.register{
-  font-size: 2.5rem;
-  margin-top: 4rem;
-  color: #1abc9c;
+label.settings{
+  color: white;
+  font-size: 1rem;
 }
 
-p.login-form{
-  margin-top: 3rem;
-  text-align: center;
+input.settings{
+  width: 20%;
+  border: none;
+  height: 1rem;
+  margin: 0;
+}
+input.settings:hover{
+  color: #26A69A;
 }
 
-label.login-input{
-  font-weight: normal;
+#kcal{
+  width: 30%;
 }
 
-input[type=submit].register-button{
-  margin-top: 5rem;
-  margin-bottom: 5rem ;
-}
+//form

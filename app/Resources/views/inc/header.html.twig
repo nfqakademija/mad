@@ -1,23 +1,11 @@
-{#<a href="{{ path('mainpage') }}">Main page</a>
-<a href="{{ path('settingspage') }}">Nustatymai</a>
-<a href="{{ path('homepage') }}">Log Out</a>
-#}
-<!-- Static navbar -->
-<div class="navbar navbar-inverse navbar-static-top">
-    <div class="container kuku">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse">
-            <a href="{{ path('homepage') }}" class="navbar-left navbar-logo">LOGO</a>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('settingspage') }}">Nustatymai</a></li>
-                <li><a href="{{ path('fos_user_security_logout') }}">Log Out</a></li>
+<header>
+    <nav class="niam-nav">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><img src="{{ asset('images/logo.jpg') }}" class="nav-logo"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">Mano meniu</a></li>
+                <li><a href="#">Atsijungti</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+        </div>
+    </nav>
+</header>
