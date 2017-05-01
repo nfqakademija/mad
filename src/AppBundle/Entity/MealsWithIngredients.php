@@ -72,9 +72,7 @@ class MealsWithIngredients
 
 
     /**
-     * Set mealId
-     *
-     * @param integer $mealId
+     * @param  mixed $mealId
      *
      * @return MealsWithIngredients
      */

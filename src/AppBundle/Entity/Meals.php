@@ -24,12 +24,14 @@ class Meals
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="mealId")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="mealId", cascade={"persist"}, orphanRemoval=true)
      */
     private $ingredients;
 
+
+
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealRatings", mappedBy="meal")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealRatings", mappedBy="meal", cascade={"persist"}, orphanRemoval=true)
      */
     private $ratings;
 
@@ -81,6 +83,16 @@ class Meals
         $this->ratings = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+
 
     /**
      * Get id
