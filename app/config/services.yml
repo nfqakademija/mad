@@ -5,3 +5,28 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+
+    admin.category:
+            class: AppBundle\Admin\CategoryAdmin
+            arguments: [~, AppBundle\Entity\Category, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Category }
+
+    admin.meals:
+                class: AppBundle\Admin\MealsAdmin
+                arguments: [~, AppBundle\Entity\Meals, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm, label: Meals }
+    admin.meals_with_ingredients:
+                  class: AppBundle\Admin\MealsWithIngredients
+                  arguments: [~, AppBundle\Entity\MealsWithIngredients, ~]
+                  tags:
+                      - { name: sonata.admin, manager_type: orm, label: MealsWithIngredients, show_in_dashboard: false }
+
+
+    admin.blog_post:
+            class: AppBundle\Admin\IngredientsAdmin
+            arguments: [~, AppBundle\Entity\Ingredients, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Ingredients }
