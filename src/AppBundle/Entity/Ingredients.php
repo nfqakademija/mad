@@ -24,12 +24,16 @@ class Ingredients
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="ingredientId")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MealsWithIngredients", mappedBy="ingredientId", cascade={"persist"}, orphanRemoval=true)
      */
     private $meals;
 
+
+
+
+
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="ingredientId")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="ingredientId", cascade={"persist"}, orphanRemoval=true)
      */
     private $usersWhoBlocked;
 
@@ -48,16 +52,16 @@ class Ingredients
     private $calories;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="ammount", type="string", length=255)
+     * @ORM\Column(name="ammount", type="integer")
      */
     private $ammount;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="price", type="integer")
+     * @ORM\Column(name="price", type="float")
      */
     private $price;
 
@@ -80,6 +84,9 @@ class Ingredients
     {
         $this->meals = new ArrayCollection();
         $this->usersWhoBlocked = new ArrayCollection();
+
+        $this->timeInserted = new \DateTime("now");
+        $this->timeUpdated = new \DateTime("now");
     }
 
 
