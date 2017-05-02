@@ -1,5 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block body %}
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
     <div class="container">
         <div class="row">
             <div class="title">
@@ -41,7 +43,7 @@
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
                                 <p class="menu-name">Kotletai</p>
                                 <input type="number" class="portion" value="4">
-                                <label class="portion">porcijos</label>
+                                <label class="portion">porc.</label>
                                 <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
                                 <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
@@ -49,7 +51,7 @@
                                 <img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img">
                                 <p class="menu-name">Kotletai su mesa</p>
                                 <input type="number" class="portion" value="4">
-                                <label class="portion">porcijos</label>
+                                <label class="portion">porc.</label>
                                 <button class="action"><img src="{{ asset('images/icons/change.png') }}" class="action"></button>
                                 <button class="action"><img src="{{ asset('images/icons/delete.png') }}" class="action"></button>
                             </li>
@@ -59,7 +61,7 @@
                 <div class="col m5 s12">
                     <form class="settings">
                         <div class="block">
-                            <label class="settings activate">Dienos kalorijų norma</label>
+                            <a href="#modal1" id="kcalclick"><label class="settings activate">Dienos kalorijų norma</label></a>
                             <input type="number" class="settings" id="kcal" maxlength="4" value="2225">
                             <p class="value">kcal</p>
                         </div>
@@ -75,70 +77,65 @@
                 </div>
             </div>
         </div>
-        <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
-
-        <!-- Modal Structure -->
-        <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
-
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal bottom-sheet">
+        <div class="container">
+        <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
-
+                <h4>Dienos kaloriju normos skaiciuokle</h4>
+                <div class="row">
+                    <form>
+                        <div class="col s6 m3">
+                        <label>Lytis</label>
+                        <p>
+                            <input name="gender" type="radio" id="men" value="1" />
+                            <label for="men">Vyras</label>
+                        </p>
+                        <p>
+                            <input name="gender" type="radio" id="wmen" value="2" />
+                            <label for="wmen">Moteris</label>
+                        </p>
+                        </div>
+                        <div class="col s6 m3">
+                            <label>Amzius</label>
+                            <input type="number" id="age">
+                            <label>Ugis</label>
+                            <input type="number" placeholder="cm" id="height">
+                            <label>Svoris</label>
+                            <input type="number" placeholder="kg" id="weight">
+                        </div>
+                        <div class="col s12 m3">
+                            <div id="activity">
+                            <p>
+                                <input name="activity" type="radio" id="a1" value="1" />
+                                <label for="a1">Pasyvus 0 val.</label>
+                            </p>
+                            <p>
+                                <input name="activity" type="radio" id="a2" value="2" />
+                                <label for="a2">Lengvas 1-2 val.</label>
+                            </p>
+                            <p>
+                                <input name="activity" type="radio" id="a3" value="3" />
+                                <label for="a3">Vidutiniskas 2-3 val.</label>
+                            </p>
+                            <p>
+                                <input name="activity" type="radio" id="a4" value="4" />
+                                <label for="a4">Labai aktyvus 3-5 val.</label>
+                            </p>
+                            <p>
+                                <input name="activity" type="radio" id="a5" value="5" />
+                                <label for="a5">Ypac aktyvus 5+ val.</label>
+                            </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="calculate">Agree</a>
             </div>
+        </div>
         </div>
     </div>
 {% endblock %}
 {% block javascripts %}
-    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-    <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
-    <script>
-        $(".button-collapse").sideNav();
-        $('#sort').sortable();
-        $('#sort1').sortable();
-    </script>
-    <script>
-        $(function() {
-            $( "#sort, #sort1" ).sortable({
-                connectWith: ".connected"
-            }).disableSelection();
-        });
 
-    </script>
-    <script>
-        $("ul").on("click", "button", function(e) {
-            e.preventDefault();
-            $(this).parent().remove();
-        });
-    </script>
-    <script>
-        var myInput = document.getElementById('sk');
-        myInput.oninput = function () {
-            if (this.value.length > 1) {
-                this.value = this.value.slice(0,1);
-            }
-        };
-        var myInput = document.getElementById('sk1');
-        myInput.oninput = function () {
-            if (this.value.length > 1) {
-                this.value = this.value.slice(0,1);
-            }
-        };
-        var myInput = document.getElementById('kcal');
-        myInput.oninput = function () {
-            if (this.value.length > 4) {
-                this.value = this.value.slice(0,4);
-            }
-        };
-    </script>
-    <script>
-        $(document).ready(function(){
-            $('.modal').modal();
-        });
-        $('#modal1').modal('open');
-    </script>
 {% endblock %}
