@@ -6,13 +6,6 @@ services:
         tags:
             - { name: form.type, alias: app_user_registration }
 
-
-    admin.category:
-            class: AppBundle\Admin\CategoryAdmin
-            arguments: [~, AppBundle\Entity\Category, ~]
-            tags:
-                - { name: sonata.admin, manager_type: orm, label: Category }
-
     admin.meals:
                 class: AppBundle\Admin\MealsAdmin
                 arguments: [~, AppBundle\Entity\Meals, ~]

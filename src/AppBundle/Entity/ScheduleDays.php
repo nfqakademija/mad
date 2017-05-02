@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * ScheduleDays
  *
- * @ORM\Table(name="schedule_days")
+ * @ORM\Table(name="schedule_days", indexes={@ORM\Index(name="schedule_id_idx", columns={"schedule_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleDaysRepository")
  */
 class ScheduleDays
