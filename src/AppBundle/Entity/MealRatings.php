@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MealRatings
  *
- * @ORM\Table(name="meal_rating")
+ * @ORM\Table(name="meal_rating", indexes={@ORM\Index(name="meal_idx", columns={"meal_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MealRatingRepository")
  */
 class MealRatings

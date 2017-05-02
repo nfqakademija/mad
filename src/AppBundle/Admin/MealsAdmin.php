@@ -31,9 +31,9 @@ class MealsAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('name')
-            ->add('caloeries')
-            ->add('ammount')
-            ->add('price');
+            ->add('weight')
+            ->add('about')
+            ->add('howtomake');
     }
 
     /**

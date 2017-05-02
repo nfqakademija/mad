@@ -22,7 +22,7 @@ class IngredientsAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('name')
-            ->add('caloeries')
+            ->add('calories')
             ->add('ammount')
             ->add('price');
     }
