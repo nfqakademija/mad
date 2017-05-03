@@ -6,11 +6,11 @@
 
 //materialize rework
 nav{
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.01), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.07);
+  box-shadow: none;
 }
 //materialize rework
 body{
-  background-color: #FAFAFA;
+  background-color: white;
 }
 div.block{
   display: block;
@@ -59,8 +59,14 @@ nav ul a:hover {
 //menupage
 
 h1.title{
-  font-size: 1.75rem;
-  text-align: center;
+  font-size: 2rem;
+  text-align: left;
+  color: #616161;
+  display: inline-block;
+  margin: 3rem 0;
+}
+
+span.title{
   color: #26A69A;
 }
 
@@ -101,8 +107,10 @@ div.table{
 li.menu{
   height: 50px;
   background-color: white;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
-  border-bottom: 1px solid #FAFAFA;
+  border: 2px solid #EEEEEE;
+}
+li.menu + li.menu{
+  border-top: none;
 }
 
 p.menu-name{
@@ -162,14 +170,21 @@ button.action:hover{
 
 //form
 form.settings{
-  background-color: #26A69A;
   padding: 20px;
-  max-width: 180px;
+}
+
+#days, #meal{
+  color: #4DB6AC;
+}
+
+#kcalf{
+  color: #535353;
+  font-size: 1.2rem;
 }
 
 label.settings{
-  color: white;
-  font-size: 1rem;
+  color: #535353;
+  font-size: 1.2rem;
 }
 
 div.block{
@@ -184,18 +199,20 @@ p.value{
 
 input.settings{
   width: 20%;
-  color: white;
+  color: #4DB6AC;
   font-weight: bold;
   border: none;
-  height: 1rem;
+  height: 1.2rem;
   margin: 0;
 }
 input.settings:focus{
-  color: white;
+  color: #4DB6AC;
 }
 
 #kcal{
   width: 30%;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 //form

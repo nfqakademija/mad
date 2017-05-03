@@ -15,6 +15,13 @@ $j( document ).ready(function() {
     $('#sort').sortable();
     $('#sort1').sortable();
 
+    $('#kcal').each(function(){
+        var value = $(this).val();
+        var size  = value.length;
+        size = size*3.5;
+        $(this).css('width',size*3);
+    });
+
     $(function() {
         $( "#sort, #sort1" ).sortable({
             connectWith: ".connected"
@@ -34,18 +41,6 @@ $j( document ).ready(function() {
 });
 
 window.onload = function(){
-    var myInput1 = document.getElementById('sk');
-    myInput1.oninput = function () {
-        if (this.value.length > 1) {
-            this.value = this.value.slice(0,1);
-        }
-    };
-    var myInput2 = document.getElementById('sk1');
-    myInput2.oninput = function () {
-        if (this.value.length > 1) {
-            this.value = this.value.slice(0,1);
-        }
-    };
     var myInput3 = document.getElementById('kcal');
     myInput3.oninput = function () {
         if (this.value.length > 4) {
@@ -99,5 +94,15 @@ window.onload = function(){
         console.log(num);
         document.getElementById("kcal").value = Math.round(num);
     }
+
 };
 
+function updateDays() {
+    var days = document.getElementById("daysCount").value;
+    document.getElementById("days").innerHTML = days;
+}
+
+function updateCount() {
+    var count = document.getElementById("mealTime").value;
+    document.getElementById("meal").innerHTML = count;
+}
