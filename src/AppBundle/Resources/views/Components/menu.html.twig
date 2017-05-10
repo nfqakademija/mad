@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="wrapper-middle">
+            <div class="col m6 s12">
+                <h1 class="title"><span class="title">Susikurkite savo meniu </span>arba išbandykite pačius populiariausius</h1>
+            </div>
+        </div>
+        <div class="menu-table">
+            <div class="col s12 m7">
+                <div class="table" id="scroll">
+                    <ul id="sort" class="connected menu">
+                        {% set vars = {'photo': 'http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg',
+                            'name': 'Maltinukai'} %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with vars %}
+                    </ul>
+                    <ul id="sort1" class="connected menu">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

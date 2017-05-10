@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div id="fullpage">
+        <div class="section">
+            {% include "AppBundle:Components:intro.html.twig" %}
+        </div>
+        <div class="section">
+            {% include "AppBundle:Components:steps.html.twig" %}
+        </div>
+        <div class="section">
+            {% include "AppBundle:Components:menu.html.twig" %}
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#fullpage').fullpage();
+        });
+    </script>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

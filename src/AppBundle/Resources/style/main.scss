@@ -56,6 +56,42 @@ nav ul a:hover {
 }
 //navbar
 
+//quote
+
+h1.quote{
+  color: #616161;
+  font-size: 2.8rem;
+  text-align: right;
+}
+
+span.quote{
+  color: #26A69A;
+}
+
+div.quote{
+  background-image: url(../images/l.jpg);
+}
+
+//quote
+
+//steps
+
+h2.step{
+  font-size: 1.4rem;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #616161;
+}
+
+img.step{
+  max-width: 15%;
+  display: block;
+  margin: 0 auto;
+}
+
+//steps
+
 //menupage
 
 h1.title{
@@ -64,6 +100,20 @@ h1.title{
   color: #616161;
   display: inline-block;
   margin: 3rem 0;
+}
+
+div.wrapper-middle{
+  display: inline-block;
+}
+
+img.menu-select{
+  width: 100%;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  text-align:center;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 span.title{
@@ -189,6 +239,10 @@ label.settings{
 
 div.block{
   margin-bottom: 5px;
+}
+
+div.calories{
+  margin-bottom: 20px;
 }
 
 p.value{
