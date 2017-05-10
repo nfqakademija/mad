@@ -10,16 +10,15 @@ services:
                 class: AppBundle\Admin\MealsAdmin
                 arguments: [~, AppBundle\Entity\Meals, ~]
                 tags:
-                    - { name: sonata.admin, manager_type: orm, label: Meals }
+                    - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Patiekalai }
     admin.meals_with_ingredients:
                   class: AppBundle\Admin\MealsWithIngredients
                   arguments: [~, AppBundle\Entity\MealsWithIngredients, ~]
                   tags:
-                      - { name: sonata.admin, manager_type: orm, label: MealsWithIngredients, show_in_dashboard: false }
-
+                      - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: MealsWithIngredients, show_in_dashboard: false }
 
     admin.blog_post:
             class: AppBundle\Admin\IngredientsAdmin
             arguments: [~, AppBundle\Entity\Ingredients, ~]
             tags:
-                - { name: sonata.admin, manager_type: orm, label: Ingredients }
+                - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Ingridientai }

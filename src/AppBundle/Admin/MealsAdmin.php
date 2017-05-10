@@ -17,12 +17,12 @@ class MealsAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text', array('label' => 'Meal name'))
-            ->add('weight', 'integer')
-            ->add('about', 'textarea')
-            ->add('howtomake', 'textarea', array('label' => 'How to make ?'))
+            ->add('name', 'text', array('label' => 'Pavadinimas'))
+            ->add('weight', 'integer', array('label' => 'Svoris'))
+            ->add('about', 'textarea', array('label' => 'Apie'))
+            ->add('howtomake', 'textarea', array('label' => 'Kaip pasigaminti ?'))
             ->add('ingredients', 'sonata_type_collection',
-                array('by_reference' => false, 'label' => 'Ingredients'),
+                array('by_reference' => false, 'label' => 'Ingridientai'),
                 array('edit'=>'inline','inline'=>'table')
             );
     }
@@ -30,10 +30,19 @@ class MealsAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('name')
-            ->add('weight')
-            ->add('about')
-            ->add('howtomake');
+            ->add('name', null, array('label' => 'Pavadinimas'))
+            //->add('name')
+            ->add('weight', null, array('label' => 'Svoris'))
+            ->add('about', null, array('label' => 'Apie patiekala'))
+            ->add('howtomake', null, array('label' => 'Kaip pasigaminti?'))
+            ->add('ingredients', null, array('label' => 'Ingridientai'))
+            ->add('_action', null, array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array(),
+                ),
+                'label' => 'Pasirinkimai'
+            ));;
     }
 
     /**
