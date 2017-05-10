@@ -1,0 +1,230 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="title">
+                <h1 class="title">Susikurkite savo meniu</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-table">
+                <div class="col s12 m7">
+                    <div class="table" id="scroll">
+
+                    </div>
+                </div>
+                <div class="col m5 s12">
+                    <form class="settings">
+                        <div class="block">
+                            <label class="settings activate">Dienos kalorijų norma</label>
+                            <input type="number" class="settings" id="kcal" maxlength="4" value="2225">
+                            <p class="value">kcal</p>
+                        </div>
+                        <div class="block">
+                            <label class="settings">Dienų skaičius</label>
+                            <select id="dienu-skaicius" style="display: block;">
+                                <option value="1">1 diena</option>
+                                <option value="2">2 dienos</option>
+                                <option value="3">3 dienos</option>
+                                <option value="4">4 dienos</option>
+                                <option value="5" selected>5 dienos</option>
+                                <option value="6">6 dienos</option>
+                                <option value="7">7 dienos</option>
+                            </select>
+
+                        </div>
+                        <div class="block">
+                            <label class="settings">Valgymų kartai dienoje</label>
+                            <select id="valgymu-skaicius" style="border:1px solid black; display: block;">
+                                <option value="1">1 kartas</option>
+                                <option value="2">2 kartai</option>
+                                <option value="3" selected>3 kartai</option>
+                                <option value="4">4 kartai</option>
+                                <option value="5">5 kartai</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <!-- Modal -->
+                    <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+
+                    <div id="modal1" class="modal my-modal">
+                        <nav class="niam-nav">
+                            <div class="nav-wrapper">
+                                <form>
+                                    <div class="input-field">
+                                        <input id="search" type="search">
+                                        <label for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;">Close</button>
+                        </nav>
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col s10 offset-s1 m6 l4">
+                                    <div class="card small">
+                                        <div class="card-image">
+                                            <img src="{{ asset('images/kulsis2.jpg') }}">
+                                        </div>
+                                        <div class="card-content">
+                                            <p>kulsis kiniestiskame padaze</p>
+                                        </div>
+                                        <div class="card-action text-center">
+                                            <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s10 offset-s1 m6 l4">
+                                    <div class="card small">
+                                        <div class="card-image">
+                                            <img src="{{ asset('images/sparnai3.jpg') }}">
+                                        </div>
+                                        <div class="card-content">
+                                            <p>sparnai</p>
+                                        </div>
+                                        <div class="card-action text-center">
+                                            <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s10 offset-s1 m6 offset-m3 l4">
+                                    <div class="card small">
+                                        <div class="card-image">
+                                            <img src="{{ asset('images/orange-chicken3.jpg') }}">
+                                        </div>
+                                        <div class="card-content">
+                                            <p>vistiena kinietishkai</p>
+                                        </div>
+                                        <div class="card-action text-center">
+                                            <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
+
+    <script>
+
+        $(function() {
+            $("#dienu-skaicius, #valgymu-skaicius").change(function() {
+                $('.table').html('');
+                var eilutes = $("#dienu-skaicius").val();
+                var stulpeliai= $("#valgymu-skaicius").val();
+
+                var table = $('<table></table>');
+                for(i=1; i<=eilutes; i++){
+                    for (j=1;j<=stulpeliai;j++){
+                        var row = $('<tr>' +
+                            '<td>diena '+i+'</td>' +
+                            '<td>valgymas '+j+'</td>' +
+                            '<td><img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img"></td>' +
+                            '<td><p class="menu-name">Kotletai su mesa</p></td>' +
+                            '<td><input type="number" class="portion" value="4"> <label class="portion">porcijos</label></td>' +
+                            '<td><button class="action">change</button></td>' +
+                            '<td><button class="action">delete</button></td></tr>');
+
+                        table.append(row);
+                    }
+
+                }
+                $('.table').append(table);
+
+            });
+        });
+
+        (function($) {
+            $(document).ready(function() {
+                var eilutes = $("#dienu-skaicius").val();
+                var stulpeliai= $("#valgymu-skaicius").val();
+                var table = $('<table></table>');
+                for(i=1; i<=eilutes; i++){
+                    for (j=1;j<=stulpeliai;j++){
+                        var row = $('<tr>' +
+                            '<td>diena '+i+'</td>' +
+                            '<td>valgymas '+j+'</td>' +
+                            '<td><img src="http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg" class="menu-img"></td>' +
+                            '<td><p class="menu-name">Kotletai su mesa</p></td>' +
+                            '<td><input type="number" class="portion" value="4"> <label class="portion">porcijos</label></td>' +
+                            '<td><button class="action">change</button></td>' +
+                            '<td><button class="action">delete</button></td></tr>');
+
+                        table.append(row);
+                    }
+
+                }
+                $('.table').append(table);
+
+            });
+        })(jQuery);
+
+    </script>
+
+    <script>
+        $(".button-collapse").sideNav();
+        $('#sort').sortable();
+        $('#sort1').sortable();
+    </script>
+    <script>
+        $(function() {
+            $( "#sort, #sort1" ).sortable({
+                connectWith: ".connected"
+            }).disableSelection();
+        });
+
+    </script>
+    <script>
+        $("ul").on("click", "button", function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+        });
+    </script>
+    <script>
+        var myInput = document.getElementById('sk');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('sk1');
+        myInput.oninput = function () {
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0,1);
+            }
+        };
+        var myInput = document.getElementById('kcal');
+        myInput.oninput = function () {
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0,4);
+            }
+        };
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+        $('#modal1').modal('open');
+    </script>
+{% endblock %}

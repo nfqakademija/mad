@@ -216,3 +216,37 @@ input.settings:focus{
 }
 
 //form
+
+//modal
+#modal1 {
+  width: 95%;
+  height: 90%;
+  top: 5%!important;
+  margin: auto;
+}
+
+.modal {
+  max-height: 100%;
+}
+
+
+@media only screen and (max-width : 600px) {
+  #modal1 {
+    width:100%;
+    height: 100%;
+    top:0!important;
+  }
+}
+
+nav .input-field label i {
+  color: black;
+}
+
+nav .input-field{
+  text-decoration: underline;
+}
+
+nav {
+ color: black;
+}
+
