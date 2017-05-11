@@ -116,5 +116,10 @@ class MealsWithIngredients
     {
         return $this->ammount;
     }
+
+    public function __toString()
+    {
+        return (string) $this->ingredientId;
+    }
 }
 

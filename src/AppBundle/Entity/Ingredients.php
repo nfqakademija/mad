@@ -28,10 +28,6 @@ class Ingredients
      */
     private $meals;
 
-
-
-
-
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserBlockedIngredients", mappedBy="ingredientId", cascade={"persist"}, orphanRemoval=true)
      */
@@ -44,6 +40,10 @@ class Ingredients
      */
     private $name;
 
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
     /**
      * @var int
      *
@@ -61,7 +61,7 @@ class Ingredients
     /**
      * @var int
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price", type="decimal" , precision=19, scale=2)
      */
     private $price;
 
