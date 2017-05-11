@@ -1,9 +1,10 @@
 <div class="col m5 s12">
     <form class="settings">
         <div class="block calories">
-            <a href="#modal1" id="kcalclick"><label class="settings activate">Dienos kalorijų norma</label></a>
+            <a id="kcalclick"><label class="settings activate">Dienos kalorijų norma</label></a>
             <input type="number" class="settings" id="kcal" maxlength="4" value="2225">
             <span id="kcalf"> kcal</span>
+            <a class="btn-floating btn-medium waves-effect waves-light teal pulse" href="#modal1"><i class="material-icons">assessment</i></a>
         </div>
         <div class="block">
             <label class="settings">Dienų skaičius <span id="days">16</span></label>
@@ -16,6 +17,9 @@
             <p class="range-field">
                 <input type="range" id="mealTime" min="1" max="5" onchange="updateCount()" />
             </p>
+            <div class="center">
+                <a class="waves-effect waves-light btn">Gauti sąrašą</a>
+            </div>
         </div>
     </form>
 </div>
