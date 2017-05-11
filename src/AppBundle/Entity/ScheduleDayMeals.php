@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ScheduleDayMeals
  *
- * @ORM\Table(name="schedule_day_meals")
+ * @ORM\Table(name="schedule_day_meals", indexes={@ORM\Index(name="schedule_day_idx", columns={"schedule_day_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleDayMealsRepository")
  */
 class ScheduleDayMeals
