@@ -26,12 +26,10 @@ $j( document ).ready(function() {
         $( ".disabled" ).sortable("option","disabled", true).disableSelection();
     });
 
-
-    $("ul").on("click", "button", function(e) {
-        e.preventDefault();
-        $(this).parent().slideUp("slow", function() { $('#ur_id').remove();});
-
+    $(document).on('click', '#delete', function() {
+        $(this).closest('li').toggleClass('strike').fadeOut('slow', function() { $(this).remove(); });
     });
+
 
 
     $('.modal').modal();

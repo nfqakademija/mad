@@ -13,8 +13,8 @@
                     {% set day1 = "Pirma diena" %}
                     {% set day2 = "Antra diena" %}
                     <ul id="sort" class="connected menu">
-                        <li class="disabled">
-                            llllll
+                        <li class="menu day">
+                            <h3>Pirma diena</h3>
                         </li>
                         {% set var1 = {'photo': 'http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg',
                             'name': 'Maltinukai'} %}
@@ -32,7 +32,9 @@
                         {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var2 %}
                     </ul>
                     <ul id="sort1" class="connected menu">
-                        <lh>{{ day2 }}</lh>
+                        <li class="menu day">
+                            <h3>Antra diena</h3>
+                        </li>
                         {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var5 %}
                         {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var4 %}
                         {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var1 %}
