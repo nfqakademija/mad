@@ -1,42 +1,50 @@
-!function(a){function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);
 var $j = jQuery.noConflict();
 
 $j( document ).ready(function() {
     $('#sort').sortable();
     $('#sort1').sortable();
 
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            scrollBar:true,
+            hybrid: true,
+            fitToSection:false
+        });
+    });
+
+    $('#kcal').each(function(){
+        var value = $(this).val();
+        var size  = value.length;
+        size = size*3.5;
+        $(this).css('width',size*3);
+    });
+
     $(function() {
         $( "#sort, #sort1" ).sortable({
             connectWith: ".connected"
         }).disableSelection();
-
+        $( ".disabled" ).sortable("option","disabled", true).disableSelection();
     });
 
-    $("ul").on("click", "button", function(e) {
-        e.preventDefault();
-        $(this).parent().remove();
+    $(document).on('click', '#delete', function() {
+        $(this).closest('li').toggleClass('strike').fadeOut('slow', function() { $(this).remove(); });
     });
+
 
 
     $('.modal').modal();
     $('#kcalclick').click(function(){
+        $.fn.fullpage.setAllowScrolling(false);
+        $.fn.fullpage.setKeyboardScrolling(false);
         $('#modal1').modal('open');
+    });
+    $('#calculate').click(function(){
+        $.fn.fullpage.setAllowScrolling(true);
+        $.fn.fullpage.setKeyboardScrolling(true);
     });
 });
 
 window.onload = function(){
-    var myInput1 = document.getElementById('sk');
-    myInput1.oninput = function () {
-        if (this.value.length > 1) {
-            this.value = this.value.slice(0,1);
-        }
-    };
-    var myInput2 = document.getElementById('sk1');
-    myInput2.oninput = function () {
-        if (this.value.length > 1) {
-            this.value = this.value.slice(0,1);
-        }
-    };
     var myInput3 = document.getElementById('kcal');
     myInput3.oninput = function () {
         if (this.value.length > 4) {
@@ -90,5 +98,15 @@ window.onload = function(){
         console.log(num);
         document.getElementById("kcal").value = Math.round(num);
     }
+
 };
 
+function updateDays() {
+    var days = document.getElementById("daysCount").value;
+    document.getElementById("days").innerHTML = days;
+}
+
+function updateCount() {
+    var count = document.getElementById("mealTime").value;
+    document.getElementById("meal").innerHTML = count;
+}

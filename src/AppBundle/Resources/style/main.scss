@@ -6,18 +6,38 @@
 
 //materialize rework
 nav{
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.01), 0 1px 5px 0 rgba(0,0,0,0.02), 0 3px 1px -2px rgba(0,0,0,0.07);
+  box-shadow: none;
 }
 //materialize rework
 body{
-  background-color: #FAFAFA;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+span.greenn{
+  color: #009688;
 }
 div.block{
   display: block;
 }
 
-div.f-right{
-  float: right;
+div.li-setting{
+  width: 52%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+
+h1.simple{
+  font-size: 2rem;
+  text-align: center;
+  color: #424242;
+}
+
+h2.what-we-do{
+  font-size: 1.4rem;
+  text-align: center;
+  color: #616161;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -56,11 +76,72 @@ nav ul a:hover {
 }
 //navbar
 
+//quote
+
+h1.quote{
+  color: #424242;
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+span.quote{
+  color: #26A69A;
+}
+
+img.quote{
+  max-width: 100%;
+}
+
+h4.cal-header{
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #009688;
+}
+//quote
+
+//steps
+
+h2.step{
+  font-size: 1.4rem;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #616161;
+}
+
+img.step{
+  max-width: 30%;
+  display: block;
+  margin: 15px auto;
+}
+
+//steps
+
 //menupage
 
 h1.title{
-  font-size: 1.75rem;
-  text-align: center;
+  font-size: 2rem;
+  text-align: left;
+  color: #424242;
+  display: inline-block;
+  margin: 3rem 0;
+}
+
+div.wrapper-middle{
+  display: inline-block;
+}
+
+img.menu-select{
+  width: 100%;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  text-align:center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+span.title{
   color: #26A69A;
 }
 
@@ -101,8 +182,10 @@ div.table{
 li.menu{
   height: 50px;
   background-color: white;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
-  border-bottom: 1px solid #FAFAFA;
+  border: 2px solid #EEEEEE;
+}
+li.menu + li.menu{
+  border-top: none;
 }
 
 p.menu-name{
@@ -162,18 +245,29 @@ button.action:hover{
 
 //form
 form.settings{
-  background-color: #26A69A;
-  padding: 20px;
-  max-width: 180px;
+  padding:0 20px 20px 20px
+}
+
+#days, #meal{
+  color: #4DB6AC;
+}
+
+#kcalf{
+  color: #424242;
+  font-size: 1.2rem;
 }
 
 label.settings{
-  color: white;
-  font-size: 1rem;
+  color: #424242;
+  font-size: 1.2rem;
 }
 
 div.block{
   margin-bottom: 5px;
+}
+
+div.calories{
+  margin-bottom: 20px;
 }
 
 p.value{
@@ -182,20 +276,46 @@ p.value{
   margin: 0;
 }
 
+div.section{
+  border-bottom: 2px solid #EEEEEE;
+}
+
+div.wallpaper{
+  background-image: url("../images/background.png");
+
+}
+
+li.day{
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 50px;
+  text-align: center;
+  background-color: #4DB6AC;
+  color: white;
+}
+
+li.day > h3{
+  font-size: 1.4rem;
+  line-height: 50px;
+  margin: 0;
+}
+
 input.settings{
   width: 20%;
-  color: white;
+  color: #4DB6AC;
   font-weight: bold;
   border: none;
-  height: 1rem;
+  height: 1.2rem;
   margin: 0;
 }
 input.settings:focus{
-  color: white;
+  color: #4DB6AC;
 }
 
 #kcal{
   width: 30%;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 //form

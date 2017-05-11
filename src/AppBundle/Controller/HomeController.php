@@ -13,8 +13,7 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('AppBundle::main.html.twig', []);
-
+        return $this->render('AppBundle::index.html.twig', []);
     }
 
 }

@@ -8,26 +8,23 @@
     {% block stylesheets2 %}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.fullPage.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {% endblock %}
     {% block scripts %}
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>gi
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
     {% endblock %}
 </head>
 <body>
     {% block container %}
-        {% block header %}
-            {% include "::inc/header.html.twig" %}
-        {% endblock %}
         {% block body %}
         {% endblock %}
-    {% endblock %}
-    {% block footer %}
-        {% include "::inc/footer.html.twig" %}
-    {% endblock %}
-    {% block javascripts %}
-        <script src="{{ asset('js/script.js') }}"></script>
     {% endblock %}
 </body>
 </html>
