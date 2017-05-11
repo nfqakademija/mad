@@ -92,11 +92,12 @@ $j( document ).ready(function() {
 
 
 
-    $('.modal').modal();
+    $('.modal').modal({complete: function() { $("body").css('overflow','visible') }});
     $('#kcalclick').click(function(){
         $.fn.fullpage.setAllowScrolling(false);
         $.fn.fullpage.setKeyboardScrolling(false);
         $('#modal1').modal('open');
+
     });
     $('#calculate').click(function(){
         $.fn.fullpage.setAllowScrolling(true);
