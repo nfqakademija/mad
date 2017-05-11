@@ -134,6 +134,165 @@
             </div>
         </div>
         </div>
+
+        <!-- Modal for serching recipes-->
+        <a class="waves-effect waves-light btn" href="#modal2">Add recipe to menu</a>
+
+        <div id="modal2" class="modal my-modal">
+            <ul id='dropdown1' class='dropdown-content'>
+                <li>Sriubos</li>
+                <li>Pagrindiniai</li>
+                <li>Salotos</li>
+                <li>Desertai</li>
+                <li>Užkandžiai</li>
+            </ul>
+            <nav class="niam-nav">
+                <div class="nav-wrapper">
+
+                    <ul class="left">
+                        <li>
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Kategorijos</a>
+                        </li>
+                    </ul>
+
+                    <form>
+                        <div class="input-field search-input">
+                            <input id="search" type="search">
+                            <label for="search"><i class="material-icons">search</i></label>
+
+                        </div>
+                    </form>
+                </div>
+
+                <button class="modal-close btn-flat close-button">Close</button>
+            </nav>
+            <div class="modal-content">
+
+                <div class="row">
+                    <div class="col s10 offset-s1 m6 l4">
+                        <div class="card small">
+                            <div class="card-image">
+                                <img src="{{ asset('images/kulsis2.jpg') }}">
+                            </div>
+                            <div class="card-content">
+                                <p>Kalakutiena su barbeque padažu</p>
+                            </div>
+                            <div class="card-action text-center">
+                                <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                <span>
+                                                <i class="material-icons star">star star star star star</i>
+                                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s10 offset-s1 m6 l4">
+                        <div class="card small">
+                            <div class="card-image">
+                                <img src="{{ asset('images/sparnai3.jpg') }}">
+                            </div>
+                            <div class="card-content">
+                                <p>Vištienos sparneliai marinuoti meduje</p>
+                            </div>
+                            <div class="card-action text-center">
+                                <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                <span>
+                                                <i class="material-icons star">star star star star</i>
+                                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s10 offset-s1 m6 offset-m3 l4">
+                        <div class="card small">
+                            <div class="card-image">
+                                <img src="{{ asset('images/orange-chicken3.jpg') }}">
+                            </div>
+                            <div class="card-content">
+                                <p>Vištiena kinietiškai</p>
+                            </div>
+                            <div class="card-action text-center">
+                                <a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                                <span>
+                                                <i class="material-icons star">star star star star star</i>
+                                            </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+
+
+        <!-- Modal for info about recipe-->
+        <a class="waves-effect waves-light btn" href="#modal3">Info about recipe</a>
+
+        <div id="modal3" class="modal my-modal">
+            <button class="modal-close btn-flat close-button">Close</button>
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s12">
+                        <h4>Meatballs pomidorų padaže</h4>
+                        <i class="material-icons recipe-star">star star star star star</i>
+                        <hr>
+                    </div>
+                    <div class="col s10 offset-s1 m6 l4">
+                        <img class="responsive-img" src="{{ asset('images/meatballs.png') }}">
+                    </div>
+                    <div class="col s6 offset-s3 m6 l8">
+                        <ul style="font-size: 20px;">
+                            <li><i class="material-icons info-ico">av_timer</i> Laikas: <span class="info-value">35 min</span></li>
+                            <li><i class="material-icons info-ico">swap_calls</i> Kalorijos: <span class="info-value">517 kcal</span></li>
+                            <li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>
+                            <li><i class="material-icons info-ico">list</i> Kategorija: <span class="info-value">pagrindinis</span></li>
+                        </ul>
+                        <button class="teal add-big">+</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s10 offset-s1 m4 l4">
+                        <span class="title-underline">Ingridientai</span>
+                        <ul>
+                            <li>100g fermentinio tarkuoto sūrio</li>
+                            <li>400g kiaulienos ir jautienos faršo</li>
+                            <li>1 smulkiai supjaustyto svogūno</li>
+                            <li>1 skardinės konservtuotų pomidorų</li>
+                            <li>25g maltų džiuvėsėlių</li>
+                            <li>2 skiltelės česnako</li>
+                            <li>1 kiaušinio</li>
+                            <li>50ml pieno</li>
+                            <li>0.5 arbatinio šaukštelio pipirų</li>
+                            <li>0.5 arbatinio šaukštelio druskos</li>
+                            <li>0.5 arbatinio šaukštelio maltos saldžiosios paprikos</li>
+                            <li>20ml aliejaus kepimui</li>
+                        </ul>
+                    </div>
+                    <div class="col s10 offset-s1 m8 l8">
+                        <span class="title-underline">Paruosimas</span>
+                        <p>
+                            Pirmiausia galite pradėti nuo padažo, kurį pasiruošti tiks keptuvė arba puodas ir
+                            tuomet viską reikės supilti į orkaitėje kepti tinkamą indą. Susismulkinam 1 svogūną,
+                            2 skilteles česnako, sumetame į keptuvę kepti. Kai svogūnai apkepa ir česnakas
+                            suminkštėja, sudedame pomidorų tyrę, pagardiname druska, pipirais ir paliekame kepti
+                            apie 7-10 minučių, tuomet jeigu norime galime dar pagardinti šviežiomis
+                            žolelėmis – čiobrelis, bazilikas, kalendra. Supilame į orkaitėje kepti skirtą indą ir
+                            einame ruošti mėsos kukulių.<br><br>
+                            Į faršą sudedame tarkuotą sūrį, paprikos miltelius, kiaušinį, tada
+                            atskirame puodelyje sumaišome džiuvesėlius su pienu, kai džiuvesėliai išbrinksta (1 minutė)
+                            sudedame į faršą. Pagal skonį beriame druskos ir pipirų,  viską gerai sumaišome.
+                            Rankomis formuojame nedidelio dydžio mėsos kukulius ir metame į keptuvę su šlakeliu aliejaus kepti.
+                            <br><br>Apkepus visus mėsos kukulius, sudedam į paruoštą pomidorų tyrės padažą ir dedam į orkaitę
+                            troškintis apie 20-30 minučių. Orkaitė įkaitinta 190 laipsniu ir pasiruošusi darbui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+
     </div>
 {% endblock %}
 {% block javascripts %}
