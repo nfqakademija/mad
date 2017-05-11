@@ -19,7 +19,7 @@ class IngredientsAdmin extends AbstractAdmin
                 'vnt' =>'vnt',
                 'g' =>'g',
                 'l' => 'l'
-                ),'label' => 'Ingridiento kiekio tipas'
+                ),'label' => 'Ingridiento kiekio tipas '
                 ))
             ->add('price', null, array('label' => 'Kaina (eurais)'));
     }
