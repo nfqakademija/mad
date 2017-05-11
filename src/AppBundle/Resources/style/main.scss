@@ -14,6 +14,8 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+
+
 span.greenn{
   color: #009688;
 }
@@ -197,9 +199,6 @@ label.portion{
   color: #757575;
 }
 
-label.activate:hover{
-  font-weight: bold;
-}
 
 ul.menu{
   background-color: #F5F5F5;
@@ -255,6 +254,7 @@ form.settings{
 #kcalf{
   color: #424242;
   font-size: 1.2rem;
+  margin-right: 10px;
 }
 
 label.settings{
