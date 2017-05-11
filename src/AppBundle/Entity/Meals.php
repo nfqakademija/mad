@@ -66,6 +66,13 @@ class Meals
     private $howToMake;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255)
+     */
+    private $logo;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="time_inserted", type="datetime")
@@ -221,6 +228,25 @@ class Meals
     {
         return $this->howToMake;
     }
+
+    /**
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param string $logo
+     * @return Meals
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
 
     /**
      * Set timeInserted
