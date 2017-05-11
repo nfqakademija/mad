@@ -1,5 +1,7 @@
+
 <div class="container">
     <div class="row">
+        {% include "AppBundle:Components:menuComponents/header.html.twig" %}
         <div class="wrapper-middle">
             <div class="col m6 s12">
                 <h1 class="title"><span class="title">Susikurkite savo meniu </span>arba išbandykite pačius populiariausius</h1>
@@ -8,15 +10,37 @@
         <div class="menu-table">
             <div class="col s12 m7">
                 <div class="table" id="scroll">
+                    {% set day1 = "Pirma diena" %}
+                    {% set day2 = "Antra diena" %}
                     <ul id="sort" class="connected menu">
-                        {% set vars = {'photo': 'http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg',
+                        <li class="disabled">
+                            llllll
+                        </li>
+                        {% set var1 = {'photo': 'http://www.novum.lt/pics/recipes/kalakutienos_kotletai.jpg',
                             'name': 'Maltinukai'} %}
-                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with vars %}
+                        {% set var2 = {'photo': 'http://3.bp.blogspot.com/-cSCrmWbi3lw/TuPJo9B1jyI/AAAAAAAABOU/F1irL8fqLrc/s1600/Mork%25C5%25B3+pyragas+su+rie%25C5%25A1utais+2.jpg',
+                        'name': 'Morkų pyragas'} %}
+                        {% set var3 = {'photo': 'http://g3.dcdn.lt/images/pix/dietiniai-saltibarsciai-71576352.jpg',
+                        'name': 'Šaltibarščiai'} %}
+                        {% set var4 = {'photo': 'http://www.beatosvirtuve.lt/wp-content/uploads/2011/12/IMG_0562-632x370.jpg',
+                        'name': 'Balandėliai'} %}
+                        {% set var5 = {'photo': 'https://s2.15min.lt/images/photos/622702/original/manu-kose-531cbaa544878.jpg',
+                        'name': 'Manų košė'} %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var1 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var3 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var5 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var2 %}
                     </ul>
                     <ul id="sort1" class="connected menu">
+                        <lh>{{ day2 }}</lh>
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var5 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var4 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var1 %}
+                        {% include "AppBundle:Components:menuComponents/liElement.html.twig" with var2 %}
                     </ul>
                 </div>
             </div>
+            {% include "AppBundle:Components:menuComponents/menuSettings.html.twig" %}
         </div>
     </div>
 </div>

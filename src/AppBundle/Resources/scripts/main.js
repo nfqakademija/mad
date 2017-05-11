@@ -4,6 +4,14 @@ $j( document ).ready(function() {
     $('#sort').sortable();
     $('#sort1').sortable();
 
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            scrollBar:true,
+            hybrid: true,
+            fitToSection:false
+        });
+    });
+
     $('#kcal').each(function(){
         var value = $(this).val();
         var size  = value.length;
@@ -15,6 +23,7 @@ $j( document ).ready(function() {
         $( "#sort, #sort1" ).sortable({
             connectWith: ".connected"
         }).disableSelection();
+        $( ".disabled" ).sortable("option","disabled", true).disableSelection();
     });
 
 
@@ -27,7 +36,13 @@ $j( document ).ready(function() {
 
     $('.modal').modal();
     $('#kcalclick').click(function(){
+        $.fn.fullpage.setAllowScrolling(false);
+        $.fn.fullpage.setKeyboardScrolling(false);
         $('#modal1').modal('open');
+    });
+    $('#calculate').click(function(){
+        $.fn.fullpage.setAllowScrolling(true);
+        $.fn.fullpage.setKeyboardScrolling(true);
     });
 });
 

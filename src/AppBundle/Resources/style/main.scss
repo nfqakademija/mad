@@ -11,13 +11,33 @@ nav{
 //materialize rework
 body{
   background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+span.greenn{
+  color: #009688;
 }
 div.block{
   display: block;
 }
 
-div.f-right{
-  float: right;
+div.li-setting{
+  width: 52%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+
+h1.simple{
+  font-size: 2rem;
+  text-align: center;
+  color: #424242;
+}
+
+h2.what-we-do{
+  font-size: 1.4rem;
+  text-align: center;
+  color: #616161;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -59,19 +79,24 @@ nav ul a:hover {
 //quote
 
 h1.quote{
-  color: #616161;
+  color: #424242;
   font-size: 2.8rem;
-  text-align: right;
+  text-align: center;
 }
 
 span.quote{
   color: #26A69A;
 }
 
-div.quote{
-  background-image: url(../images/l.jpg);
+img.quote{
+  max-width: 100%;
 }
 
+h4.cal-header{
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #009688;
+}
 //quote
 
 //steps
@@ -85,9 +110,9 @@ h2.step{
 }
 
 img.step{
-  max-width: 15%;
+  max-width: 30%;
   display: block;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 //steps
@@ -97,7 +122,7 @@ img.step{
 h1.title{
   font-size: 2rem;
   text-align: left;
-  color: #616161;
+  color: #424242;
   display: inline-block;
   margin: 3rem 0;
 }
@@ -220,7 +245,7 @@ button.action:hover{
 
 //form
 form.settings{
-  padding: 20px;
+  padding:0 20px 20px 20px
 }
 
 #days, #meal{
@@ -228,12 +253,12 @@ form.settings{
 }
 
 #kcalf{
-  color: #535353;
+  color: #424242;
   font-size: 1.2rem;
 }
 
 label.settings{
-  color: #535353;
+  color: #424242;
   font-size: 1.2rem;
 }
 

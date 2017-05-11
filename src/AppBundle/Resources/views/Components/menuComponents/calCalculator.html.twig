@@ -2,30 +2,31 @@
 <div class="container">
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4>Dienos kaloriju normos skaiciuokle</h4>
+            <h4 class="cal-header">Dienos kalorijų normos skaičiuoklė</h4>
             <div class="row">
                 <form>
-                    <div class="col s6 m3">
+                    <div class="col s12 m3">
                         <label>Lytis</label>
                         <p>
                             <input name="gender" type="radio" id="men" value="1" />
                             <label for="men">Vyras</label>
-                        </p>+
+                        </p>
                         <p>
                             <input name="gender" type="radio" id="wmen" value="2" />
                             <label for="wmen">Moteris</label>
                         </p>
                     </div>
-                    <div class="col s6 m3">
-                        <label>Amzius</label>
+                    <div class="col s12 m3">
+                        <label>Amžius</label>
                         <input type="number" id="age">
-                        <label>Ugis</label>
+                        <label>Ūgis</label>
                         <input type="number" placeholder="cm" id="height">
                         <label>Svoris</label>
                         <input type="number" placeholder="kg" id="weight">
                     </div>
                     <div class="col s12 m3">
                         <div id="activity">
+                            <label>Fizinis aktyvumas savaitėje</label>
                             <p>
                                 <input name="activity" type="radio" id="a1" value="1" />
                                 <label for="a1">Pasyvus 0 val.</label>
@@ -36,7 +37,7 @@
                             </p>
                             <p>
                                 <input name="activity" type="radio" id="a3" value="3" />
-                                <label for="a3">Vidutiniskas 2-3 val.</label>
+                                <label for="a3">Vidutiniškas 2-3 val.</label>
                             </p>
                             <p>
                                 <input name="activity" type="radio" id="a4" value="4" />
@@ -44,7 +45,7 @@
                             </p>
                             <p>
                                 <input name="activity" type="radio" id="a5" value="5" />
-                                <label for="a5">Ypac aktyvus 5+ val.</label>
+                                <label for="a5">Ypač aktyvus 5+ val.</label>
                             </p>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="calculate">Skaiciuoti</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="calculate">Skaičiuoti</a>
         </div>
     </div>
 </div>
