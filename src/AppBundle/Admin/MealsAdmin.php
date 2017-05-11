@@ -21,6 +21,7 @@ class MealsAdmin extends AbstractAdmin
             ->add('weight', 'integer', array('label' => 'Svoris'))
             ->add('about', 'textarea', array('label' => 'Apie'))
             ->add('howtomake', 'textarea', array('label' => 'Kaip pasigaminti ?'))
+            ->add('logo', null, array('label' => 'Paveikslėlis'))
             ->add('ingredients', 'sonata_type_collection',
                 array('by_reference' => false, 'label' => 'Ingridientai'),
                 array('edit'=>'inline','inline'=>'table')
