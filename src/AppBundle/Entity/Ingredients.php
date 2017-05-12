@@ -61,6 +61,13 @@ class Ingredients
     /**
      * @var int
      *
+     * @ORM\Column(name="ammount_type", type="string", length=255)
+     */
+    private $ammountType;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="price", type="decimal" , precision=19, scale=2)
      */
     private $price;
@@ -171,6 +178,26 @@ class Ingredients
     {
         return $this->ammount;
     }
+
+    /**
+     * @return int
+     */
+    public function getAmmountType()
+    {
+        return $this->ammountType;
+    }
+
+    /**
+     * @param int $ammountType
+     * @return Ingredients
+     */
+    public function setAmmountType($ammountType)
+    {
+        $this->ammountType = $ammountType;
+        return $this;
+    }
+
+
 
     /**
      * Set price
