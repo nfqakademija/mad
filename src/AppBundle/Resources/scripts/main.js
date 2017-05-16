@@ -56,14 +56,34 @@ window.onload = function(){
 
 };
 
-function updateDays() {
-    var days = document.getElementById("daysCount").value;
-    document.getElementById("days").innerHTML = days;
+
+function updateValue(par1, par2){
+    var value = document.getElementById(par2).value;
+    document.getElementById(par1).innerHTML = value;
+
+    return value;
 }
 
-function updateCount() {
-    var count = document.getElementById("mealTime").value;
-    document.getElementById("meal").innerHTML = count;
+function updateMenu() {
+    var mealTimes =  updateValue("meal", "mealTime");
+    var daysCount =  updateValue("days", "daysCount");
+    var calories = document.getElementById("kcal").value;
+
+    console.log(mealTimes);
+    console.log(daysCount);
+    console.log(calories);
+
+    $.ajax({
+        url: "/getMeals",
+        dataType: "json",
+        data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
+        success:
+            console.log("pavyko"),
+
+        error: function (req, err) {
+            console.log('my message' + err);
+        }
+    })
 }
 
 var $j = jQuery.noConflict();

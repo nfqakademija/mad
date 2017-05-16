@@ -6,6 +6,7 @@ use AppBundle\Entity\Meals;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class MealsController extends Controller
 {
@@ -16,13 +17,12 @@ class MealsController extends Controller
      */
     public function getMealsAction()
     {
-        if(isset($_POST)) {
-            $daysCount = $_POST['daysCount'];
-            $calories = $_POST['calories'];
-            $mealsPerDay = $_POST['mealsPerDay'];
-        } else {
-            return new JsonResponse(json_encode(['status' => 'empty']));
-        }
+        $request = Request::createFromGlobals();
+        $request->getPathInfo();
+
+        $daysCount = $request->query->get('days');
+        $calories = $request->query->get('cal');
+        $mealsPerDay = $request->query->get('mealTimes');
 
         $mealCalories = $calories / $daysCount;
         $mealsCount = $daysCount * $mealsPerDay;
