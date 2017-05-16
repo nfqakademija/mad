@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Meals
  *
  * @ORM\Table(name="meal")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\MealRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MealsRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Meals
@@ -71,6 +71,13 @@ class Meals
      * @ORM\Column(name="logo", type="string", length=255)
      */
     private $logo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cooking_time", type="string", length=255)
+     */
+    private $time;
 
     /**
      * @var \DateTime
@@ -246,6 +253,25 @@ class Meals
         $this->logo = $logo;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param string $time
+     * @return Meals
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+        return $this;
+    }
+
 
 
     /**
