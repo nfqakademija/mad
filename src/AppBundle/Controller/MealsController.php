@@ -38,7 +38,7 @@ class MealsController extends Controller
             $meals = ['status' => 'empty'];
         }
 
-        return new JsonResponse(json_encode($meals));
+        return new JsonResponse($meals);
     }
 
     /**
@@ -52,7 +52,7 @@ class MealsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $meal = $em->getRepository(Meals::class)->getMealInfo($id);
 
-        return new JsonResponse(json_encode($meal));
+        return new JsonResponse($meal);
     }
 
     /**
@@ -62,10 +62,9 @@ class MealsController extends Controller
      * @return JsonResponse
      */
     public function getMealsByNameAction($name) {
-        echo $name;
         $em = $this->getDoctrine()->getManager();
         $meals = $em->getRepository(Meals::class)->getMealsByName($name);
 
-        return new JsonResponse(json_encode($meals));
+        return new JsonResponse($meals);
     }
 }

@@ -61,6 +61,13 @@ class Ingredients
     /**
      * @var int
      *
+     * @ORM\Column(name="product_count", type="integer")
+     */
+    private $productCount;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="ammount_type", type="string", length=255)
      */
     private $ammountType;
@@ -222,6 +229,26 @@ class Ingredients
     {
         return $this->price;
     }
+
+    /**
+     * @return int
+     */
+    public function getProductCount()
+    {
+        return $this->productCount;
+    }
+
+    /**
+     * @param int $productCount
+     * @return Ingredients
+     */
+    public function setProductCount($productCount)
+    {
+        $this->productCount = $productCount;
+        return $this;
+    }
+
+
 
     /**
      * Set timeInserted
