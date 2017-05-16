@@ -18,7 +18,7 @@ class MealsWithIngredients extends AbstractAdmin
 //            ->add('mealId', 'sonata_type_model_list', array(
 //                'required' => false, 'by_reference' => false
 //            ))
-            ->add('ammount','integer', array('label' => 'Kiekis'));
+            ->add('ammount', null, array('label' => 'Kiekis'));
     }
 
     protected function configureListFields(ListMapper $listMapper)

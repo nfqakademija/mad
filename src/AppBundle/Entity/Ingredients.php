@@ -54,7 +54,7 @@ class Ingredients
     /**
      * @var int
      *
-     * @ORM\Column(name="ammount", type="double")
+     * @ORM\Column(name="ammount", type="integer")
      */
     private $ammount;
 
