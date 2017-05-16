@@ -52,7 +52,9 @@ window.onload = function(){
         console.log(ac);
         console.log(num);
         document.getElementById("kcal").value = Math.round(num);
-    }
+    };
+
+    updateMenu();
 
 };
 
