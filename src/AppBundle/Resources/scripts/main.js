@@ -77,11 +77,9 @@ function updateMenu() {
         url: "/getMeals",
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
-        success:
-            console.log("pavyko"),
-
-        error: function (req, err) {
-            console.log('my message' + err);
+        success: function (response) {
+            var Obj = JSON.parse(response);
+            console.log(Obj.id);
         }
     })
 }
