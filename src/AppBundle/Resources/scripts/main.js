@@ -78,8 +78,18 @@ function updateMenu() {
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
         success: function (response) {
-            for(i in response){
-                document.write(response[i].id);
+            $ul = $("#sort");
+            for(i in response){4
+                $ul.append('<li class="menu">' +
+                                '<img src="http://g3.dcdn.lt/images/pix/blynai-70357526.jpg" class="menu-img">' +
+                                '<a href="#modal3"><p class="menu-name">' + response[i].name + '</p></a>' +
+                                '<div class="li-setting">' +
+                                    '<input type="number" class="portion" value="4">' +
+                                    '<label class="portion">porc.</label>' +
+                                    '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
+                                    '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                                '</div>' +
+                        '</li>');
             }
         }
     })
