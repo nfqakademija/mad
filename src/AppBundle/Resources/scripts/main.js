@@ -78,8 +78,9 @@ function updateMenu() {
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
         success: function (response) {
-            var Obj = JSON.parse(response);
-            console.log(Obj.id);
+            for(i in response){
+                document.write(response[i].id);
+            }
         }
     })
 }
