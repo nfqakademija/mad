@@ -79,7 +79,8 @@ function updateMenu() {
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
         success: function (response) {
             $ul = $("#sort");
-            for(i in response){4
+            $ul.empty();
+            for(i in response){
                 $ul.append('<li class="menu">' +
                                 '<img src="http://g3.dcdn.lt/images/pix/blynai-70357526.jpg" class="menu-img">' +
                                 '<a href="#modal3"><p class="menu-name">' + response[i].name + '</p></a>' +
