@@ -62,7 +62,6 @@ class MealsController extends Controller
      * @return JsonResponse
      */
     public function getMealsByNameAction($name) {
-        echo $name;
         $em = $this->getDoctrine()->getManager();
         $meals = $em->getRepository(Meals::class)->getMealsByName($name);
 
