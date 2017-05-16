@@ -14,7 +14,8 @@ class IngredientsAdmin extends AbstractAdmin
         $formMapper
             ->add('name', 'text', array('label' => 'Pavadinimas'))
             ->add('calories', null, array('label' => 'Kalorijų kiekis'))
-            ->add('ammount', null, array('label' => 'Ingridiento kiekis'))
+            ->add('ammount', null, array('label' => 'Ingridiento kiekis (gramais)'))
+            ->add('productCount', null, array('label' => 'Ingridiento kiekis (vientais)'))
             ->add('ammountType', 'choice', array('choices' => array(
                 'vnt' =>'vnt',
                 'g' =>'g',
@@ -29,7 +30,8 @@ class IngredientsAdmin extends AbstractAdmin
         $listMapper
             ->add('name', null, array('label' => 'Pavadinimas'))
             ->add('calories', null, array('label' => 'Kalorijų kiekis'))
-            ->add('ammount', null, array('label' => 'Ingridiento kiekis'))
+            ->add('ammount', null, array('label' => 'Ingridiento kiekis (gramais)'))
+            ->add('productCount', null, array('label' => 'Ingridiento kiekis (vienetais)'))
             ->add('ammountType', null, array('label' => 'Ingridiento kiekio tipas'))
             ->add('price', null, array('label' => 'Kaina (eurais)'))
             ->add('_action', null, array(
