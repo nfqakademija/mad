@@ -34,9 +34,9 @@ class MealsWithIngredients
     private $mealId;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="ammount", type="integer")
+     * @ORM\Column(name="ammount", type="float")
      */
     private $ammount;
 

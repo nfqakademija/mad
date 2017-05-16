@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AddRecipeController extends Controller
 {
@@ -19,7 +20,9 @@ class AddRecipeController extends Controller
      */
     public function IndexAction ()
     {
-        return $this->render('AppBundle::add.html.twig', []);
+        $response = new JsonResponse(array('data' => 123));
+        return $response;
+
     }
 
 }
