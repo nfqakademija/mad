@@ -24,9 +24,9 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
             ->addSelect('i')
             ->groupBy('m.id')
             ->having('sum(mi.ammount * i.calories) > :lessCalories')
-            ->setParameter(':lessCalories', $calories-100)
+            ->setParameter(':lessCalories', abs($calories-100))
             ->andHaving('sum(mi.ammount * i.calories) < :moreCalories')
-            ->setParameter(':moreCalories', $calories+100)
+            ->setParameter(':moreCalories', abs($calories+1000000))
             ->select('m.id, SUM(mi.ammount * i.calories) as calories, m.name')->getQuery()->getArrayResult();
     }
 
