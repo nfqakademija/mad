@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Ingredients;
+
 /**
  * IngredientsRepository
  *
@@ -10,4 +12,13 @@ namespace AppBundle\Repository;
  */
 class IngredientsRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Gets Ingredients id's and names
+     * @return array
+     */
+    public function getIngredients()
+    {
+        return $this->createQueryBuilder('ingredients')
+            ->select('ingredients.id, ingredients.name')->getQuery()->getArrayResult();
+    }
 }
