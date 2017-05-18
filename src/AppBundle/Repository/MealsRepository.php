@@ -13,23 +13,33 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
     /**
      * Find meals by selected calories
      * @param integer $calories
+     * @param array $ingredient
      * @return array
      */
-    public function getMealsByCalories($calories)
+    public function getMealsByCaloriesAndBlockedIngredients($calories, $ingredient = [0])
     {
-        return $this->createQueryBuilder('m')
+        $subQuery = $this->_em->createQueryBuilder();
+        $subQuery
+            ->select('me.id')
+            ->from('AppBundle:MealsWithIngredients', 'ms')
+            ->leftJoin('ms.ingredientId','me')
+            ->leftJoin('ms.mealId','ml')
+            ->where(' ml.id = m.id AND me.id IN (:ingredient)');
+
+        $mealsQuery = $this->createQueryBuilder('m');
+        $mealsQuery
             ->leftJoin('m.ingredients', 'mi')
-            ->addSelect('mi')
             ->leftJoin('mi.ingredientId', 'i')
-            ->addSelect('i')
             ->groupBy('m.id')
             ->having('sum(mi.ammount * i.calories) > :lessCalories')
             ->setParameter(':lessCalories', abs($calories-100))
             ->andHaving('sum(mi.ammount * i.calories) < :moreCalories')
-          
-            ->setParameter(':moreCalories', abs($calories+1000000))
+            ->setParameter(':moreCalories', abs($calories+100000))
+            ->select('m.id, SUM(mi.ammount * i.calories) as calories, m.name')
+            ->andWhere($mealsQuery->expr()->not($mealsQuery->expr()->exists($subQuery->getDQL())))
+            ->setParameter('ingredient', $ingredient);
 
-            ->select('m.id, SUM(mi.ammount * i.calories) as calories, m.name')->getQuery()->getArrayResult();
+        return $mealsQuery->getQuery()->getArrayResult();
     }
 
     /**
