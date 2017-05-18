@@ -105,7 +105,16 @@ function getFood() {
         url: "/getIngredients",
         dataType: "json",
         success: function (response) {
-            console.log(response);
+            var foodArray = response;
+            var dataFood = {};
+            for (var i = 0; i < foodArray.length; i++) {
+                dataFood[foodArray[i].name] = foodArray[i].id;
+            }
+            $('input.autocomplete').autocomplete(response, {
+                data: dataFood,
+                limit: 5,
+                minLength: 1
+            });
         }
     })
 }
