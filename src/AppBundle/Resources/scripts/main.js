@@ -84,7 +84,7 @@ function updateMenu() {
             for(var i in response){
                 $ul.append('<li class="menu" id="' + response[i].id + '">' +
                                 '<img src="recipes_images/'+ response[i].logo + '" class="menu-img">' +
-                                '<a href="#modal3"><p class="menu-name">' + response[i].name + '</p></a>' +
+                                '<a onclick="showRecipe(this)" id="' + response[i].id + '"><p class="menu-name">' + response[i].name + '</p></a>' +
                                 '<div class="li-setting">' +
                                     '<input type="number" class="portion" value="4">' +
                                     '<label class="portion">porc.</label>' +
@@ -177,3 +177,44 @@ $j( document ).ready(function() {
             fitToSection:false
         });
 });
+
+function showRecipe(element) {
+  var id = $(element).attr("id");
+  console.log("clicked");
+  $.ajax({
+      url: "searchMeals/" + id,
+      success: function(response){
+          createModal(response);
+          $('#modal3').modal('open')
+      }
+  })
+}
+
+function createModal(response) {
+    document.createElement('<div id="modal3" class="modal my-modal">' +
+                                '<button class="modal-close btn-flat close-button">Close</button>' +
+                                '<div class="modal-content">' +
+                                    '<div class="row">' +
+                                        '<div class="col s12">' +
+                                            ' <h4>' + response.name +'</h4>' +
+                                        '</div>' +
+                                        '<div class="col s10 offset-s1 m6 l4">' +
+                                            '<img class="responsive-img" src="' + response.logo +'">' +
+                                        '</div>' +
+                                        '<div class="col s6 offset-s3 m6 l8">' +
+                                            '<ul style="font-size: 20px;">' +
+                                                '<li><i class="material-icons info-ico">av_timer</i> Laikas: <span class="info-value">35 min</span></li>' +
+                                                '<li><i class="material-icons info-ico">swap_calls</i> Kalorijos: <span class="info-value">517 kcal</span></li>' +
+                                                '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
+                                                '<li><i class="material-icons info-ico">list</i> Kategorija: <span class="info-value">pagrindinis</span></li>' +
+                                            '</ul>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '<div class="row">' +
+                                        '<div class="col s10 offset-s1 m8 l8">' +
+                                            '<span class="title-underline">Paruošimas</span>' +
+                                            '<p></p>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>');
+}
