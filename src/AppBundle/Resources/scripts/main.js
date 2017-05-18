@@ -75,10 +75,6 @@ function updateMenu() {
     var daysCount =  updateValue("days", "daysCount");
     var calories = document.getElementById("kcal").value;
 
-    console.log(mealTimes);
-    console.log(daysCount);
-    console.log(calories);
-
     $.ajax({
         url: "/getMeals",
         dataType: "json",
@@ -117,7 +113,7 @@ function getFood() {
                 placeholder: "Ieškokite produkto",
                 secondaryPlaceholder: "Ieškokite produkto",
                 autocompleteOptions: {
-                    data: dataFood,
+                    data: {"Mama": null, "Teta": null, "Kose": null},
                     limit: Infinity,
                     minLength: 1
                 }
@@ -126,9 +122,16 @@ function getFood() {
                 food.push(chip.tag);
                 updateMenu();
             });
+            $('.chips').on('chip.delete', function(e, chip){
+                var index = food.indexOf(chip.tag);
+                food.splice(index, 1);
+                updateMenu();
+            });
         }
     })
 }
+
+
 
 var $j = jQuery.noConflict();
 
