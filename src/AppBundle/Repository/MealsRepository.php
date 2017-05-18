@@ -36,6 +36,7 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
             ->andHaving('sum(mi.ammount * i.calories) < :moreCalories')
             ->setParameter(':moreCalories', abs($calories+100000))
             ->select('m.id, SUM(mi.ammount * i.calories) as calories, m.name')
+            ->addSelect('m.logo')
             ->andWhere($mealsQuery->expr()->not($mealsQuery->expr()->exists($subQuery->getDQL())))
             ->setParameter('ingredient', $ingredient);
 
