@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Meals;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,11 +25,17 @@ class MealsController extends Controller
         $calories = $request->query->get('cal');
         $mealsPerDay = $request->query->get('mealTimes');
 
+        // array
+        $blockedIngredients = $request->query->get('blockedIngredients');
+        if(!empty($blockedIngredients)) {
+            $blockedIngredients = [0];
+        }
+
         $mealCalories = $calories / $daysCount;
         $mealsCount = $daysCount * $mealsPerDay;
 
         $em = $this->getDoctrine()->getManager();
-        $meals = $em->getRepository(Meals::class)->getMealsByCalories($mealCalories);
+        $meals = $em->getRepository(Meals::class)->getMealsByCaloriesAndBlockedIngredients($mealCalories, $blockedIngredients);
 
         shuffle($meals);
 
