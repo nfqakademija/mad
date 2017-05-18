@@ -8,7 +8,6 @@ window.onload = function(){
     };
 
     getFood();
-    
 
     var calculate = document.getElementById("calculate");
     calculate.onclick = function ()     {
@@ -112,6 +111,8 @@ function getFood() {
             }
             $('.chips').material_chip();
             $('.chips-autocomplete').material_chip({
+                placeholder: "Ieškokite produkto",
+                secondaryPlaceholder: "Ieškokite produkto",
                 autocompleteOptions: {
                     data: dataFood,
                     limit: Infinity,
