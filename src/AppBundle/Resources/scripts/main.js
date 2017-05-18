@@ -119,6 +119,9 @@ function getFood() {
                     minLength: 1
                 }
             });
+            $('.chips').on('chip.add', function(e, chip){
+                
+            });
         }
     })
 }
