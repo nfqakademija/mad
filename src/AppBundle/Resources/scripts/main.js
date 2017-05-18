@@ -9,7 +9,6 @@ window.onload = function(){
 
     getFood();
 
-
     var calculate = document.getElementById("calculate");
     calculate.onclick = function ()     {
         var ac = 0;
