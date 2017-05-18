@@ -117,7 +117,7 @@ function getFood() {
                 placeholder: "Ieškokite produkto",
                 secondaryPlaceholder: "Ieškokite produkto",
                 autocompleteOptions: {
-                    data: {"nieam":null, "kakak":null, "opapa":null},
+                    data: dataFood,
                     limit: Infinity,
                     minLength: 1
                 }
