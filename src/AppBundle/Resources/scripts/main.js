@@ -82,8 +82,8 @@ function updateMenu() {
         success: function (response) {
             $ul = $("#sort");
             $ul.empty();
-            for(i in response){
-                $ul.append('<li class="menu">' +
+            for(var i in response){
+                $ul.append('<li class="menu foodEl">' +
                                 '<img src="http://g3.dcdn.lt/images/pix/blynai-70357526.jpg" class="menu-img">' +
                                 '<a href="#modal3"><p class="menu-name">' + response[i].name + '</p></a>' +
                                 '<div class="li-setting">' +
@@ -93,6 +93,9 @@ function updateMenu() {
                                     '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                                 '</div>' +
                         '</li>');
+                var listEl = document.getElementsByClassName("foodEl");
+                console.log(listEl);
+                listEl.id = response[i].id;
             }
         }
     })
@@ -114,7 +117,7 @@ function getFood() {
                 secondaryPlaceholder: "Ieškokite produkto",
                 autocompleteOptions: {
                     data: dataFood,
-                    limit: Infinity,
+                    limit: 5,
                     minLength: 1
                 }
             });
