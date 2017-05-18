@@ -6,6 +6,8 @@ window.onload = function(){
             this.value = this.value.slice(0,4);
         }
     };
+
+    getFood();
     
 
     var calculate = document.getElementById("calculate");
@@ -94,6 +96,16 @@ function updateMenu() {
                                 '</div>' +
                         '</li>');
             }
+        }
+    })
+}
+
+function getFood() {
+    $.ajax({
+        url: "/getIngredients",
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
         }
     })
 }
