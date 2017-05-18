@@ -6,7 +6,9 @@ window.onload = function(){
             this.value = this.value.slice(0,4);
         }
     };
-    
+
+    getFood();
+
 
     var calculate = document.getElementById("calculate");
     calculate.onclick = function ()     {
@@ -94,6 +96,30 @@ function updateMenu() {
                                 '</div>' +
                         '</li>');
             }
+        }
+    })
+}
+
+function getFood() {
+    $.ajax({
+        url: "/getIngredients",
+        dataType: "json",
+        success: function (response) {
+            var foodArray = response;
+            var dataFood = {};
+            for (var i = 0; i < foodArray.length; i++) {
+                dataFood[foodArray[i].name] = null;
+            }
+            $('.chips').material_chip();
+            $('.chips-autocomplete').material_chip({
+                placeholder: "Ieškokite produkto",
+                secondaryPlaceholder: "Ieškokite produkto",
+                autocompleteOptions: {
+                    data: dataFood,
+                    limit: Infinity,
+                    minLength: 1
+                }
+            });
         }
     })
 }
