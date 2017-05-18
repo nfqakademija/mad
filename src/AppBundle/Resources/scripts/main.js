@@ -1,4 +1,3 @@
-
 var food = [];
 
 window.onload = function(){
