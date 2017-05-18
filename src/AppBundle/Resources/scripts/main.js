@@ -113,7 +113,7 @@ function getFood() {
                 placeholder: "Ieškokite produkto",
                 secondaryPlaceholder: "Ieškokite produkto",
                 autocompleteOptions: {
-                    data: {"Mama": null, "Teta": null, "Kose": null},
+                    data: dataFood,
                     limit: Infinity,
                     minLength: 1
                 }
