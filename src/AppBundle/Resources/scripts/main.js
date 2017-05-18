@@ -83,7 +83,7 @@ function updateMenu() {
             $ul.empty();
             for(var i in response){
                 $ul.append('<li class="menu" id="' + response[i].id + '">' +
-                                '<img src="recipes_images/'+ response[i].logo + '" class="menu-img>' +
+                                '<img src="recipes_images/'+ response[i].logo + '" class="menu-img">' +
                                 '<a href="#modal3"><p class="menu-name">' + response[i].name + '</p></a>' +
                                 '<div class="li-setting">' +
                                     '<input type="number" class="portion" value="4">' +
