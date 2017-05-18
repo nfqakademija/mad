@@ -88,7 +88,7 @@ function updateMenu() {
                                 '<div class="li-setting">' +
                                     '<input type="number" class="portion" value="4">' +
                                     '<label class="portion">porc.</label>' +
-                                    '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
+                                    '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action tooltiped"></a></button>' +
                                     '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                                 '</div>' +
                         '</li>');
@@ -144,6 +144,7 @@ $j( document ).ready(function() {
         size = size*3.5;
         $(this).css('width',size*3);
     });
+        $('.tooltipped').tooltip({delay: 50});
 
     $(function() {
         $( "#sort, #sort1" ).sortable({
