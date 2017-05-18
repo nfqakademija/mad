@@ -20,7 +20,7 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
     {
         $subQuery = $this->_em->createQueryBuilder();
         $subQuery
-            ->select('me.id')
+            ->select('me.name')
             ->from('AppBundle:MealsWithIngredients', 'ms')
             ->leftJoin('ms.ingredientId','me')
             ->leftJoin('ms.mealId','ml')

@@ -14,9 +14,17 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+.chips .input {
+  width: 130px !important;
+}
+
 div.chip{
   background-color: #26a69a;
   color: white;
+}
+
+.list-get{
+  margin-top: 40px;
 }
 
 span.greenn{

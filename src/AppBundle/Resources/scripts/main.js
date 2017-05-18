@@ -1,4 +1,6 @@
 
+var food = [];
+
 window.onload = function(){
     var myInput3 = document.getElementById('kcal');
     myInput3.oninput = function () {
@@ -68,6 +70,7 @@ function updateValue(par1, par2){
 }
 
 function updateMenu() {
+    var ingredients = food;
     var mealTimes =  updateValue("meal", "mealTime");
     var daysCount =  updateValue("days", "daysCount");
     var calories = document.getElementById("kcal").value;
@@ -79,7 +82,7 @@ function updateMenu() {
     $.ajax({
         url: "/getMeals",
         dataType: "json",
-        data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories},
+        data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories, "blockedIngredients": ingredients},
         success: function (response) {
             $ul = $("#sort");
             $ul.empty();
@@ -118,6 +121,10 @@ function getFood() {
                     limit: Infinity,
                     minLength: 1
                 }
+            });
+            $('.chips').on('chip.add', function(e, chip){
+                food.push(chip.tag);
+                updateMenu();
             });
         }
     })
