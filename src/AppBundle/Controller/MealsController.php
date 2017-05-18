@@ -27,8 +27,8 @@ class MealsController extends Controller
 
         // array
         $blockedIngredients = $request->query->get('blockedIngredients');
-        if(!empty($blockedIngredients)) {
-            $blockedIngredients = [0];
+        if(empty($blockedIngredients)) {
+            $blockedIngredients = ["test"];
         }
 
         $mealCalories = $calories / $daysCount;
