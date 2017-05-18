@@ -109,6 +109,7 @@ function getFood() {
             var dataFood = {};
             for (var i = 0; i < foodArray.length; i++) {
                 dataFood[foodArray[i].name] = foodArray[i].id;
+                console.log(foodArray[i].name);
             }
             $('input.autocomplete').autocomplete(response, {
                 data: dataFood,
