@@ -20,11 +20,11 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
     {
         $subQuery = $this->_em->createQueryBuilder();
         $subQuery
-            ->select('me.name')
+            ->select('me.id')
             ->from('AppBundle:MealsWithIngredients', 'ms')
             ->leftJoin('ms.ingredientId','me')
             ->leftJoin('ms.mealId','ml')
-            ->where(' ml.id = m.id AND me.id IN (:ingredient)');
+            ->where(' ml.id = m.id AND me.name IN (:ingredient)');
 
         $mealsQuery = $this->createQueryBuilder('m');
         $mealsQuery
