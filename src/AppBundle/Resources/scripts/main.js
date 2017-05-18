@@ -110,10 +110,13 @@ function getFood() {
             for (var i = 0; i < foodArray.length; i++) {
                 dataFood[foodArray[i].name] = null;
             }
-            $('input.autocomplete').autocomplete({
-                data: dataFood,
-                limit: 5,
-                minLength: 1
+            $('.chips').material_chip();
+            $('.chips-autocomplete').material_chip({
+                autocompleteOptions: {
+                    data: dataFood,
+                    limit: Infinity,
+                    minLength: 1
+                }
             });
         }
     })
