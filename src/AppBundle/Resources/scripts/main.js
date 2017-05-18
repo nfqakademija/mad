@@ -108,10 +108,8 @@ function getFood() {
             var foodArray = response;
             var dataFood = {};
             for (var i = 0; i < foodArray.length; i++) {
-                dataFood[foodArray[i].name] = foodArray[i].id;
-                console.log(foodArray[i].name);
+                dataFood = foodArray[i].name;
             }
-            console.log("VEIKIA");
             $('input.autocomplete').autocomplete({
                 data: dataFood,
                 limit: 5,
