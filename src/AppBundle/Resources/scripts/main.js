@@ -199,11 +199,11 @@ $j( document ).ready(function() {
 
 function showRecipe(element) {
   var id = $(element).attr("id");
-  var link = "/getMeal/" + id;
   console.log(link);
   console.log("clicked");
   $.ajax({
-      url: link,
+      url: "/getMeal",
+      data: {"id": id},
       success: function(response){
          $modal = $("#modal3");
          createModal(response);
