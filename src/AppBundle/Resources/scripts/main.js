@@ -80,7 +80,7 @@ function updateMenu() {
             'Dvidešimt devinta diena', 'Trisdešimta diena'];
 
     var start = 0;
-    var end = start + mealTimes;
+    var end = start + parseInt(mealTimes);
 
     $.ajax({
 
@@ -88,27 +88,30 @@ function updateMenu() {
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories, "blockedIngredients": ingredients},
         success: function (response) {
+            $menuList = $("#scroll").empty();
             for (var i = 0; i < daysCount; i++){
+                var idOfUl = "sort" + (i + 1);
+                $menuList.append('<ul id="' + idOfUl + '" class="connected menu"></ul>');
+
+                $ul = $("#" + idOfUl);
+
                 for(var j = start; j < end; j++){
-
-                    var idOfUl = "#sort" + (i + 1);
-                    $ul = $(idOfUl);
-                    $ul.empty();
-
+                    console.log("j=" + j);
+                    console.log("ul=" + $ul);
                     $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>' +
-                        '<li class="menu" id="' + response[i].id + '">' +
-                        '<img src="recipes_images/'+ response[i].logo + '" class="menu-img">' +
-                        '<a onclick="showRecipe(this)" id="' + response[i].id + '"><p class="menu-name">' + response[i].name + '</p></a>' +
+                        '<li class="menu" id="' + response[j].id + '">' +
+                        '<img src="recipes_images/'+ response[j].logo + '" class="menu-img">' +
+                        '<a onclick="showRecipe(this)" id="' + response[j].id + '"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
-                        '<label class="portion">porci.</label>' +
+                        '<label class="portion">porc.</label>' +
                         '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
                         '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
-                    start = end;
-                    end += mealTimes;
                 }
+                start = end;
+                end += parseInt(mealTimes);
             }
         }
     })
