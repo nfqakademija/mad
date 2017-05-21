@@ -94,11 +94,11 @@ function updateMenu() {
                 $menuList.append('<ul id="' + idOfUl + '" class="connected menu"></ul>');
 
                 $ul = $("#" + idOfUl);
-
+                $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
                 for(var j = start; j < end; j++){
                     console.log("j=" + j);
                     console.log("ul=" + $ul);
-                    $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>' +
+                    $ul.append(
                         '<li class="menu" id="' + response[j].id + '">' +
                         '<img src="recipes_images/'+ response[j].logo + '" class="menu-img">' +
                         '<a onclick="showRecipe(this)" id="' + response[j].id + '"><p class="menu-name">' + response[j].name + '</p></a>' +
