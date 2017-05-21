@@ -51,11 +51,15 @@ class MealsController extends Controller
     /**
      * Gets JSON single Meal info
      * @param $id
-     * @Route("/getMeal/{id}")
+     * @Route("/getMeal")
      * @return JsonResponse
      */
-    public function getMealAction($id)
+    public function getMealAction()
     {
+        $request = Request::createFromGlobals();
+        $request->getPathInfo();
+
+        $id = $request->query->get('id');
         $em = $this->getDoctrine()->getManager();
         $meal = $em->getRepository(Meals::class)->getMealInfo($id);
 
