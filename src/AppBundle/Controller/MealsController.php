@@ -18,6 +18,8 @@ class MealsController extends Controller
      */
     public function getMealsAction()
     {
+        $mealsForSelectedDays = [];
+
         $request = Request::createFromGlobals();
         $request->getPathInfo();
 
@@ -32,7 +34,6 @@ class MealsController extends Controller
         }
 
         $mealCalories = $calories / $daysCount;
-        $mealsCount = $daysCount * $mealsPerDay;
 
         $em = $this->getDoctrine()->getManager();
         $meals = $em->getRepository(Meals::class)->getMealsByCaloriesAndBlockedIngredients($mealCalories, $blockedIngredients);
@@ -40,17 +41,19 @@ class MealsController extends Controller
         shuffle($meals);
 
         if(!empty($meals)) {
-            $meals = array_slice($meals, 0, $mealsCount, true);
+            for($i=0; $i < $daysCount; $i++) {
+                $meals2 = array_slice($meals, 0, $mealsPerDay, true);
+                $mealsForSelectedDays = array_merge($mealsForSelectedDays, $meals2);
+            }
         } else {
-            $meals = ['status' => 'empty'];
+            $mealsForSelectedDays = ['status' => 'empty'];
         }
 
-        return new JsonResponse($meals);
+        return new JsonResponse($mealsForSelectedDays);
     }
 
     /**
      * Gets JSON single Meal info
-     * @param $id
      * @Route("/getMeal")
      * @return JsonResponse
      */

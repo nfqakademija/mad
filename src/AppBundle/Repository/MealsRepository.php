@@ -49,7 +49,11 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
     public function getMealInfo($id)
     {
         return $this->createQueryBuilder('m')
-            ->select('m.id, m.name, m.about, m.howToMake')
+            ->leftJoin('m.ingredients', 'mi')
+            ->leftJoin('mi.ingredientId', 'i')
+            ->groupBy('m.id')
+            ->select('m.id, m.name, m.about, m.howToMake, m.logo, m.time')
+            ->addSelect('SUM(mi.ammount * i.calories) as calories')
             ->where('m.id = :id')
             ->setParameter('id', $id)->getQuery()->getArrayResult();
     }

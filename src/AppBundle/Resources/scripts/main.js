@@ -199,48 +199,54 @@ $j( document ).ready(function() {
 
 function showRecipe(element) {
   var id = $(element).attr("id");
+  console.log(id);
   console.log("clicked");
   $.ajax({
       url: "/getMeal",
       data: {"id": id},
+      dataType: "json",
+      async: "false",
       success: function(response){
-         $modal = $("#modal3");
-         createModal(response);
-         $modal.modal({
-             complete: function () {
-                 $modal.remove();
-             }
-         });
-         $modal.modal('open');
+          createModal(response);
+          $modal = $("#modal3");
+          $modal.modal({
+              complete: function () {
+                  $modal.remove();
+              }
+          });
+          $modal.modal('open');
       }
-  })
+  });
 }
 
 function createModal(response) {
-    $("#fullpage").append('<div id="modal3" class="modal my-modal">' +
-                                '<button class="modal-close btn-flat close-button">Close</button>' +
-                                '<div class="modal-content">' +
-                                    '<div class="row">' +
-                                        '<div class="col s12">' +
-                                            ' <h4>' + response.name +'</h4>' +
-                                        '</div>' +
-                                        '<div class="col s10 offset-s1 m6 l4">' +
-                                            '<img class="responsive-img" src="' + response.logo +'">' +
-                                        '</div>' +
-                                        '<div class="col s6 offset-s3 m6 l8">' +
-                                            '<ul style="font-size: 20px;">' +
-                                                '<li><i class="material-icons info-ico">av_timer</i> Laikas: <span class="info-value">35 min</span></li>' +
-                                                '<li><i class="material-icons info-ico">swap_calls</i> Kalorijos: <span class="info-value">517 kcal</span></li>' +
-                                                '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
-                                                '<li><i class="material-icons info-ico">list</i> Kategorija: <span class="info-value">pagrindinis</span></li>' +
-                                            '</ul>' +
-                                        '</div>' +
-                                    '</div>' +
-                                    '<div class="row">' +
-                                        '<div class="col s10 offset-s1 m8 l8">' +
-                                            '<span class="title-underline">Paruošimas</span>' +
-                                            '<p>response.about</p>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>');
+    response.forEach(function(element) {
+        $("#fullpage").append('<div id="modal3" class="modal my-modal">' +
+            '<button class="modal-close btn-flat close-button">Close</button>' +
+            '<div class="modal-content">' +
+            '<div class="row">' +
+            '<div class="col s12">' +
+            ' <h4>' + element.name + '</h4>' +
+            '</div>' +
+            '<div class="col s10 offset-s1 m6 l4">' +
+            '<img class="responsive-img" src="recipes_images/' + element.logo + '">' +
+            '</div>' +
+            '<div class="col s6 offset-s3 m6 l8">' +
+            '<ul style="font-size: 20px;">' +
+            '<li><i class="material-icons info-ico">av_timer</i> Laikas: <span class="info-value">'+element.time+'</span></li>' +
+            '<li><i class="material-icons info-ico">swap_calls</i> Kalorijos: <span class="info-value">'+element.calories+' kcal</span></li>' +
+            '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
+            //'<li><i class="material-icons info-ico">list</i> Kategorija: <span class="info-value">pagrindinis</span></li>' +
+            '</ul>' +
+            '</div>' +
+            '</div>' +
+            '<div class="row">' +
+            '<div class="col s10 offset-s1 m8 l8">' +
+            '<span class="title-underline">Paruošimas</span>' +
+            '<p>'+element.howToMake+'</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>'
+        );
+    });
 }
