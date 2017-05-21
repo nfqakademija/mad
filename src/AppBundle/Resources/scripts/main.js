@@ -201,7 +201,7 @@ function showRecipe(element) {
   var id = $(element).attr("id");
   console.log("clicked");
   $.ajax({
-      url: "searchMeals/" + id,
+      url: "getMeal/" + id,
       success: function(response){
          $modal = $("#modal3");
          createModal(response);
