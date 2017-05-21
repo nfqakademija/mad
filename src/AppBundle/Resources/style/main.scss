@@ -18,6 +18,19 @@ body{
   width: 130px !important;
 }
 
+li.day{
+  background-color: #26a69a;
+  height: 30px;
+}
+
+p.day{
+  color: white;
+  margin: 0;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.2rem;
+}
+
 div.chip{
   background-color: #26a69a;
   color: white;

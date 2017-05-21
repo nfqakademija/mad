@@ -74,24 +74,41 @@ function updateMenu() {
     var daysCount =  updateValue("days", "daysCount");
     var calories = document.getElementById("kcal").value;
 
+    days = ['Pirma diena', 'Antra diena', 'Trečia diena', 'Ketvirta diena', 'Penkta diena', 'Šešta diena', 'Septinta diena', 'Aštunta diena', 'Devinta diena', 'Dešimta diena', 'Vienuolikta diena', 'Dvylikta diena',
+            'Trylikta diena', 'Keturiolikta diena', 'Penktiolikta diena', 'Šešiolikta diena', 'Septyniolikta diena', 'Aštoniolikta diena', 'Devyniolikta diena', 'Dvidešimta diena', 'Dvidešimt pirma diena',
+            'Dvidešimt antra diena', 'Dvidešimt trečia diena', 'Dvidešimt ketvirta diena', 'Dvidešimt penkta diena', 'Dvidešimt šešta diena', 'Dvidešimt septinta diena', 'Dvidešimt aštunta diena',
+            'Dvidešimt devinta diena', 'Trisdešimta diena'];
+
+    var start = 0;
+    var end = start + mealTimes;
+
     $.ajax({
+
         url: "/getMeals",
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories, "blockedIngredients": ingredients},
         success: function (response) {
-            $ul = $("#sort");
-            $ul.empty();
-            for(var i in response){
-                $ul.append('<li class="menu" id="' + response[i].id + '">' +
-                                '<img src="recipes_images/'+ response[i].logo + '" class="menu-img">' +
-                                '<a onclick="showRecipe(this)" id="' + response[i].id + '"><p class="menu-name">' + response[i].name + '</p></a>' +
-                                '<div class="li-setting">' +
-                                    '<input type="number" class="portion" value="4">' +
-                                    '<label class="portion">porc.</label>' +
-                                    '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action tooltiped"></a></button>' +
-                                    '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
-                                '</div>' +
+            for (var i = 0; i < daysCount; i++){
+                for(var j = start; j < end; j++){
+
+                    var idOfUl = "#sort" + (i + 1);
+                    $ul = $(idOfUl);
+                    $ul.empty();
+
+                    $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>' +
+                        '<li class="menu" id="' + response[i].id + '">' +
+                        '<img src="recipes_images/'+ response[i].logo + '" class="menu-img">' +
+                        '<a onclick="showRecipe(this)" id="' + response[i].id + '"><p class="menu-name">' + response[i].name + '</p></a>' +
+                        '<div class="li-setting">' +
+                        '<input type="number" class="portion" value="4">' +
+                        '<label class="portion">porci.</label>' +
+                        '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
+                        '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                        '</div>' +
                         '</li>');
+                    start = end;
+                    end += mealTimes;
+                }
             }
         }
     })
@@ -135,8 +152,12 @@ function getFood() {
 var $j = jQuery.noConflict();
 
 $j( document ).ready(function() {
-    $('#sort').sortable();
     $('#sort1').sortable();
+    $( "#sort" ).sortable({
+       cancel: ".disabled"
+    });
+
+
 
     $('#kcal').each(function(){
         var value = $(this).val();
@@ -150,7 +171,6 @@ $j( document ).ready(function() {
         $( "#sort, #sort1" ).sortable({
             connectWith: ".connected"
         }).disableSelection();
-        $( ".disabled" ).sortable("option","disabled", true).disableSelection();
     });
 
     $(document).on('click', '#delete', function() {
@@ -191,7 +211,7 @@ function showRecipe(element) {
 }
 
 function createModal(response) {
-    document.createElement('<div id="modal3" class="modal my-modal">' +
+    document.append('<div id="modal3" class="modal my-modal">' +
                                 '<button class="modal-close btn-flat close-button">Close</button>' +
                                 '<div class="modal-content">' +
                                     '<div class="row">' +
@@ -213,7 +233,7 @@ function createModal(response) {
                                     '<div class="row">' +
                                         '<div class="col s10 offset-s1 m8 l8">' +
                                             '<span class="title-underline">Paruošimas</span>' +
-                                            '<p></p>' +
+                                            '<p>aaa</p>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>');
