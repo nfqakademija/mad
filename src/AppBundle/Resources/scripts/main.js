@@ -100,7 +100,7 @@ function updateMenu() {
                     console.log("ul=" + $ul);
                     $ul.append(
                         '<li class="menu" id="' + response[j].id + '">' +
-                        '<img src="recipes_images/'+ response[j].logo + '" class="menu-img">' +
+                        '<img src="recipes_images/'+ response[j].logo+ '" class="menu-img">' +
                         '<a onclick="showRecipe(this)" id="' +  response[j].id+ '"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
@@ -203,14 +203,20 @@ function showRecipe(element) {
   $.ajax({
       url: "searchMeals/" + id,
       success: function(response){
-          createModal(response);
-          $('#modal3').modal('open')
+         $modal = $("#modal3");
+         createModal(response);
+         $modal.modal({
+             complete: function () {
+                 $modal.remove();
+             }
+         });
+         $modal.modal('open');
       }
   })
 }
 
 function createModal(response) {
-    document.append('<div id="modal3" class="modal my-modal">' +
+    $("#fullpage").append('<div id="modal3" class="modal my-modal">' +
                                 '<button class="modal-close btn-flat close-button">Close</button>' +
                                 '<div class="modal-content">' +
                                     '<div class="row">' +
