@@ -199,7 +199,6 @@ $j( document ).ready(function() {
 
 function showRecipe(element) {
   var id = $(element).attr("id");
-  console.log(link);
   console.log("clicked");
   $.ajax({
       url: "/getMeal",
