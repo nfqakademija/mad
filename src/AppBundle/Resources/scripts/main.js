@@ -91,7 +91,7 @@ function updateMenu() {
             $menuList = $("#scroll").empty();
             for (var i = 0; i < daysCount; i++){
                 var idOfUl = "sort" + (i + 1);
-                $menuList.append('<ul id="' + idOfUl + '" class="connected menu"></ul>');
+                $menuList.append('<ul id="' + idOfUl + '" class="connected menu sort"></ul>');
 
                 $ul = $("#" + idOfUl);
                 $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
@@ -101,7 +101,7 @@ function updateMenu() {
                     $ul.append(
                         '<li class="menu" id="' + response[j].id + '">' +
                         '<img src="recipes_images/'+ response[j].logo + '" class="menu-img">' +
-                        '<a onclick="showRecipe(this)" id="' + response[j].id + '"><p class="menu-name">' + response[j].name + '</p></a>' +
+                        '<a onclick="showRecipe(this)" id="' +  response[j].id+ '"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
@@ -113,6 +113,10 @@ function updateMenu() {
                 start = end;
                 end += parseInt(mealTimes);
             }
+            $('.sort').sortable({
+                connectWith: ".connected",
+                cancel: ".disabled"
+            });
         }
     })
 }
@@ -155,10 +159,7 @@ function getFood() {
 var $j = jQuery.noConflict();
 
 $j( document ).ready(function() {
-    $('#sort1').sortable();
-    $( "#sort" ).sortable({
-       cancel: ".disabled"
-    });
+
 
 
 
@@ -170,11 +171,6 @@ $j( document ).ready(function() {
     });
         $('.tooltipped').tooltip({delay: 50});
 
-    $(function() {
-        $( "#sort, #sort1" ).sortable({
-            connectWith: ".connected"
-        }).disableSelection();
-    });
 
     $(document).on('click', '#delete', function() {
         $(this).closest('li').toggleClass('strike').fadeOut('slow', function() { $(this).remove(); });
