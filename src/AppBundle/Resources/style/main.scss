@@ -367,6 +367,10 @@ input.settings:focus{
     height: 100%;
     top:0!important;
   }
+  .prisjungimo-div {
+    border-right:none!important;
+    border-bottom: 1px solid grey;
+  }
 }
 
 nav .input-field label i {
@@ -422,4 +426,17 @@ nav {
 .search-input {
   width: auto;
   overflow: hidden;
+}
+
+.antraste-center {
+  text-align: center;
+}
+
+.sarasas-ico {
+  font-size: 70px!important;
+  margin: 0 auto;
+}
+
+.prisjungimo-div {
+  border-right: 1px solid grey;
 }

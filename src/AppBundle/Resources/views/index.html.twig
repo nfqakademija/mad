@@ -102,6 +102,50 @@
         </div>
 
 
-        <!-- Modal for info about recipe-->
+        <!-- Modal for get shopping list and login to save information-->
+        <div id="get-list-modal" class="modal">
+            <button class="modal-close btn-flat close-button">Close</button>
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col m6 l6 s10 offset-s1 prisjungimo-div">
+                        {% block getlist %}
+                            {% trans_default_domain 'FOSUserBundle' %}
+
+                            {% if error is defined %}
+                                {% if error %}
+                                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+                            {% endif %}
+
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                {% if csrf_token is defined %}
+                                    {% if csrf_token %}
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                    {% endif %}
+                                {% endif %}
+
+                                <h5 class="antraste-center">Prisijungti ir išsaugoti</h5>
+                                <input type="text" id="username" name="_username" required="required" placeholder="El. paštas"/>
+
+                                <input type="password" id="password" name="_password" required="required" placeholder="Slaptažodis" />
+
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                                <label for="remember_me">Prisiminti mane</label>
+
+                                <input type="submit" id="_submit" name="_submit" value="Prisijungti" class="waves-effect waves-light btn" />
+                                <p>Nesi narys? <a href="{{ path('fos_user_registration_register') }}">Registruokis</a></p>
+                            </form>
+                        {% endblock %}
+                    </div>
+                    <div class="col m6 l6 s10 offset-s1 antraste-center">
+                        <h5>Gauti pirkinių sąrašą be registracijos</h5>
+                        <p>
+                            <a href="#" class="btn-floating btn-medium waves-effect waves-light pulse"><i class="material-icons">shopping_cart</i></a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 {% endblock %}
