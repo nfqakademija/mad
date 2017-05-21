@@ -38,10 +38,10 @@ class MealsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $meals = $em->getRepository(Meals::class)->getMealsByCaloriesAndBlockedIngredients($mealCalories, $blockedIngredients);
 
-        shuffle($meals);
 
         if(!empty($meals)) {
             for($i=0; $i < $daysCount; $i++) {
+                shuffle($meals);
                 $meals2 = array_slice($meals, 0, $mealsPerDay, true);
                 $mealsForSelectedDays = array_merge($mealsForSelectedDays, $meals2);
             }
