@@ -199,9 +199,11 @@ $j( document ).ready(function() {
 
 function showRecipe(element) {
   var id = $(element).attr("id");
+  var link = "getMeal/" + id;
+  console.log(link);
   console.log("clicked");
   $.ajax({
-      url: "getMeal/" + id,
+      url: link,
       success: function(response){
          $modal = $("#modal3");
          createModal(response);
@@ -238,7 +240,7 @@ function createModal(response) {
                                     '<div class="row">' +
                                         '<div class="col s10 offset-s1 m8 l8">' +
                                             '<span class="title-underline">Paruošimas</span>' +
-                                            '<p>aaa</p>' +
+                                            '<p>response.about</p>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>');
