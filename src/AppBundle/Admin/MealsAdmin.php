@@ -22,6 +22,7 @@ class MealsAdmin extends AbstractAdmin
             ->add('about', 'textarea', array('label' => 'Apie'))
             ->add('howtomake', 'textarea', array('label' => 'Kaip pasigaminti ?'))
             ->add('logo', null, array('label' => 'Paveikslėlis'))
+            ->add('time', null, array('label' => 'Gaminimo laikas'))
             ->add('ingredients', 'sonata_type_collection',
                 array('by_reference' => false, 'label' => 'Ingridientai'),
                 array('edit'=>'inline','inline'=>'table')
@@ -36,6 +37,7 @@ class MealsAdmin extends AbstractAdmin
             ->add('weight', null, array('label' => 'Svoris'))
             ->add('about', null, array('label' => 'Apie patiekala'))
             ->add('howtomake', null, array('label' => 'Kaip pasigaminti?'))
+            ->add('time', null, array('label' => 'Gaminimo laikas'))
             ->add('ingredients', null, array('label' => 'Ingridientai'))
             ->add('_action', null, array(
                 'actions' => array(
