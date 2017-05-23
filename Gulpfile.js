@@ -21,12 +21,8 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', function() {
     gulp.src([
-            //Third party assets
-            dir.npm + 'jquery/dist/jquery.min.js',
-            dir.npm + 'bootstrap-sass/assets/javascripts/bootstrap.min.js',
-
-            // Main JS file
-            dir.assets + 'scripts/main.js'
+            // Main JS files
+            dir.assets + 'scripts/**/*.js'
         ])
         .pipe(concat('script.js'))
         .pipe(uglify())
