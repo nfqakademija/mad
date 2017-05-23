@@ -106,7 +106,7 @@ function updateMenu() {
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<a href="#modal2"><button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<a href="#modal2"><button class="action" id="' + response[j].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
                         '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
@@ -126,7 +126,11 @@ function updateMenu() {
 var selector;
 
 function getRecipeId(id) {
-   selector = id;
+    selector = id;
+    console.log(id);
+    console.log(selector);
+    console.log("*----*");
+   return selector;
 }
 
 function replaceRecipe(id) {
@@ -136,7 +140,7 @@ function replaceRecipe(id) {
 
     var string = ulId + " " + liId;
 
-    console.log(liId);
+    console.log(string);
     console.log(ulId);
 
     $li =  $(string);
@@ -149,6 +153,7 @@ function replaceRecipe(id) {
         url: "/getMeal",
         data: {"id": id},
         success: function (response) {
+            console.log(response[0].id);
             jQuery(this).prev($li).attr("id", response[0].id);
             $li.append(
                 '<img src="recipes_images/'+ response[0].logo+ '" class="menu-img">' +
@@ -159,7 +164,7 @@ function replaceRecipe(id) {
                 '<a href="#modal2"><button class="action" id="' + response[0].id + "/" + split[1] + '" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
                 '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                 '</div>');
-            console.log($li);
+            $("#modal2").modal("close");
         }
     })
 
