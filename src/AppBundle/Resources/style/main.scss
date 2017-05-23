@@ -18,6 +18,56 @@ body{
   width: 130px !important;
 }
 
+div.recipe-field{
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+div.field-image{
+  width: 30%;
+  display: inline-block;
+
+}
+
+img.field-image{
+  max-width: 90%;
+  vertical-align: middle;
+  margin: 10px 10px;
+}
+
+div.search-result{
+  margin-top: 30px;
+}
+
+div.field-content{
+  display: inline-block;
+  width: 60%;
+  text-align: left;
+}
+
+nav.meal-search{
+  background-color: white;
+}
+
+h2.field-content{
+  font-size: 1.1rem;
+  color: #212121;
+  margin: 0 10px;
+}
+
+p.about-content{
+  margin: 0 10px;
+  margin-top: 10px;
+  color: #616161;
+}
+
+div.field-action{
+  display: inline-block;
+  width: 10%;
+}
+
+
 li.day{
   background-color: #26a69a;
   height: 30px;
@@ -350,7 +400,7 @@ input.settings:focus{
 
 //modal
 #modal2, #modal3 {
-  width: 95%;
+  width: 70%;
   height: 90%;
   top: 5%!important;
   margin: auto;
@@ -361,7 +411,7 @@ input.settings:focus{
 }
 
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width : 769px) {
   #modal2, #modal3 {
     width:100%;
     height: 100%;

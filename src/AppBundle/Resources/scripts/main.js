@@ -9,6 +9,7 @@ window.onload = function(){
     };
 
     getFood();
+    showMealsForSearch();
 
     var calculate = document.getElementById("calculate");
     calculate.onclick = function ()     {
@@ -105,8 +106,8 @@ function updateMenu() {
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
-                        '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                        '<button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button>' +
+                        '<a href="#modal2"><button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button></a>' +
                         '</div>' +
                         '</li>');
                 }
@@ -119,6 +120,21 @@ function updateMenu() {
             });
         }
     })
+}
+
+
+var selector;
+
+function getRecipeId(id) {
+   selector = id;
+}
+
+function replaceRecipe(id) {
+    var split = selector.split("/");
+    var liId = split[0];
+    var ulId = split[1];
+
+    var select = "ul#" + ulId + " li#" +liId;
 }
 
 function getFood() {
@@ -159,6 +175,43 @@ function getFood() {
 var $j = jQuery.noConflict();
 
 $j( document ).ready(function() {
+
+
+    $('#search-meal').keyup(function() {
+        var word =  $(this).val();
+        if(word === ''){
+            word = "Cp5568C";
+            console.log(word);
+        }
+        $.ajax({
+            url: "/searchMeals/" + word,
+            dataType: "json",
+            async: "false",
+            success: function (response) {
+                console.log("fetched");
+               $(".search-result").empty();
+                if(!$.trim(response)){
+                    $(".search-result").append('<p>Atsiprašome, tokio recepto neradome</p>')
+                }
+                for(var i in response){
+                    $(".search-result").append('<div class="col s12 m6">'+
+                        '<div class="card small">' +
+                        '<div class="card-image">' +
+                        '<img src="recipes_images/' + response[i].logo +'">' +
+                        '</div>' +
+                        '<div class="card-content">' +
+                        '<p>' +response[i].name +'</p>' +
+                        '</div>' +
+                        '<div class="card-action text-center">' +
+                        '<a class="btn-floating waves-effect waves-light teal" href="#modal2" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
+                        '</div>'+
+                        '</div>' +
+                        '</div>')
+                }
+            }
+        })
+    });
+
 
 
 
@@ -219,34 +272,68 @@ function showRecipe(element) {
   });
 }
 
+
+
 function createModal(response) {
     response.forEach(function(element) {
         $("#fullpage").append('<div id="modal3" class="modal my-modal">' +
-            '<button class="modal-close btn-flat close-button">Close</button>' +
+            '<button class="modal-close btn-flat close-button"><i class="material-icons red">close</i></button>' +
             '<div class="modal-content">' +
             '<div class="row">' +
             '<div class="col s12">' +
-            ' <h4>' + element.name + '</h4>' +
+            ' <h4 class="title-recipe">' + element.name + '</h4>' +
             '</div>' +
-            '<div class="col s10 offset-s1 m6 l4">' +
-            '<img class="responsive-img" src="recipes_images/' + element.logo + '">' +
+            '<div class="col m12">' +
+                '<img class="" src="recipes_images/' + element.logo + '">' +
+                '<button id="' + response.id + '" onclick="schangeRecipe(this.id)">Pakeisti</button>' +
             '</div>' +
-            '<div class="col s6 offset-s3 m6 l8">' +
-            '<ul style="font-size: 20px;">' +
-            '<li><i class="material-icons info-ico">av_timer</i> Laikas: <span class="info-value">'+element.time+'</span></li>' +
-            '<li><i class="material-icons info-ico">swap_calls</i> Kalorijos: <span class="info-value">'+element.calories+' kcal</span></li>' +
-            '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
-            //'<li><i class="material-icons info-ico">list</i> Kategorija: <span class="info-value">pagrindinis</span></li>' +
-            '</ul>' +
+            '<div class="col m12">' +
+                '<ul>' +
+                    '<li><i class="material-icons info-ico">av_timer</i> Gaminimo laikas: <span class="info-value">'+element.time+'</span></li>' +
+                    '<li><i class="material-icons info-ico">whatshot</i> Kalorijos: <span class="info-value">'+element.calories+' kcal</span></li>' +
+                    '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
+                '</ul>' +
             '</div>' +
             '</div>' +
             '<div class="row">' +
-            '<div class="col s10 offset-s1 m8 l8">' +
+            '<div class="col m12">' +
             '<span class="title-underline">Paruošimas</span>' +
             '<p>'+element.howToMake+'</p>' +
             '</div>' +
             '</div>' +
             '</div>'
         );
+    });
+}
+
+function showMealsForSearch() {
+    var word = "Cp5568C";
+    $.ajax({
+        url: "/searchMeals/" + word,
+        dataType: "json",
+        async: "false",
+        success: function (response) {
+            console.log("fetched");
+            $(".search-result").empty();
+            if(!$.trim(response)){
+                $(".search-result").append('<p>Atsiprašome, tokio recepto neradome</p>')
+            }
+            for(var i in response){
+                $(".search-result").append('<div class="col s12 m12">'+
+                    '<div class="recipe-field">' +
+                    '<div class="field-image">' +
+                        '<img src=src="recipes_images/' + response[i].logo + '" class="field-image">' +
+                    '</div>' +
+                    '<div class="field-content">' +
+                      '<h2 class="field-content">' +response[i].name +'</h2>' +
+                      '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
+                    '</div>' +
+                    '<div class="field-action">' +
+                        '<a class="btn-floating btn-medium waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
+                    '</div>'+
+                    '</div>' +
+                    '</div>')
+            }
+        }
     });
 }

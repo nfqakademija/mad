@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Doctrine\DBAL\Connection;
 
 class HomeController extends Controller
 {
@@ -15,5 +16,6 @@ class HomeController extends Controller
     {
         return $this->render('AppBundle::index.html.twig', []);
     }
+
 
 }
