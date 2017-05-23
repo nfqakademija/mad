@@ -107,7 +107,7 @@ function updateMenu() {
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
                         '<button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button>' +
-                        '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                        '<a href="#modal2"><button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button></a>' +
                         '</div>' +
                         '</li>');
                 }
@@ -319,16 +319,17 @@ function showMealsForSearch() {
                 $(".search-result").append('<p>Atsiprašome, tokio recepto neradome</p>')
             }
             for(var i in response){
-                $(".search-result").append('<div class="col s12 m6">'+
-                    '<div class="card small">' +
-                    '<div class="card-image">' +
-                    '<img src="recipes_images/' + response[i].logo +'">' +
+                $(".search-result").append('<div class="col s12 m12">'+
+                    '<div class="recipe-field">' +
+                    '<div class="field-image">' +
+                        '<img src=src="recipes_images/' + response[i].logo + '" class="field-image">' +
                     '</div>' +
-                    '<div class="card-content">' +
-                    '<p>' +response[i].name +'</p>' +
+                    '<div class="field-content">' +
+                      '<h2 class="field-content">' +response[i].name +'</h2>' +
+                      '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
                     '</div>' +
-                    '<div class="card-action text-center">' +
-                    '<a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
+                    '<div class="field-action">' +
+                        '<a class="btn-floating btn-medium waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
                     '</div>'+
                     '</div>' +
                     '</div>')
