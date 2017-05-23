@@ -92,21 +92,23 @@ function updateMenu() {
             $menuList = $("#scroll").empty();
             for (var i = 0; i < daysCount; i++){
                 var idOfUl = "sort" + (i + 1);
+                var idOfUlOnlye = (i + 1);
                 $menuList.append('<ul id="' + idOfUl + '" class="connected menu sort"></ul>');
 
                 $ul = $("#" + idOfUl);
                 $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
                 for(var j = start; j < end; j++){
+                    idForButton = idOfUlOnlye + '_' + response[j].id;
                     console.log("j=" + j);
                     console.log("ul=" + $ul);
                     $ul.append(
-                        '<li class="menu" id="' + response[j].id + '">' +
+                        '<li class="menu" id="' + idOfUlOnlye + '_' + response[j].id + '">' +
                         '<img src="recipes_images/'+ response[j].logo+ '" class="menu-img">' +
                         '<a onclick="showRecipe(this)" id="' +  response[j].id+ '"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<a href="#modal2"><button class="action" id="' + response[j].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<a href="#modal2"><button class="action" id="' + idForButton + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
                         '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
@@ -130,6 +132,15 @@ function getRecipeId(id) {
     console.log(id);
     console.log(selector);
     console.log("*----*");
+    split = selector.split("/");
+    var liId = "#" + split[0];
+    var ulId = '#' + split[1];
+
+    var string = ulId + " " + liId;
+
+    console.log(string);
+    console.log(ulId);
+
    return selector;
 }
 
@@ -138,6 +149,12 @@ function replaceRecipe(id) {
     var liId = "#" + split[0];
     var ulId = '#' + split[1];
 
+    var ulNumber = split[0].split("/");
+    var ulNumberID = ulNumber[0];
+
+
+    console.log($(liId));
+    console.log($(liId).parent());
     var string = ulId + " " + liId;
 
     console.log(string);
@@ -153,9 +170,8 @@ function replaceRecipe(id) {
         url: "/getMeal",
         data: {"id": id},
         success: function (response) {
-            console.log(response[0].id);
-            jQuery(this).prev($li).attr("id", response[0].id);
-            $li.append(
+            $li.attr( "id", ulNumberID + '_' + response[0].id);
+            $li.html(
                 '<img src="recipes_images/'+ response[0].logo+ '" class="menu-img">' +
                 '<a onclick="showRecipe(this)" id="' +  response[0].id+ '"><p class="menu-name">' + response[0].name + '</p></a>' +
                 '<div class="li-setting">' +
@@ -164,9 +180,9 @@ function replaceRecipe(id) {
                 '<a href="#modal2"><button class="action" id="' + response[0].id + "/" + split[1] + '" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
                 '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                 '</div>');
-            $("#modal2").modal("close");
         }
-    })
+    });
+    $("#modal2").modal("close");
 
 }
 
