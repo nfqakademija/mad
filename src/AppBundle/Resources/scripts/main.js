@@ -106,7 +106,7 @@ function updateMenu() {
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<button class="action" ><a href="#modal2"><img src="images/icons/change.png" class="action"></a></button>' +
+                        '<button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button>' +
                         '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
@@ -120,6 +120,21 @@ function updateMenu() {
             });
         }
     })
+}
+
+
+var selector;
+
+function getRecipeId(id) {
+   selector = id;
+}
+
+function replaceRecipe(id) {
+    var split = selector.split("/");
+    var liId = split[0];
+    var ulId = split[1];
+
+    var select = "ul#" + ulId + " li#" +liId;
 }
 
 function getFood() {
@@ -188,7 +203,7 @@ $j( document ).ready(function() {
                         '<p>' +response[i].name +'</p>' +
                         '</div>' +
                         '<div class="card-action text-center">' +
-                        '<a class="btn-floating waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
+                        '<a class="btn-floating waves-effect waves-light teal" href="#modal2" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
                         '</div>'+
                         '</div>' +
                         '</div>')
@@ -270,7 +285,7 @@ function createModal(response) {
             '</div>' +
             '<div class="col m12">' +
                 '<img class="" src="recipes_images/' + element.logo + '">' +
-                '<button id="' + response.id + '" onclick="changeRecipe(this.id)">Pakeisti</button>' +
+                '<button id="' + response.id + '" onclick="schangeRecipe(this.id)">Pakeisti</button>' +
             '</div>' +
             '<div class="col m12">' +
                 '<ul>' +
