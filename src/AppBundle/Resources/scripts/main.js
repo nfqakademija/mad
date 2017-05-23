@@ -106,8 +106,8 @@ function updateMenu() {
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button>' +
-                        '<a href="#modal2"><button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button></a>' +
+                        '<a href="#modal2"><button class="action" id="' + response[i].id + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
                 }
@@ -131,10 +131,38 @@ function getRecipeId(id) {
 
 function replaceRecipe(id) {
     var split = selector.split("/");
-    var liId = split[0];
-    var ulId = split[1];
+    var liId = "#" + split[0];
+    var ulId = '#' + split[1];
 
-    var select = "ul#" + ulId + " li#" +liId;
+    var string = ulId + " " + liId;
+
+    console.log(liId);
+    console.log(ulId);
+
+    $li =  $(string);
+    console.log($li);
+    console.log("---------------");
+
+
+    $li.empty();
+    $.ajax({
+        url: "/getMeal",
+        data: {"id": id},
+        success: function (response) {
+            jQuery(this).prev($li).attr("id", response[0].id);
+            $li.append(
+                '<img src="recipes_images/'+ response[0].logo+ '" class="menu-img">' +
+                '<a onclick="showRecipe(this)" id="' +  response[0].id+ '"><p class="menu-name">' + response[0].name + '</p></a>' +
+                '<div class="li-setting">' +
+                '<input type="number" class="portion" value="4">' +
+                '<label class="portion">porc.</label>' +
+                '<a href="#modal2"><button class="action" id="' + response[0].id + "/" + split[1] + '" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
+                '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                '</div>');
+            console.log($li);
+        }
+    })
+
 }
 
 function getFood() {
@@ -194,16 +222,17 @@ $j( document ).ready(function() {
                     $(".search-result").append('<p>Atsiprašome, tokio recepto neradome</p>')
                 }
                 for(var i in response){
-                    $(".search-result").append('<div class="col s12 m6">'+
-                        '<div class="card small">' +
-                        '<div class="card-image">' +
-                        '<img src="recipes_images/' + response[i].logo +'">' +
+                    $(".search-result").append('<div class="col s12 m12">'+
+                        '<div class="recipe-field">' +
+                        '<div class="field-image">' +
+                        '<img src="recipes_images/' + response[i].logo + '" class="field-image">' +
                         '</div>' +
-                        '<div class="card-content">' +
-                        '<p>' +response[i].name +'</p>' +
+                        '<div class="field-content">' +
+                        '<h2 class="field-content">' +response[i].name +'</h2>' +
+                        '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
                         '</div>' +
-                        '<div class="card-action text-center">' +
-                        '<a class="btn-floating waves-effect waves-light teal" href="#modal2" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
+                        '<div class="field-action">' +
+                        '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
                         '</div>'+
                         '</div>' +
                         '</div>')
@@ -322,14 +351,14 @@ function showMealsForSearch() {
                 $(".search-result").append('<div class="col s12 m12">'+
                     '<div class="recipe-field">' +
                     '<div class="field-image">' +
-                        '<img src=src="recipes_images/' + response[i].logo + '" class="field-image">' +
+                        '<img src="recipes_images/' + response[i].logo + '" class="field-image">' +
                     '</div>' +
                     '<div class="field-content">' +
                       '<h2 class="field-content">' +response[i].name +'</h2>' +
                       '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
                     '</div>' +
                     '<div class="field-action">' +
-                        '<a class="btn-floating btn-medium waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
+                        '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
                     '</div>'+
                     '</div>' +
                     '</div>')
