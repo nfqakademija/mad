@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Meals;
+use AppBundle\Entity\MealsWithIngredients;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Asset\Packages;
@@ -80,6 +81,65 @@ class MealsController extends Controller
         $meals = $em->getRepository(Meals::class)->getMealsByName($name);
 
         return new JsonResponse($meals);
+    }
+
+    /**
+     * Gets meals list by name for search field
+     * @Route("/getMealIngredients")
+     * @return JsonResponse
+     */
+    public function getMealIngredients() {
+        $allIngredients = [];
+        $sortedIngredients = [];
+
+        $array = ['1 Day' =>
+            [
+                'mealId' => 3,
+                'multiplier' => 2
+            ],
+            [
+                'mealId' => 4,
+                'multiplier' => 2
+            ]
+        ];
+
+        foreach($array as $meal) {
+            $em = $this->getDoctrine()->getManager();
+            $mealIngredients = $em->getRepository(MealsWithIngredients::class)->getMealIngredients($meal['mealId']);
+
+            foreach($mealIngredients as $ingredient) {
+                $ingredient['multiplier'] = $meal['multiplier'];
+                array_push($allIngredients,$ingredient);
+            }
+        }
+
+        $ingredientNames = [];
+
+        foreach($allIngredients as $ingredient) {
+            $ingredientAmount = 0;
+            $ingredientProductCount = 0;
+
+            if (!in_array($ingredient['name'], $ingredientNames)) {
+                foreach ($allIngredients as $ingredient2) {
+                    if ($ingredient['name'] == $ingredient2['name']) {
+                        $ingredientAmount += $ingredient2['ammount'] * $ingredient['multiplier'];
+                        $ingredientProductCount += $ingredient2['productCount'] * $ingredient['multiplier'];
+                    }
+                }
+
+                array_push($sortedIngredients,
+                    [
+                        'name' => $ingredient['name'],
+                        'amount' => $ingredientAmount,
+                        'count' => $ingredientProductCount,
+                        'type' => $ingredient['ammountType'],
+                    ]
+                );
+
+                array_push($ingredientNames, $ingredient['name']);
+            }
+        }
+        return new JsonResponse($sortedIngredients);
     }
 
 

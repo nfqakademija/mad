@@ -45,6 +45,8 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
 
     /**
      * Get single meal info
+     * @param integer $id
+     * @return array
      */
     public function getMealInfo($id)
     {
@@ -60,6 +62,8 @@ class MealsRepository extends \Doctrine\ORM\EntityRepository
 
     /**
      * Get meals by name
+     * @param string $name
+     * @return array
      */
     public function getMealsByName($name)
     {
