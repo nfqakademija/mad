@@ -1,37 +1,3 @@
-function getFood() {
-    $.ajax({
-        url: "/getIngredients",
-        dataType: "json",
-        success: function (response) {
-            var foodArray = response;
-            var dataFood = {};
-            for (var i = 0; i < foodArray.length; i++) {
-                dataFood[foodArray[i].name] = null;
-            }
-            $('.chips').material_chip();
-            $('.chips-autocomplete').material_chip({
-                placeholder: "Ieškokite produkto",
-                secondaryPlaceholder: "Ieškokite produkto",
-                autocompleteOptions: {
-                    data: dataFood,
-                    limit: 5,
-                    minLength: 1
-                }
-            });
-        }
-    })
-}
-
-function chipsActions() {
-    $('.chips').on('chip.add', function(e, chip){
-        blockedIgredients.putIngredient(chip.tag);
-        updateMenu();
-    });
-    $('.chips').on('chip.delete', function(e, chip){
-        blockedIgredients.pullIngredient(chip.tag);
-        updateMenu();
-    });
-}
 
 function showMealsForSearch() {
     var word = "Cp5568C";
