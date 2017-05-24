@@ -100,7 +100,7 @@ hwi_oauth:
     firewall_names: [secured_area]
 
     resource_owners:
-        any_name:
+        facebook:
             type:                facebook
             client_id:           '1692863737683158'
             client_secret:       '14fe6cfd94946b1eeb2b621474f90ca2'
@@ -109,16 +109,16 @@ hwi_oauth:
                 auth_type: rerequest # Re-asking for Declined Permission
 
     connect:
-            account_connector: my.custom.user_provider
-        firewall_names:
-            - 'secured_area'
-        fosub:
-            username_iterations: 30
-            properties:
-                facebook:    facebook_id
-        resource_owners:
-            facebook:
-                type:                facebook
-                client_id:           id
-                client_secret:       secret
-                scope:               scope
+        account_connector: my.custom.user_provider
+    firewall_names:
+        - 'secured_area'
+    fosub:
+        username_iterations: 30
+        properties:
+            facebook:    facebook_id
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           id
+            client_secret:       secret
+            scope:               scope
