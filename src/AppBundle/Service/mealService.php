@@ -5,7 +5,6 @@ namespace AppBundle\Service;
 
 use AppBundle\Entity\Meals;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class mealService

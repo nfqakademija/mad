@@ -2,8 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Ingredients;
-
 /**
  * IngredientsRepository
  *
