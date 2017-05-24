@@ -24,14 +24,14 @@ class ScheduleDays
     /**
      * @Assert\NotBlank()
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UserMealsSchedules", inversedBy="scheduleDays")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\UserMealsSchedules", inversedBy="scheduleDays", cascade={"persist"})
      * @ORM\JoinColumn(name="schedule_id", referencedColumnName="id")
      */
     private $userMealsSchedule;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDayMeals", mappedBy="scheduleDay")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDayMeals", mappedBy="scheduleDay", cascade={"persist"})
      */
     private $meals;
 
@@ -164,6 +164,22 @@ class ScheduleDays
     public function getTimeUpdated()
     {
         return $this->timeUpdated;
+    }
+
+    /**
+     * @param mixed $meals
+     * @return ScheduleDays
+     */
+    public function setMeals($meals)
+    {
+        $this->meals = $meals;
+        return $this;
+    }
+
+    public function addMeal(ScheduleDayMeals $meal)
+    {
+        $meal->setScheduleDay($this);
+        $this->meals->add($meal);
     }
 }
 

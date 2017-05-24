@@ -7,18 +7,30 @@ services:
             - { name: form.type, alias: app_user_registration }
 
     admin.meals:
-                class: AppBundle\Admin\MealsAdmin
-                arguments: [~, AppBundle\Entity\Meals, ~]
-                tags:
-                    - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Patiekalai }
+        class: AppBundle\Admin\MealsAdmin
+        arguments: [~, AppBundle\Entity\Meals, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Patiekalai }
     admin.meals_with_ingredients:
-                  class: AppBundle\Admin\MealsWithIngredients
-                  arguments: [~, AppBundle\Entity\MealsWithIngredients, ~]
-                  tags:
-                      - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: MealsWithIngredients, show_in_dashboard: false }
+        class: AppBundle\Admin\MealsWithIngredients
+        arguments: [~, AppBundle\Entity\MealsWithIngredients, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: MealsWithIngredients, show_in_dashboard: false }
 
     admin.blog_post:
-            class: AppBundle\Admin\IngredientsAdmin
-            arguments: [~, AppBundle\Entity\Ingredients, ~]
-            tags:
-                - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Ingridientai }
+        class: AppBundle\Admin\IngredientsAdmin
+        arguments: [~, AppBundle\Entity\Ingredients, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: Ingridientai }
+
+    app.meals_schedule_service:
+        class: AppBundle\Service\mealScheduleService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    app.meals_service:
+            class: AppBundle\Service\mealService
+            arguments: ['@doctrine.orm.entity_manager']
+
+    app.meal_ingredients_service:
+            class: AppBundle\Service\mealIngredientsService
+            arguments: ['@doctrine.orm.entity_manager']

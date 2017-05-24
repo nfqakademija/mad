@@ -23,7 +23,7 @@ class UserMealsSchedules
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDays", mappedBy="userMealsSchedule")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ScheduleDays", mappedBy="userMealsSchedule", cascade={"persist"})
      */
     private $scheduleDays;
 
@@ -39,13 +39,6 @@ class UserMealsSchedules
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="schedule_order", type="integer")
-     */
-    private $scheduleOrder;
 
     /**
      * @var \DateTime
@@ -78,6 +71,16 @@ class UserMealsSchedules
     }
 
     /**
+     * @param int $id
+     * @return UserMealsSchedules
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getUser()
@@ -86,7 +89,7 @@ class UserMealsSchedules
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      * @return UserMealsSchedules
      */
     public function setUser($user)
@@ -119,30 +122,6 @@ class UserMealsSchedules
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set scheduleOrder
-     *
-     * @param integer $scheduleOrder
-     *
-     * @return UserMealsSchedules
-     */
-    public function setScheduleOrder($scheduleOrder)
-    {
-        $this->scheduleOrder = $scheduleOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get scheduleOrder
-     *
-     * @return int
-     */
-    public function getScheduleOrder()
-    {
-        return $this->scheduleOrder;
     }
 
     /**
@@ -209,6 +188,12 @@ class UserMealsSchedules
     {
         $this->scheduleDays = $scheduleDays;
         return $this;
+    }
+
+    public function addScheduleDay(ScheduleDays $scheduleDay)
+    {
+        $scheduleDay->setUserMealsSchedule($this);
+        $this->scheduleDays->add($scheduleDay);
     }
 
 

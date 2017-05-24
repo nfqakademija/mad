@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * ScheduleDayMeals
@@ -22,7 +23,7 @@ class ScheduleDayMeals
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ScheduleDays", inversedBy="meals")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ScheduleDays", inversedBy="meals", cascade={"persist"})
      * @ORM\JoinColumn(name="schedule_day_id", referencedColumnName="id")
      */
     private $scheduleDay;
@@ -120,7 +121,7 @@ class ScheduleDayMeals
     /**
      * Set mealJson
      *
-     * @param array $mealJson
+     * @param JsonResponse $mealJson
      *
      * @return ScheduleDayMeals
      */

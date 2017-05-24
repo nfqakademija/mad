@@ -6,51 +6,22 @@ use AppBundle\Entity\Meals;
 use AppBundle\Entity\MealsWithIngredients;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class MealsController extends Controller
 {
     /**
-     * Gets JSON meals by selected calories count (name, and calories)
+     * Gets JSON meals by calories and days
      * @Route("/getMeals")
      * @return JsonResponse
      */
     public function getMealsAction()
     {
-        $mealsForSelectedDays = [];
+        $mealService = $this->get('app.meals_service');
+        $meals = $mealService->getMealsByCaloriesAndDays();
 
-        $request = Request::createFromGlobals();
-        $request->getPathInfo();
-
-        $daysCount = $request->query->get('days');
-        $calories = $request->query->get('cal');
-        $mealsPerDay = $request->query->get('mealTimes');
-
-        // array
-        $blockedIngredients = $request->query->get('blockedIngredients');
-        if(empty($blockedIngredients)) {
-            $blockedIngredients = ["test"];
-        }
-
-        $mealCalories = $calories / $daysCount;
-
-        $em = $this->getDoctrine()->getManager();
-        $meals = $em->getRepository(Meals::class)->getMealsByCaloriesAndBlockedIngredients($mealCalories, $blockedIngredients);
-
-
-        if(!empty($meals)) {
-            for($i=0; $i < $daysCount; $i++) {
-                shuffle($meals);
-                $meals2 = array_slice($meals, 0, $mealsPerDay, true);
-                $mealsForSelectedDays = array_merge($mealsForSelectedDays, $meals2);
-            }
-        } else {
-            $mealsForSelectedDays = ['status' => 'empty'];
-        }
-
-        return new JsonResponse($mealsForSelectedDays);
+        return new JsonResponse($meals);
     }
 
     /**
@@ -71,7 +42,7 @@ class MealsController extends Controller
     }
 
     /**
-     * Gets meals list by name for search field
+     * Gets JSON meals list by name for search field
      * @param string $name
      * @Route("/searchMeals/{name}")
      * @return JsonResponse
@@ -84,62 +55,15 @@ class MealsController extends Controller
     }
 
     /**
-     * Gets meals list by name for search field
+     * Gets JSON meals ingredients for ingredients cart
      * @Route("/getMealIngredients")
      * @return JsonResponse
      */
-    public function getMealIngredients() {
-        $allIngredients = [];
-        $sortedIngredients = [];
+    public function getMealIngredientsAction() {
+        $mealService = $this->get('app.meal_ingredients_service');
+        $meals = $mealService->getIngredientsByMeals();
 
-        $array = ['1 Day' =>
-            [
-                'mealId' => 3,
-                'multiplier' => 2
-            ],
-            [
-                'mealId' => 4,
-                'multiplier' => 2
-            ]
-        ];
-
-        foreach($array as $meal) {
-            $em = $this->getDoctrine()->getManager();
-            $mealIngredients = $em->getRepository(MealsWithIngredients::class)->getMealIngredients($meal['mealId']);
-
-            foreach($mealIngredients as $ingredient) {
-                $ingredient['multiplier'] = $meal['multiplier'];
-                array_push($allIngredients,$ingredient);
-            }
-        }
-
-        $ingredientNames = [];
-
-        foreach($allIngredients as $ingredient) {
-            $ingredientAmount = 0;
-            $ingredientProductCount = 0;
-
-            if (!in_array($ingredient['name'], $ingredientNames)) {
-                foreach ($allIngredients as $ingredient2) {
-                    if ($ingredient['name'] == $ingredient2['name']) {
-                        $ingredientAmount += $ingredient2['ammount'] * $ingredient['multiplier'];
-                        $ingredientProductCount += $ingredient2['productCount'] * $ingredient['multiplier'];
-                    }
-                }
-
-                array_push($sortedIngredients,
-                    [
-                        'name' => $ingredient['name'],
-                        'amount' => $ingredientAmount,
-                        'count' => $ingredientProductCount,
-                        'type' => $ingredient['ammountType'],
-                    ]
-                );
-
-                array_push($ingredientNames, $ingredient['name']);
-            }
-        }
-        return new JsonResponse($sortedIngredients);
+        return new JsonResponse($meals);
     }
 
 

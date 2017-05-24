@@ -11,7 +11,7 @@ class IngredientsController extends Controller
 {
     /**
      * @Route("/getIngredients")
-     * @return JsonResponse
+     * @return JsonResponse array
      */
     public function getIngredientsAction()
     {
