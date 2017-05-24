@@ -25,33 +25,30 @@ function updateMenu() {
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories, "blockedIngredients": ingredients},
         success: function (response) {
+
+            var daysUl = [];
+
             $menuList = $("#scroll").empty();
             for (var i = 0; i < daysCount; i++){
+
                 var idOfUl = "sort" + (i + 1);
-                var idOfUlOnlye = (i + 1);
                 $menuList.append('<ul id="' + idOfUl + '" class="connected menu sort"></ul>');
 
                 $ul = $("#" + idOfUl);
                 $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
                 for(var j = start; j < end; j++){
-                    idForButton = idOfUlOnlye + '_' + response[j].id;
-                    var inputId = idForButton + "/input";
-
+                    daysUl.push(i+1);
                     $ul.append(
-                        '<li class="menu" id="' + idForButton + '">' +
+                        '<li class="menu">' +
                         '<img src="recipes_images/'+ response[j].logo+ '" class="menu-img">' +
-                        '<a onclick="showRecipe(this)" id="' +  response[j].id+ '"><p class="menu-name">' + response[j].name + '</p></a>' +
+                        '<a onclick="showRecipe(this)"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
-                        '<input type="number" class="portion" value="4" id="' + inputId + '">' +
+                        '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<a href="#modal2"><button class="action" id="' + idForButton + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<a href="#modal2"><button class="action changeRecipe"><img src="images/icons/change.png" class="action"></button></a>' +
                         '<button class="action deleteLi" onclick="deleteLi()"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
-                    var index = $("#" + idForButton).index;
-                    $("#" + idForButton).data({"id": response[j].id, "index": index, "day": i });
-
-
                 }
                 start = end;
                 end += parseInt(mealTimes);
@@ -61,6 +58,29 @@ function updateMenu() {
                 connectWith: ".connected",
                 cancel: ".disabled"
             });
+
+            var i = 0;
+            $li =  $(".table li.menu");
+            $li.each(function (key, elem) { $(elem).data({"id": response[i].id, "day": daysUl[i]}); i++} );
+
         }
     })
+}
+
+$(".changeRecipe").on('click', function(e){
+    e.preventDefault();
+    var id = $(this).closest('li').data("id");
+    var day = $(this).closest('li').data("day");
+});
+
+function IdAndDay() {
+    this.id = "";
+    this.day = "";
+    this.setId = function (id) {
+        this.id = id;
+    };
+    this.setDay = function (day) {
+        this.day = day;
+    };
+    this.getId
 }

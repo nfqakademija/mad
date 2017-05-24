@@ -1,12 +1,12 @@
-function replaceRecipe(id) {
-    $li =  $(selector.getSelector());
-    $li.empty();
+function replaceRecipe(Id, Day) {
+    $li = $("li[id = Id][day = Day]");
 
     $.ajax({
         url: "/getMeal",
         data: {"id": id},
         success: function (response) {
-            $li.attr( "id", ulNumberID + '_' + response[0].id);
+            $li.empty();
+            $li.data({"id": response[0].id});
             $li.html(
                 '<img src="recipes_images/'+ response[0].logo+ '" class="menu-img">' +
                 '<a onclick="showRecipe(this)" id="' +  response[0].id+ '"><p class="menu-name">' + response[0].name + '</p></a>' +
@@ -21,11 +21,3 @@ function replaceRecipe(id) {
     $("#modal2").modal("close");
 }
 
-function getRecipeId(id) {
-    var split = id.split("/");
-    var liId = "#" + split[0];
-    var ulId = '#' + split[1];
-
-    var string = ulId + " " + liId;
-    selector.setSelector(string);
-}
