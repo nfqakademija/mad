@@ -1,3 +1,20 @@
+function IdAndDay() {
+    this.id = 3;
+    this.day = 1;
+    this.setId = function (id) {
+        this.id = id;
+    };
+    this.setDay = function (day) {
+        this.day = day;
+    };
+    this.getId = function () {
+        return this.id;
+    };
+    this.getDay = function () {
+        return this.day;
+    };
+}
+
 function updateValue(par1, par2){
     var value = document.getElementById(par2).value;
     document.getElementById(par1).innerHTML = value;
@@ -39,14 +56,14 @@ function updateMenu() {
                 for(var j = start; j < end; j++){
                     daysUl.push(i+1);
                     $ul.append(
-                        '<li class="menu">' +
+                        '<li class="menu" id="" day="" val="">' +
                         '<img src="recipes_images/'+ response[j].logo+ '" class="menu-img">' +
-                        '<a onclick="showRecipe(this)"><p class="menu-name">' + response[j].name + '</p></a>' +
+                        '<a class="recipeShow"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
                         '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<a href="#modal2"><button class="action changeRecipe"><img src="images/icons/change.png" class="action"></button></a>' +
-                        '<button class="action deleteLi" onclick="deleteLi()"><img src="images/icons/delete.png" class="action"></button>' +
+                        '<a href="#modal2" class="changeRecipe"><button class="action"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<button class="action deleteLi"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
                 }
@@ -56,31 +73,25 @@ function updateMenu() {
 
             $('.sort').sortable({
                 connectWith: ".connected",
-                cancel: ".disabled"
+                cancel: ".disabled",
+                update: function (event, ui) {
+                    $(".table li.menu").each(function (key, elem) {
+                        var id = $(elem).parent('ul').attr('id');
+                        id = id.replace('sort', '');
+                        $(elem).data({"day": id});
+                    } );
+                }
             });
 
             var i = 0;
             $li =  $(".table li.menu");
+            console.log($li);
             $li.each(function (key, elem) { $(elem).data({"id": response[i].id, "day": daysUl[i]}); i++} );
-
         }
     })
 }
 
-$(".changeRecipe").on('click', function(e){
-    e.preventDefault();
-    var id = $(this).closest('li').data("id");
-    var day = $(this).closest('li').data("day");
-});
 
-function IdAndDay() {
-    this.id = "";
-    this.day = "";
-    this.setId = function (id) {
-        this.id = id;
-    };
-    this.setDay = function (day) {
-        this.day = day;
-    };
-    this.getId
-}
+
+
+

@@ -1,5 +1,12 @@
-function replaceRecipe(Id, Day) {
-    $li = $("li[id = Id][day = Day]");
+function replaceRecipe(id) {
+    var Id = idAndDay.getId();
+    var Day = idAndDay.getDay();
+
+    console.log(Id + " = " + Day);
+
+    var $li = $('.table li.menu').filter(function() {
+        return $(this).data('id') === Id && $(this).data('day') === Day;
+    });
 
     $.ajax({
         url: "/getMeal",
@@ -9,12 +16,12 @@ function replaceRecipe(Id, Day) {
             $li.data({"id": response[0].id});
             $li.html(
                 '<img src="recipes_images/'+ response[0].logo+ '" class="menu-img">' +
-                '<a onclick="showRecipe(this)" id="' +  response[0].id+ '"><p class="menu-name">' + response[0].name + '</p></a>' +
+                '<a class="recipeShow"><p class="menu-name">' + response[0].name + '</p></a>' +
                 '<div class="li-setting">' +
                 '<input type="number" class="portion" value="4">' +
                 '<label class="portion">porc.</label>' +
-                '<a href="#modal2"><button class="action" id="' + response[0].id + "/" + split[1] + '" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
-                '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                '<a href="#modal2"><button class="action changeRecipe"><img src="images/icons/change.png" class="action"></button></a>' +
+                '<button class="action deleteLi" ><img src="images/icons/delete.png" class="action"></button>' +
                 '</div>');
         }
     });
