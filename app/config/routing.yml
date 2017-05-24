@@ -1,18 +1,3 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
-form:
-    resource: "@AppBundle/Form/"
-    type:     annotation
-
-
-
-facebook_login:
-    path: /login/check-facebook
-
-
-
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
@@ -26,8 +11,17 @@ hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
     prefix:   /login
 
+facebook_login:
+    path: /login/check-facebook
 
 
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+form:
+    resource: "@AppBundle/Form/"
+    type:     annotation
 
 
 

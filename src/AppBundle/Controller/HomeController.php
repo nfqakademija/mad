@@ -13,6 +13,7 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
         return $this->render('AppBundle::index.html.twig', []);
     }
 
