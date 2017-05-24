@@ -23,3 +23,10 @@ function sliceCaloriesInputSize() {
         $(this).css('width',size*3);
     });
 }
+
+function deleteLi() {
+    $(".deleteLi").on('click', function(e){
+        e.preventDefault();
+        $(this).closest('li').remove();
+    });
+}
