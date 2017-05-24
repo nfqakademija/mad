@@ -11,18 +11,4 @@ namespace AppBundle\Repository;
 class UserMealsSchedulesRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getUserSchedules() {
-        /**@var User $user */
-        $user = $this->getUser();
-
-        $em = $this->getDoctrine()->getManager();
-        $userSchedules = $em
-            ->getRepository(UserMealsSchedules::class)
-            ->findBy(['user' => $user->getId()]);
-
-        foreach($userSchedules as $schedules) {
-
-        }
-        var_dump($userSchedules);
-    }
 }

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class IngredientsController extends Controller
 {
     /**
-     * @Route("/getIngredients")
+     * @Route("/getIngredients",  name="homepage")
      * @return JsonResponse array
      */
     public function getIngredientsAction()

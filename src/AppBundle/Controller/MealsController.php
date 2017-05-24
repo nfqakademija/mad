@@ -13,7 +13,7 @@ class MealsController extends Controller
 {
     /**
      * Gets JSON meals by calories and days
-     * @Route("/getMeals")
+     * @Route("/getMeals", name="get_meals")
      * @return JsonResponse
      */
     public function getMealsAction()
@@ -26,7 +26,7 @@ class MealsController extends Controller
 
     /**
      * Gets JSON single Meal info
-     * @Route("/getMeal")
+     * @Route("/getMeal", name="get_meal")
      * @return JsonResponse
      */
     public function getMealAction()
@@ -44,7 +44,7 @@ class MealsController extends Controller
     /**
      * Gets JSON meals list by name for search field
      * @param string $name
-     * @Route("/searchMeals/{name}")
+     * @Route("/searchMeals/{name}", name="search_meals")
      * @return JsonResponse
      */
     public function getMealsByNameAction($name) {
@@ -56,7 +56,7 @@ class MealsController extends Controller
 
     /**
      * Gets JSON meals ingredients for ingredients cart
-     * @Route("/getMealIngredients")
+     * @Route("/getMealIngredients", name="get_meal_ingredients")
      * @return JsonResponse
      */
     public function getMealIngredientsAction() {
