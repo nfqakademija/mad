@@ -11,7 +11,7 @@ function updateMenu() {
     var daysCount =  updateValue("days", "daysCount");
     var calories = document.getElementById("kcal").value;
 
-    days = ['Pirma diena', 'Antra diena', 'Trečia diena', 'Ketvirta diena', 'Penkta diena', 'Šešta diena', 'Septinta diena', 'Aštunta diena', 'Devinta diena', 'Dešimta diena', 'Vienuolikta diena', 'Dvylikta diena',
+    var days = ['Pirma diena', 'Antra diena', 'Trečia diena', 'Ketvirta diena', 'Penkta diena', 'Šešta diena', 'Septinta diena', 'Aštunta diena', 'Devinta diena', 'Dešimta diena', 'Vienuolikta diena', 'Dvylikta diena',
         'Trylikta diena', 'Keturiolikta diena', 'Penktiolikta diena', 'Šešiolikta diena', 'Septyniolikta diena', 'Aštoniolikta diena', 'Devyniolikta diena', 'Dvidešimta diena', 'Dvidešimt pirma diena',
         'Dvidešimt antra diena', 'Dvidešimt trečia diena', 'Dvidešimt ketvirta diena', 'Dvidešimt penkta diena', 'Dvidešimt šešta diena', 'Dvidešimt septinta diena', 'Dvidešimt aštunta diena',
         'Dvidešimt devinta diena', 'Trisdešimta diena'];
@@ -35,10 +35,7 @@ function updateMenu() {
                 $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
                 for(var j = start; j < end; j++){
                     idForButton = idOfUlOnlye + '_' + response[j].id;
-                    console.log("j=" + j);
-                    console.log("ul=" + $ul);
                     var inputId = idForButton + "/input";
-                    console.log(inputId);
 
                     $ul.append(
                         '<li class="menu" id="' + idForButton + '">' +
@@ -48,13 +45,13 @@ function updateMenu() {
                         '<input type="number" class="portion" value="4" id="' + inputId + '">' +
                         '<label class="portion">porc.</label>' +
                         '<a href="#modal2"><button class="action" id="' + idForButton + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
-                        '<button class="action" id="delete"><img src="images/icons/delete.png" class="action"></button>' +
+                        '<button class="action deleteLi" onclick="deleteLi()"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
                     var index = $("#" + idForButton).index;
                     $("#" + idForButton).data({"id": response[j].id, "index": index, "day": i });
 
-                    console.log($("#" + idForButton).data("id") + ","  + $("#" + idForButton).data("day"));
+
                 }
                 start = end;
                 end += parseInt(mealTimes);

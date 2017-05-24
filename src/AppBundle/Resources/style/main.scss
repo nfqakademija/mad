@@ -231,6 +231,13 @@ p.menu-name{
   width: 25%;
   margin: 0;
   vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+p.menu-name:hover{
+  color: #26A69A;
+  cursor: pointer;
 }
 
 div.table{
@@ -263,7 +270,14 @@ li.menu{
   height: 50px;
   background-color: white;
   border: 2px solid #EEEEEE;
+  transition: background-color .2s;
 }
+
+li.menu:hover{
+  background-color: #FAFAFA;
+  cursor: pointer;
+}
+
 li.menu + li.menu{
   border-top: none;
 }
@@ -310,13 +324,14 @@ img.action{
 }
 
 button.action{
-  opacity: 0.8;
+  opacity: 0.6;
   background: transparent;
   border: none;
   transition: opacity .3s;
 }
 button.action:hover{
   opacity: 1;
+  cursor: pointer;
 }
 //menu
 
