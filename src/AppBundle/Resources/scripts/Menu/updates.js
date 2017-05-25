@@ -1,6 +1,8 @@
 function IdAndDay() {
     this.id = 3;
     this.day = 1;
+    this.index = 1;
+
     this.setId = function (id) {
         this.id = id;
     };
@@ -13,6 +15,12 @@ function IdAndDay() {
     this.getDay = function () {
         return this.day;
     };
+    this.setIndex = function (index) {
+        this.index = index;
+    };
+    this.getIndex = function () {
+        return this.index;
+    }
 }
 
 function updateValue(par1, par2){
