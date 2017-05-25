@@ -25,9 +25,14 @@ class MealScheduleController extends Controller
      */
     public function getUserSchedules() {
         $mealsScheduleService = $this->get('app.meals_schedule_service');
-        $scheduleId = $mealsScheduleService->getUserSchedules($this->getUser());
+        $schedules = $mealsScheduleService->getUserSchedules($this->getUser());
 
-        return new JsonResponse($scheduleId);
+        if(empty($schedules)) {
+            $schedules = [['name' => 'Neturite nei vieno meniu.', 'id' => 0]];
+        }
+        return $this->render('@App/MealSchedule/user_schedules.twig',
+            ['schedules' => $schedules]
+        );
     }
 
     /**
