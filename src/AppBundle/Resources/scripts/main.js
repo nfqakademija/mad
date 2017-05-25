@@ -1,6 +1,7 @@
 var blockedIngredients = new SetBlockedIngredients();
 var selector = new Selector();
 var idAndDay = new IdAndDay();
+var menuData = new DataOfMenu();
 
 $(document).ready( function () {
 
@@ -29,22 +30,21 @@ $(document).ready( function () {
 
 
 
-var data = [];
 
-function showData() {
-    for(i in data){
-        console.log(data[i].day);
-        console.log(data[i].index);
-        console.log(data[i].id);
-        console.log(data[i].val);
-    }
+function DataOfMenu() {
+    this.data = [];
+    this.setData = function (arg) {
+        this.data.push(arg);
+    };
+    this.getData = function () {
+        return this.data;
+    };
 }
 
+
 function getDataOfRecipes() {
-    $m =  $(".table li.menu");
-    console.log($m);
-    $m.each(function (key, elem) {
-        data.push({
+    $(".table li.menu").each(function (key, elem) {
+        menuData.setData({
             "day": $(elem).data("day"),
             "id": $(elem).data("id"),
             "val": $(elem).find(".portion").val(),
@@ -57,7 +57,6 @@ function getDataOfRecipes() {
 function getList() {
     $(document).on('click', '#getList', function(e){
         e.preventDefault();
-        console.log("gavau");
         getDataOfRecipes();
     });
 }
@@ -74,12 +73,6 @@ function setIdGetter() {
 }
 
 
-function deleteLi() {
-    $(document).on('click', '.deleteLi', function(e){
-        e.preventDefault();
-        $(this).closest('li').remove();
-    });
-}
 
 function putRecipeId() {
     $(document).on('click', '.recipeShow', function(e){
