@@ -1,9 +1,3 @@
-{% trans_default_domain 'FOSUserBundle' %}
-
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
-
 <style>
     @import url(http://fonts.googleapis.com/css?family=Roboto);
 
@@ -106,11 +100,18 @@
     }
 </style>
 
-
         <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Prisijunkite</h1><br>
+                {% trans_default_domain 'FOSUserBundle' %}
+
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
                 <form action="{{ path("fos_user_security_check") }}" method="post" >
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
                     <input type="text" id="username" name="_username" required="required" placeholder="El. paštas" class="validate" />
                     <input type="password" id="password" name="_password" required="required" placeholder="Slaptažodis" class="validate" />
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="login-input" />
@@ -119,6 +120,7 @@
                 </form>
             </div>
         </div>
+
 
 
 
