@@ -1,11 +1,12 @@
 function replaceRecipe(id) {
     var Id = idAndDay.getId();
     var Day = idAndDay.getDay();
+    var Index = idAndDay.getIndex();
 
     console.log(Id + " = " + Day);
 
     var $li = $('.table li.menu').filter(function() {
-        return $(this).data('id') === Id && $(this).data('day') === Day;
+        return $(this).data('id') === Id && $(this).data('day') === Day && $(this).index() === Index ;
     });
 
     $.ajax({

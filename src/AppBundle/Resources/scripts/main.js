@@ -24,12 +24,9 @@ $(document).ready( function () {
     showMealsForSearchOnKey(); // ingredientsSearch.js
 
 
-    putRecipeId();
+    putRecipeId(); //
     getList();
 });
-
-
-
 
 function DataOfMenu() {
     this.data = [];
@@ -40,7 +37,6 @@ function DataOfMenu() {
         return this.data;
     };
 }
-
 
 function getDataOfRecipes() {
     $(".table li.menu").each(function (key, elem) {
@@ -66,13 +62,13 @@ function setIdGetter() {
         e.preventDefault();
         var id = $(this).closest('li').data("id");
         var day = $(this).closest('li').data("day");
+        var index =  $(this).closest('li').index();
 
         idAndDay.setId(id);
         idAndDay.setDay(day);
+        idAndDay.setIndex(index);
     });
 }
-
-
 
 function putRecipeId() {
     $(document).on('click', '.recipeShow', function(e){
