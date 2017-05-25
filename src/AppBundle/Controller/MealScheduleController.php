@@ -36,6 +36,7 @@ class MealScheduleController extends Controller
         );
     }
 
+
     /**
      * @Route("/userSchedule/{id}", name="user_schedule")
      */
@@ -43,12 +44,30 @@ class MealScheduleController extends Controller
         $em = $this->getDoctrine()->getManager();
         $meals = $em->getRepository(UserMealsSchedules::class)->getScheduleMeals($id);
 
+        $msg = '<div class="table">'.
+        $day = 0;
         $mealNameAndId = [];
         foreach($meals as $meal2) {
-
             $meal = json_decode($meal2['mealJson']);
             $mealNameAndId[] = ['id' => $meal->id, 'name' => $meal->name, 'logo' => $meal->logo, 'day' => $meal2['week_day']];
+            if($day != $meal2['week_day']) {
+                if($day != 0) {
+                    $msg .= '</ul>';
+                }
+                $day = $meal2['week_day'];
+                $msg .= '<ul class="connected menu sort ui-sortable">';
+                $msg .= '<li class="menu">'.$meal2['week_day'].' diena</li>';
+            }
+
+            $msg .= '<li class="menu">'
+                    .'<p class="manu-name">'.$meal->name.'</p></li>';
+
         }
-        return new JsonResponse($mealNameAndId);
+        $msg .= '</div>';
+
+        return $this->render('@App/MealSchedule/user_schedule.twig',
+            [
+                'Meals' => $msg
+            ]);
     }
 }
