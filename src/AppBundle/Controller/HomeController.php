@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function showNavBarAction()
     {
-        /*$user = $this->getUser();
+        $user = $this->getUser();
 
         if($user) {
             $navBarInfo = '<li><a href="#">Mano meniu</a></li>'
@@ -21,9 +21,11 @@ class HomeController extends Controller
         } else {
             $navBarInfo = '<li><a href="/login">Prisijungti</a></li>';
         }
-,
-        return $this->render('@App/Components/menuComponents/header.html.twig',
-            ['navbarInfo' => $navBarInfo]);*/
+
+        return $this->render(
+            '@App/index.html.twig',
+            ['navBar' => $navBarInfo]
+        );
     }
 
 
