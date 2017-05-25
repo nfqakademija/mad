@@ -8,14 +8,12 @@ function createModal(response) {
             ' <h4 class="title-recipe">' + element.name + '</h4>' +
             '</div>' +
             '<div class="col m12">' +
-            '<img class="" src="recipes_images/' + element.logo + '">' +
-            '<button id="' + response.id + '" onclick="schangeRecipe(this.id)">Pakeisti</button>' +
+            '<img class="recipeImage" src="recipes_images/' + element.logo + '">' +
             '</div>' +
             '<div class="col m12">' +
             '<ul>' +
-            '<li><i class="material-icons info-ico">av_timer</i> Gaminimo laikas: <span class="info-value">'+element.time+'</span></li>' +
-            '<li><i class="material-icons info-ico">whatshot</i> Kalorijos: <span class="info-value">'+element.calories+' kcal</span></li>' +
-            '<li><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">4</span></li>' +
+            '<li class="about"><i class="material-icons info-ico">whatshot</i> Kalorijos: <span class="info-value">'+ Math.round(parseInt(element.calories)) +' kcal</span></li>' +
+            '<li class="about"><i class="material-icons info-ico">perm_identity</i> Porcijos: <span class="info-value">1</span></li>' +
             '</ul>' +
             '</div>' +
             '</div>' +

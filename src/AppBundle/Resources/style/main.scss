@@ -31,8 +31,11 @@ div.field-image{
 }
 
 img.field-image{
-  max-width: 90%;
+  width: 90%;
+  object-fit: cover;
+  max-height: 40%;
   vertical-align: middle;
+  height: 120px;
   margin: 10px 10px;
 }
 
@@ -54,6 +57,11 @@ h2.field-content{
   font-size: 1.1rem;
   color: #212121;
   margin: 0 10px;
+}
+
+h2.field-content:hover{
+  cursor: pointer;
+  color: teal;
 }
 
 p.about-content{
@@ -517,3 +525,25 @@ nav {
   border-right: 1px solid grey;
 }
 
+h4.title-recipe{
+  text-align: center;
+}
+
+img.recipeImage{
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+li.about{
+  font-size: 1.4rem;
+  color: #212121;
+}
+
+h1.change-title{
+  text-align: center;
+  font-size: 1.6rem;
+  color: teal;
+}

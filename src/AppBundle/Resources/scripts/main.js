@@ -68,7 +68,6 @@ function getBasket() {
         dataType: "json",
         data: {"doc": menuData.getData()},
         success:function (response) {
-            console.log(this.url + "**********");
             $("#basket").empty();
             for(i in response){
                 if(response[i].count == 0) {

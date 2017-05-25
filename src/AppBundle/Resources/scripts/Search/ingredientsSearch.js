@@ -18,11 +18,11 @@ function showMealsForSearch() {
                     '<img src="recipes_images/' + response[i].logo + '" class="field-image">' +
                     '</div>' +
                     '<div class="field-content">' +
-                    '<h2 class="field-content">' +response[i].name +'</h2>' +
-                    '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
+                    '<h2 class="field-content" id="' + response[i].id +'" onclick="showRecipe(this.id)">' +response[i].name +'</h2>' +
+                    '<p class="about-content">' + 'Skanus receptas, visiem rekomenduojame' +'</p>' +
                     '</div>' +
                     '<div class="field-action">' +
-                    '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
+                    '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">cached</i></a>'+
                     '</div>'+
                     '</div>' +
                     '</div>')
@@ -55,11 +55,11 @@ function showMealsForSearchOnKey() {
                         '<img src="recipes_images/' + response[i].logo + '" class="field-image">' +
                         '</div>' +
                         '<div class="field-content">' +
-                        '<h2 class="field-content">' +response[i].name +'</h2>' +
-                        '<p class="about-content">Labai skanus receptas, visiems reokmenduoju</p>' +
+                        '<h2 class="field-content" id="' + response[i].id +'" onclick="showRecipe(this.id)">' +response[i].name +'</h2>' +
+                        '<p class="about-content">' + 'Skanus receptas, visiem rekomenduojame' +'</p>' +
                         '</div>' +
                         '<div class="field-action">' +
-                        '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">add</i></a>'+
+                        '<a class="btn-floating btn-medium waves-effect waves-light teal" id="' + response[i].id +'" onclick="replaceRecipe(this.id)"><i class="material-icons">cached</i></a>'+
                         '</div>'+
                         '</div>' +
                         '</div>')
