@@ -34,6 +34,7 @@ var data = [];
 function showData() {
     for(i in data){
         console.log(data[i].day);
+        console.log(data[i].index);
         console.log(data[i].id);
         console.log(data[i].val);
     }
@@ -46,7 +47,8 @@ function getDataOfRecipes() {
         data.push({
             "day": $(elem).data("day"),
             "id": $(elem).data("id"),
-            "val": $(elem).find(".portion").val()
+            "val": $(elem).find(".portion").val(),
+            "index": $(elem).index()
         }
         )
     });
