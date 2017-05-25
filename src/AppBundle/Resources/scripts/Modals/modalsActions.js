@@ -8,10 +8,7 @@ function modalsTweaks() {
     });
 }
 
-function showRecipe(element) {
-    var id = $(element).attr("id");
-    console.log(id);
-    console.log("clicked");
+function showRecipe(id) {
     $.ajax({
         url: "/getMeal",
         data: {"id": id},

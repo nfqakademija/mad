@@ -7,8 +7,7 @@ var Calculator = {
         var height = modal.find("#height").val();
         var weight = modal.find("#weight").val();
 
-
-        var gen = modal.find("input[name=gender]:checked").val();
+        var gen = parseInt(modal.find("input[name=gender]:checked").val());
         var ac = modal.find("input[name=activity]:checked").val();
 
         if (gen === 1) {

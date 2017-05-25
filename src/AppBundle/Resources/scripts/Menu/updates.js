@@ -1,3 +1,20 @@
+function IdAndDay() {
+    this.id = 3;
+    this.day = 1;
+    this.setId = function (id) {
+        this.id = id;
+    };
+    this.setDay = function (day) {
+        this.day = day;
+    };
+    this.getId = function () {
+        return this.id;
+    };
+    this.getDay = function () {
+        return this.day;
+    };
+}
+
 function updateValue(par1, par2){
     var value = document.getElementById(par2).value;
     document.getElementById(par1).innerHTML = value;
@@ -25,33 +42,30 @@ function updateMenu() {
         dataType: "json",
         data: {"days": daysCount, "mealTimes": mealTimes, "cal": calories, "blockedIngredients": ingredients},
         success: function (response) {
+
+            var daysUl = [];
+
             $menuList = $("#scroll").empty();
             for (var i = 0; i < daysCount; i++){
+
                 var idOfUl = "sort" + (i + 1);
-                var idOfUlOnlye = (i + 1);
                 $menuList.append('<ul id="' + idOfUl + '" class="connected menu sort"></ul>');
 
                 $ul = $("#" + idOfUl);
                 $ul.append('<li class="disabled day"><p class="day">' + days[i] + '</p></li>');
                 for(var j = start; j < end; j++){
-                    idForButton = idOfUlOnlye + '_' + response[j].id;
-                    var inputId = idForButton + "/input";
-
+                    daysUl.push(i+1);
                     $ul.append(
-                        '<li class="menu" id="' + idForButton + '">' +
+                        '<li class="menu" id="" day="" val="">' +
                         '<img src="recipes_images/'+ response[j].logo+ '" class="menu-img">' +
-                        '<a onclick="showRecipe(this)" id="' +  response[j].id+ '"><p class="menu-name">' + response[j].name + '</p></a>' +
+                        '<a class="recipeShow"><p class="menu-name">' + response[j].name + '</p></a>' +
                         '<div class="li-setting">' +
-                        '<input type="number" class="portion" value="4" id="' + inputId + '">' +
+                        '<input type="number" class="portion" value="4">' +
                         '<label class="portion">porc.</label>' +
-                        '<a href="#modal2"><button class="action" id="' + idForButton + "/" + idOfUl +'" onclick="getRecipeId(this.id)"><img src="images/icons/change.png" class="action"></button></a>' +
-                        '<button class="action deleteLi" onclick="deleteLi()"><img src="images/icons/delete.png" class="action"></button>' +
+                        '<a href="#modal2" class="changeRecipe"><button class="action"><img src="images/icons/change.png" class="action"></button></a>' +
+                        '<button class="action deleteLi"><img src="images/icons/delete.png" class="action"></button>' +
                         '</div>' +
                         '</li>');
-                    var index = $("#" + idForButton).index;
-                    $("#" + idForButton).data({"id": response[j].id, "index": index, "day": i });
-
-
                 }
                 start = end;
                 end += parseInt(mealTimes);
@@ -59,8 +73,25 @@ function updateMenu() {
 
             $('.sort').sortable({
                 connectWith: ".connected",
-                cancel: ".disabled"
+                cancel: ".disabled",
+                update: function (event, ui) {
+                    $(".table li.menu").each(function (key, elem) {
+                        var id = $(elem).parent('ul').attr('id');
+                        id = id.replace('sort', '');
+                        $(elem).data({"day": id});
+                    } );
+                }
             });
+
+            var i = 0;
+            $li =  $(".table li.menu");
+            console.log($li);
+            $li.each(function (key, elem) { $(elem).data({"id": response[i].id, "day": daysUl[i]}); i++} );
         }
     })
 }
+
+
+
+
+

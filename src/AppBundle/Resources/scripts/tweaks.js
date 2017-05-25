@@ -24,9 +24,11 @@ function sliceCaloriesInputSize() {
     });
 }
 
+
 function deleteLi() {
-    $(".deleteLi").on('click', function(e){
+    $(document).on('click', '.deleteLi', function(e){
         e.preventDefault();
         $(this).closest('li').remove();
     });
 }
+
