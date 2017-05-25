@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\UserMealsSchedules;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -38,10 +39,16 @@ class MealScheduleController extends Controller
     /**
      * @Route("/userSchedule/{id}", name="user_schedule")
      */
-    public function getUserScheduleInfo() {
-        $mealsScheduleService = $this->get('app.meals_schedule_service');
-        $scheduleId = $mealsScheduleService->getUserSchedules($this->getUser());
+    public function getUserScheduleInfo($id) {
+        $em = $this->getDoctrine()->getManager();
+        $meals = $em->getRepository(UserMealsSchedules::class)->getScheduleMeals($id);
 
-        return new JsonResponse($scheduleId);
+        $mealNameAndId = [];
+        foreach($meals as $meal2) {
+
+            $meal = json_decode($meal2['mealJson']);
+            $mealNameAndId[] = ['id' => $meal->id, 'name' => $meal->name, 'logo' => $meal->logo, 'day' => $meal2['week_day']];
+        }
+        return new JsonResponse($mealNameAndId);
     }
 }

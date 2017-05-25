@@ -10,5 +10,15 @@ namespace AppBundle\Repository;
  */
 class UserMealsSchedulesRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getScheduleMeals($id) {
+        $mealsQuery = $this->createQueryBuilder('userSchedule');
+        $mealsQuery
+            ->leftJoin('userSchedule.scheduleDays', 'days')
+            ->leftJoin('days.meals', 'meals')
+            ->where('userSchedule.id = :id')
+            ->setParameter('id', $id)
+            ->select('meals.mealJson, days.weekDay as week_day');
 
+        return $mealsQuery->getQuery()->getArrayResult();
+    }
 }
