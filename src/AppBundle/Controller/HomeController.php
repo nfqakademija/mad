@@ -13,17 +13,7 @@ class HomeController extends Controller
      */
     public function showNavBarAction()
     {
-        /*$user = $this->getUser();
-
-        if($user) {
-            $navBarInfo = '<li><a href="#">Mano meniu</a></li>'
-                .'<li><a href="/logout">Atsijungti</a></li>';
-        } else {
-            $navBarInfo = '<li><a href="/login">Prisijungti</a></li>';
-        }
-,
-        return $this->render('@App/Components/menuComponents/header.html.twig',
-            ['navbarInfo' => $navBarInfo]);*/
+        return $this->render('AppBundle::index.html.twig', []);
     }
 
 

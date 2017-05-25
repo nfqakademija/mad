@@ -36,7 +36,29 @@
             </div>
         </div>
 
+        <a class="waves-effect waves-light btn" id="getBasketClick" onclick="printDiv('modal4')">Spausdinti sąrašą</a>
 
+        <div id="modal4" class="modal my-modal">
+            <div class="modal-content">
+                <div class="container">
+                    <nav class="niam-nav">
+                        <div class="nav-wrapper">
+                            <a href="#" class="brand-logo"><img src="{{ asset('images/logoclear.png') }}" class="nav-logo"></a>
+                        </div>
+                    </nav>
+                    <div class="row">
+                            <h2 class="basket">Jūsų pirkinių sąrašas</h2>
+                            <div class="basketInner">
+                                <ol id="basket">
+                                </ol>
+                            <div class="end">
+                                <h3 class="end">Skanaus!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 {% endblock %}

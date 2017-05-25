@@ -36,15 +36,18 @@ function DataOfMenu() {
     this.getData = function () {
         return this.data;
     };
+    this.clearData = function () {
+        this.data = [];
+    }
 }
 
 function getDataOfRecipes() {
     $(".table li.menu").each(function (key, elem) {
         menuData.setData({
-            "day": $(elem).data("day"),
-            "id": $(elem).data("id"),
-            "val": $(elem).find(".portion").val(),
-            "index": $(elem).index()
+                "id": $(elem).data("id"),
+                "multiplier": $(elem).find(".portion").val(),
+                "day": $(elem).data("day"),
+                "order": $(elem).index()
         }
         )
     });
@@ -53,8 +56,27 @@ function getDataOfRecipes() {
 function getList() {
     $(document).on('click', '#getList', function(e){
         e.preventDefault();
+        menuData.clearData();
         getDataOfRecipes();
+        getBasket();
     });
+}
+
+function getBasket() {
+    $.ajax({
+        url: "/getMealIngredients",
+        dataType: "json",
+        data: {"doc": menuData.getData()},
+        success:function (response) {
+            $("#basket").empty();
+            for(i in response){
+            $("#basket").append(
+                '<li>' + response[i].name + " " + response[i].amount + " "  + response[i].type + '</li>'
+            )
+            }
+            printDiv("modal4");
+        }
+    })
 }
 
 function setIdGetter() {
@@ -76,6 +98,17 @@ function putRecipeId() {
         var id =  $(this).closest('li').data('id');
         showRecipe(id);
     });
+}
+
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
 }
 
 
