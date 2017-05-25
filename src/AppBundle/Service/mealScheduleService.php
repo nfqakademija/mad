@@ -25,10 +25,10 @@ class mealScheduleService
 
         $mealsWithUser = $this->getRequestInfo();
 
-        $mealsWithUser = [
+        /*$mealsWithUser = [
             [
                 'id' => 3,
-                'multiplier' => 2,
+                'multiplier' => 1,
                 'day' => 1,
                 'order' => 1
             ],
@@ -50,7 +50,7 @@ class mealScheduleService
                 'day' => 2,
                 'order' => 2
             ]
-        ];
+        ];*/
 
         $scheduleName = 'Tvarkaraštis_' . (count($this->em->getRepository(User::class)->findAll()) + 1);
 
@@ -155,7 +155,7 @@ class mealScheduleService
     private function getRequestInfo() {
         $request = Request::createFromGlobals();
         $request->getPathInfo();
-        $mealsWithUser = $request->query->get('mealsWithUser');
+        $mealsWithUser = $request->query->get('doc');
 
         return $mealsWithUser;
     }

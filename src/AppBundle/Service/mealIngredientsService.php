@@ -5,6 +5,7 @@ namespace AppBundle\Service;
 
 use AppBundle\Entity\MealsWithIngredients;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpFoundation\Request;
 
 class mealIngredientsService
 {
@@ -27,21 +28,12 @@ class mealIngredientsService
         $allIngredients = [];
         $sortedIngredients = [];
 
-        $array = ['1 Day' =>
-            [
-                'mealId' => 3,
-                'multiplier' => 2
-            ],
-            [
-                'mealId' => 4,
-                'multiplier' => 2
-            ]
-        ];
+        $array = $this->getRequestInfo();
 
         foreach($array as $meal) {
             $mealIngredients = $this->em
                 ->getRepository(MealsWithIngredients::class)
-                ->getMealIngredients($meal['mealId']);
+                ->getMealIngredients($meal['id']);
 
             foreach($mealIngredients as $ingredient) {
                 $ingredient['multiplier'] = $meal['multiplier'];
@@ -76,6 +68,19 @@ class mealIngredientsService
             }
         }
         return $sortedIngredients;
+    }
+
+
+    /**
+     * Gets Ajax request values
+     * @return mixed
+     */
+    private function getRequestInfo() {
+        $request = Request::createFromGlobals();
+        $request->getPathInfo();
+        $mealsWithUser = $request->query->get('doc');
+
+        return $mealsWithUser;
     }
 
 }

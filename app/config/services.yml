@@ -17,7 +17,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Patiekalai ir ingridientai, label: MealsWithIngredients, show_in_dashboard: false }
 
-    admin.blog_post:
+    admin.ingredients:
         class: AppBundle\Admin\IngredientsAdmin
         arguments: [~, AppBundle\Entity\Ingredients, ~]
         tags:
