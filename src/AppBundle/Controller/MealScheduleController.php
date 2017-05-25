@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\UserMealsSchedules;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -35,13 +36,38 @@ class MealScheduleController extends Controller
         );
     }
 
+
     /**
      * @Route("/userSchedule/{id}", name="user_schedule")
      */
-    public function getUserScheduleInfo() {
-        $mealsScheduleService = $this->get('app.meals_schedule_service');
-        $scheduleId = $mealsScheduleService->getUserSchedules($this->getUser());
+    public function getUserScheduleInfo($id) {
+        $em = $this->getDoctrine()->getManager();
+        $meals = $em->getRepository(UserMealsSchedules::class)->getScheduleMeals($id);
 
-        return new JsonResponse($scheduleId);
+        $msg = '<div class="table">'.
+        $day = 0;
+        $mealNameAndId = [];
+        foreach($meals as $meal2) {
+            $meal = json_decode($meal2['mealJson']);
+            $mealNameAndId[] = ['id' => $meal->id, 'name' => $meal->name, 'logo' => $meal->logo, 'day' => $meal2['week_day']];
+            if($day != $meal2['week_day']) {
+                if($day != 0) {
+                    $msg .= '</ul>';
+                }
+                $day = $meal2['week_day'];
+                $msg .= '<ul class="connected menu sort ui-sortable">';
+                $msg .= '<li class="menu">'.$meal2['week_day'].' diena</li>';
+            }
+
+            $msg .= '<li class="menu">'
+                    .'<p class="manu-name">'.$meal->name.'</p></li>';
+
+        }
+        $msg .= '</div>';
+
+        return $this->render('@App/MealSchedule/user_schedule.twig',
+            [
+                'Meals' => $msg
+            ]);
     }
 }

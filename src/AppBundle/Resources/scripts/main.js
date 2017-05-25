@@ -68,6 +68,24 @@ function getBasket() {
         dataType: "json",
         data: {"doc": menuData.getData()},
         success:function (response) {
+
+            $.ajax({
+                url: "/isUserLoggedIn",
+                success: function (response) {
+                    if(response == 1) {
+                        $.ajax({
+                            url: "/addMealsToUser",
+                            dataType: "json",
+                            data: {"doc": menuData.getData()},
+                            success: function (response) {
+                                console.log('Issaugojo meniu');
+                            }
+                        });
+                    } else {
+                        console.log('neprisijunges');
+                    }
+                }
+            });
             $("#basket").empty();
             for(i in response){
                 if(response[i].count == 0) {
