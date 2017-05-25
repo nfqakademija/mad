@@ -14,7 +14,7 @@ class MealWithIngredientsRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('mi')
             ->leftJoin('mi.ingredientId', 'i')
             ->where('mi.mealId = :mealId')
-            ->select('i.name, i.ammount, i.productCount, i.ammountType')
+            ->select('i.name, (i.ammount * mi.ammount) as ammount, (i.productCount*mi.ammount) as productCount, i.ammountType')
             ->setParameter('mealId', $mealId)->getQuery()->getArrayResult();
     }
 }

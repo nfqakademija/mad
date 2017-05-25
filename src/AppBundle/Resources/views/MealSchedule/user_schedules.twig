@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:AddMealsToUser:add{% endblock %}
+
+{% block body %}
+<div class="container">
+     <div>
+        <h1 class="text-center">Mano menu</h1>
+    {% for schedule in schedules %}
+        <h1>{{ schedule.name }}</h1>
+        {% if schedule.id != 0 %}
+                <h3><a href="/userSchedule/{{ schedule.id }}">Peržiūrėti</a></h3>
+        {% endif %}
+    {% endfor %}
+     </div>
+</div>
+{% endblock %}

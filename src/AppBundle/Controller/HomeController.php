@@ -17,7 +17,7 @@ class HomeController extends Controller
         $user = $this->getUser();
 
         if($user) {
-            $navBarInfo = '<li><a href="#">Mano meniu</a></li>'
+            $navBarInfo = '<li><a href="/userSchedules">Mano meniu</a></li>'
                 .'<li><a href="/logout">Atsijungti</a></li>';
         } else {
             $navBarInfo = '<li><a href="/login">Prisijungti</a></li>';

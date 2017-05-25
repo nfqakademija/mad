@@ -71,9 +71,16 @@ function getBasket() {
             console.log(this.url + "**********");
             $("#basket").empty();
             for(i in response){
-            $("#basket").append(
-                '<li>' + response[i].name + " " + response[i].amount + " "  + response[i].type + '</li>'
-            )
+                if(response[i].count == 0) {
+                    $("#basket").append(
+                        '<li>' + response[i].name + " " + response[i].amount + " "  + response[i].type + '</li>'
+                    )
+                } else {
+                    $("#basket").append(
+                        '<li>' + response[i].name + " " + response[i].count + " "  + response[i].type + '</li>'
+                    )
+                }
+
             }
             printDiv('modal4');
         }
