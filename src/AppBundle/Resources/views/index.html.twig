@@ -8,7 +8,8 @@
             {% include "AppBundle:Components:steps.html.twig" %}
         </div>
         <div class="section fp-normal-scroll">
-            {% include "AppBundle:Components:menu.html.twig" %}
+            {% include "AppBundle:Components:menu.html.twig"  with {'navBar': navBar} %}
+
         </div>
         {% block modals %}
             {% include "AppBundle:Components:menuComponents/calCalculator.html.twig"%}
