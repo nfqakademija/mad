@@ -68,13 +68,14 @@ function getBasket() {
         dataType: "json",
         data: {"doc": menuData.getData()},
         success:function (response) {
+            console.log(this.url + "**********");
             $("#basket").empty();
             for(i in response){
             $("#basket").append(
                 '<li>' + response[i].name + " " + response[i].amount + " "  + response[i].type + '</li>'
             )
             }
-            printDiv("modal4");
+            printDiv('modal4');
         }
     })
 }
@@ -100,15 +101,18 @@ function putRecipeId() {
     });
 }
 
-function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
+function printDiv(printpage) {
+    var divToPrint=document.getElementById(printpage);
 
-    document.body.innerHTML = printContents;
+    var newWin=window.open('','Print-Window');
 
-    window.print();
+    newWin.document.open();
 
-    document.body.innerHTML = originalContents;
+    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+    newWin.document.close();
+
+    setTimeout(function(){newWin.close();},10);
 }
 
 
